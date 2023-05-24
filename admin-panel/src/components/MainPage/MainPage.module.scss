@@ -1,0 +1,44 @@
+@import url('https://fonts.cdnfonts.com/css/circe');
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+h1, h3, p {
+  margin: 0;
+}
+
+.mainWrapper {
+  background: #F3F2F2;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: start;
+  margin-left: 100px;
+  background: #F3F2F2;
+  z-index: 1;
+}
+
+.main {
+  h2 {
+    margin: 118px 0 0 0;
+    font-family: 'Circe', sans-serif;
+    font-size: 210px;
+    font-weight: 800;
+    height: 240px;
+  }
+
+  h3 {
+    margin: 0;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+  }
+
+  p {
+    margin: 0;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+  }
+}
