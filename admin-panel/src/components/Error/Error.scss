@@ -1,0 +1,19 @@
+.errorPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorText {
+  margin-top: 120px;
+  font-family: 'Jost', sans-serif;
+  font-size: 80px;
+}
+
+.errorMessage {
+  margin-top: 40px;
+  font-family: 'Jost', sans-serif;
+  font-size: 40px;
+  color: gray;
+}

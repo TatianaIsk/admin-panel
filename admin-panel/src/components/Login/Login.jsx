@@ -1,9 +1,11 @@
 import style from './Login.module.scss'
+import Header from "../Header/Header.jsx";
 
 const Login = () => {
     return (
         <div>
-            login
+            <Header/>
+            Login
         </div>
     )
 }
