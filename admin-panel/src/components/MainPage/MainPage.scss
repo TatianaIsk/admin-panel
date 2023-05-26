@@ -5,17 +5,18 @@ h1, h2, p {
   margin: 0;
 }
 
-.main {
+.wrapper {
   margin: 0 0 0 100px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: start;
   background: #F3F2F2;
+  width: 100%;
 }
 
-.main {
-  h2 {
+.wrapper {
+  .mainTitle {
     margin: 118px 0 0 0;
     font-family: 'Circe', sans-serif;
     font-size: 240px;

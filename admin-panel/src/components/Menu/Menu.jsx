@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import styles from "./menu.module.scss";
 import {useSpring, animated} from "react-spring";
-import {NavLink} from "react-router-dom";
-import Users from "../Users/Users.jsx";
 
 function Menu() {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +13,13 @@ function Menu() {
 
     function toggleMenu() {
         setIsOpen(!isOpen);
+
+        const otherComponent = document.querySelector('.wrapper');
+        if (isOpen) {
+            otherComponent.style.margin = '0 0 0 100px';
+        } else {
+            otherComponent.style.margin = '60px 0 0 440px';
+        }
     }
 
     function miniMenu() {
@@ -30,23 +35,23 @@ function Menu() {
             {isOpen && (
                 <div className={styles.menu}>
                     <ul>
-                        <NavLink to={<Users/>}>Пользователи</NavLink>
-                        <NavLink to="">Задания</NavLink>
-                        <NavLink to="">Картинки</NavLink>
-                        <NavLink to="">Альбомы</NavLink>
-                        <NavLink to="">Блог
+                        <a href="/users">Пользователи</a>
+                        <a href="">Задания</a>
+                        <a href="">Картинки</a>
+                        <a href="">Альбомы</a>
+                        <a href="">Блог
                             <button className={isMiniOpen ? styles.iconOpen : styles.iconClose}
                                     onClick={miniMenu}>
                             </button>
                             {isMiniOpen && (
                                 <animated.div style={miniMenuAnimation} className={styles.miniMenu}>
                                     <ul>
-                                        <NavLink to="">Посты</NavLink>
-                                        <NavLink to="" className={styles.comment}>Комментарии</NavLink>
+                                        <a href="">Посты</a>
+                                        <a href="" className={styles.comment}>Комментарии</a>
                                     </ul>
                                 </animated.div>
                             )}
-                        </NavLink>
+                        </a>
                     </ul>
                 </div>
             )}

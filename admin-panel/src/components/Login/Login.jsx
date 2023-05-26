@@ -5,7 +5,20 @@ const Login = () => {
     return (
         <div>
             <Header/>
-            Login
+            <div className={style.loginWrapper}>
+                <div className={style.title}>
+                    <h2>авторизация</h2>
+                </div>
+                <div className={style.input}>
+                    <label htmlFor="login">Логин</label>
+                    <input id="login"/>
+
+                    <label htmlFor="password">Пароль</label>
+                    <input id="password"/>
+
+                    <button>Войти</button>
+                </div>
+            </div>
         </div>
     )
 }

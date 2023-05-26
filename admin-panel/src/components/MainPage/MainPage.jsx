@@ -1,6 +1,5 @@
-import style from './MainPage.module.scss'
+import  './MainPage.scss'
 import Header from "../Header/Header.jsx";
-import React, {useState, useContext} from "react";
 import Menu from "../Menu/Menu.jsx";
 
 const MainPage = () => {
@@ -9,8 +8,8 @@ const MainPage = () => {
         <>
             <Header/>
             <Menu/>
-            <div className={style.main}>
-                <h2>M-Social</h2>
+            <div className="wrapper">
+                <h2 className="mainTitle">M-Social</h2>
                 <h3>Добро пожаловать в админ-панель M-Social!</h3>
                 <p>Используйте боковое меню, чтобы перейти к нужному разделу</p>
             </div>

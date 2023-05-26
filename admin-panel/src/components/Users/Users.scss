@@ -1,0 +1,70 @@
+@import url('https://fonts.cdnfonts.com/css/furore');
+
+
+.titleUser {
+  font-style: normal;
+  font-weight: 400;
+  font-family: 'Furore', sans-serif;
+  font-size: 40px;
+  letter-spacing: -0.01em;
+}
+
+input {
+  outline: none;
+}
+
+.searchUser {
+  position: absolute;
+  width: 400px;
+  height: 30px;
+  border: 1px solid #D2D0D0;
+  background: #F3F2F2;
+  padding: 8px 10px;
+  margin-left: 945px;
+
+  font-family: 'Jost', sans-serif;
+  font-size: 18px;
+  color: #3C3A39;
+}
+
+table {
+  margin-top: 40px;
+  max-width: 1700px;
+}
+
+thead {
+  height: 50px;
+  color: #BCB8B8;
+  border-bottom: 1px solid #D2D0D0;
+}
+
+th {
+  font-family: 'Furore', sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  font-weight: 200;
+  border-bottom: 1px solid #D2D0D0;
+}
+
+.btnTh {
+  margin-left: 10px;
+  width: 12px;
+  height: 12px;
+  background-image: url("../../assets/icon-table.png");
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+}
+
+td {
+  font-size: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Jost', sans-serif;
+  border-bottom: 1px solid #D2D0D0;
+  color: #3C3A39;
+}
+
+td:focus {
+  background-color: #EBEAEA;
+}

@@ -8,4 +8,5 @@ vite build
 
 Используемые пакеты и их установка:
 1. react router dom ^6.11.2 (npm i react-router-dom)
-2. scss (npm install --save-dev sass)
+2. scss (npm i --save-dev sass)
+3. axios (npm i axios)

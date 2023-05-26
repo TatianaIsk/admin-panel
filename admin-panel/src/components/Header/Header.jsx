@@ -4,10 +4,10 @@ import logo from '../../assets/logo.png'
 const Header = () => {
     return (
         <header className={style.header}>
-            <img className={style.logo} src={logo}  alt=""/>
+            <a href="/"><img className={style.logo} src={logo}  alt=""/></a>
             <div className={style.panel}>
                 <button className={style.btnDark}></button>
-                <button className={style.btnUser}></button>
+                <a href="/login"><button className={style.btnUser}></button></a>
             </div>
         </header>
     )
