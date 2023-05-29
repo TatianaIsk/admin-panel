@@ -11,6 +11,10 @@
   padding: 50px 40px;
 }
 
+button {
+  cursor: pointer;
+}
+
 .menu {
   ul {
     display: flex;
@@ -102,5 +106,10 @@ ul, li {
 }
 
 .comment {
-  padding: -5px 0 0 0;
+  margin-left: 5px;
+}
+
+.blog {
+  display: flex;
+  align-items: center;
 }

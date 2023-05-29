@@ -8,7 +8,7 @@ function Menu() {
 
     const miniMenuAnimation = useSpring({
         transform: `translateY(${isMiniOpen ? 0 : -40}%)`,
-        config: { duration: 250 },
+        config: {duration: 250},
     });
 
     function toggleMenu() {
@@ -39,19 +39,20 @@ function Menu() {
                         <a href="">Задания</a>
                         <a href="">Картинки</a>
                         <a href="">Альбомы</a>
-                        <a href="">Блог
+                        <div className={styles.blog}>
+                            <a href="">Блог</a>
                             <button className={isMiniOpen ? styles.iconOpen : styles.iconClose}
                                     onClick={miniMenu}>
                             </button>
-                            {isMiniOpen && (
-                                <animated.div style={miniMenuAnimation} className={styles.miniMenu}>
-                                    <ul>
-                                        <a href="">Посты</a>
-                                        <a href="" className={styles.comment}>Комментарии</a>
-                                    </ul>
-                                </animated.div>
-                            )}
-                        </a>
+                        </div>
+                        {isMiniOpen && (
+                            <div className={styles.miniMenu}>
+                                <ul>
+                                    <a href="" className={styles.comment}>Посты</a>
+                                    <a href="" className={styles.comment}>Комментарии</a>
+                                </ul>
+                            </div>
+                        )}
                     </ul>
                 </div>
             )}

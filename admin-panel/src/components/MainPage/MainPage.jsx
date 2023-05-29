@@ -11,7 +11,7 @@ const MainPage = () => {
             <div className="wrapper">
                 <h2 className="mainTitle">M-Social</h2>
                 <h3>Добро пожаловать в админ-панель M-Social!</h3>
-                <p>Используйте боковое меню, чтобы перейти к нужному разделу</p>
+                <p className="text">Используйте боковое меню, чтобы перейти к нужному разделу</p>
             </div>
         </>
     )

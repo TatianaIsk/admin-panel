@@ -10,6 +10,7 @@ import Users from "./components/Users/Users.jsx";
 import MainPage from "./components/MainPage/MainPage.jsx";
 import Error from "./components/Error/Error.jsx";
 import Login from "./components/Login/Login.jsx";
+import CreateUser from "./components/CreateUser/CreateUser.jsx";
 
 const router = createBrowserRouter([
     {
@@ -20,13 +21,18 @@ const router = createBrowserRouter([
     {
         path: "/users",
         element: <Users/>,
-        errorElement: <Error/>
+        errorElement: <Error/>,
     },
     {
         path: "/login",
         element: <Login/>,
         errorElement: <Error/>,
     },
+    {
+        path: "/users/create",
+        element: <CreateUser/>,
+        errorElement: <Error/>,
+    }
 
 ])
 

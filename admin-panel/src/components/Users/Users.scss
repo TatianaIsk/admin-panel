@@ -13,6 +13,11 @@ input {
   outline: none;
 }
 
+.searhcing {
+  display: flex;
+  align-items: center;
+}
+
 .searchUser {
   position: absolute;
   width: 400px;
@@ -20,11 +25,23 @@ input {
   border: 1px solid #D2D0D0;
   background: #F3F2F2;
   padding: 8px 10px;
-  margin-left: 945px;
+  margin-left: 1275px;
 
   font-family: 'Jost', sans-serif;
   font-size: 18px;
   color: #3C3A39;
+}
+
+.btnCreate {
+  font-size: 18px;
+  font-family: 'Furore', sans-serif;
+  background: #F3F2F2;
+  color: #BCB8B8;
+  border: 1px solid #BCB8B8;
+  padding: 6px 10px;
+  cursor: pointer;
+  margin-left: 550px;
+  text-decoration: none;
 }
 
 table {
@@ -67,4 +84,42 @@ td {
 
 td:focus {
   background-color: #EBEAEA;
+}
+
+.pageItem {
+  margin-top: 40px;
+  border: none;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.pageLink {
+  border: 1px solid #D2D0D0;
+  background: #F3F2F2;
+  font-family: 'Furore', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  height: 30px;
+  padding: 0 20px;
+  color: #BCB8B8;
+}
+
+.paginationCount {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-right: 150px;
+  font-family: 'Jost', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  color: #BCB8B8;
 }
