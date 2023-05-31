@@ -17,6 +17,9 @@
   background-color: #dcdcdc;
   padding: 8px;
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 10px, 100% 100%, 0 100%);
+  &:focus {
+    color: #6159FC;
+  }
 }
 
 .inputCreate {

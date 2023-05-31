@@ -1,12 +1,23 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import Header from "./../../Header/Header.jsx";
 import Menu from "./../../Menu/Menu.jsx";
 import styles from './UserView.module.scss'
+import store from "../../../store.jsx";
 
-function UserView({users}) {
+
+function UserView() {
     const {userId} = useParams();
-    const user = users.find((user) => user.id === parseInt(userId));
+
+    const [user, setUser] = useState(store.state.selectedUser);
+
+    useEffect(() => {
+        async function fetchData() {
+            await store.fetchUser(userId);
+            setUser(store.state.selectedUser);
+        }
+        fetchData();
+    }, [userId]);
 
     if (!user) {
         return <div>Пользователь не найден</div>;

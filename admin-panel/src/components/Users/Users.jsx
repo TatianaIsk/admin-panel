@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 
 import './Users.scss'
 import icon from './../../assets/icon-users.png'
@@ -9,24 +8,24 @@ import Menu from "../Menu/Menu.jsx";
 import Dropdown from "./Dropdown/Dropdown.jsx";
 
 import { useState, useEffect } from "react";
+import store from "../../store.jsx";
 
 const Users = () => {
-    const [users, setUsers] = useState([])
+    const [users, setUsers] = useState(store.state.users);
+
+    useEffect(() => {
+        async function fetchData() {
+            await store.fetchUsers();
+            setUsers(store.state.users);
+        }
+        fetchData();
+    }, []);
+
     const [currentPage, setCurrentPage] = useState(1);
     const [usersPerPage] = useState(24);
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const fetchUsers = async () => {
-        try {
-            const response = await axios.get(
-                "https://jsonplaceholder.typicode.com/users"
-            );
-            setUsers(response.data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
@@ -55,7 +54,7 @@ const Users = () => {
                 {user.id === selectedUserId && isMenuOpen && (
                     <tr>
                         <td className="tdDrop" colSpan="3">
-                            <Dropdown onClose={() => toggleMenu(user.id)} to={`/users/view/${user.id}`}/>
+                            <Dropdown onClose={() => toggleMenu(user.id)} toView={`/users/view/${user.id}`} toEdit={`/users/edit/${user.id}`}/>
                         </td>
                     </tr>
                 )}
@@ -98,10 +97,6 @@ const Users = () => {
             </nav>
         );
     };
-
-    useEffect(() => {
-        fetchUsers();
-    }, []);
 
     return (
         <div>
