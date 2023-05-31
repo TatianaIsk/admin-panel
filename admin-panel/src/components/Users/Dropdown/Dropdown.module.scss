@@ -1,0 +1,39 @@
+.dropdown {
+  position: relative;
+  margin: 7px 0 5px 0;
+}
+
+.linksBox {
+  position: absolute;
+  top: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.links {
+  list-style-type: none;
+  text-decoration: none !important;
+  font-size: 14px;
+  font-family: 'Furore', sans-serif;
+  background: #F3F2F2;
+  color: #BCB8B8;
+  border: 1px solid #BCB8B8;
+  padding: 6px 10px;
+  cursor: pointer;
+  margin-right: 40px;
+}
+
+.close {
+  list-style-type: none;
+  text-decoration: none !important;
+  font-size: 14px;
+  font-family: 'Furore', sans-serif;
+  background: #F3F2F2;
+  color: #BCB8B8;
+  border: 1px solid #BCB8B8;
+  padding: 6px 10px;
+  cursor: pointer;
+}

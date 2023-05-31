@@ -44,18 +44,18 @@ input {
   text-decoration: none;
 }
 
-table {
+.tableUser {
   margin-top: 40px;
   max-width: 1700px;
 }
 
-thead {
+.theadUser {
   height: 50px;
   color: #BCB8B8;
   border-bottom: 1px solid #D2D0D0;
 }
 
-th {
+.thUser {
   font-family: 'Furore', sans-serif;
   font-size: 20px;
   letter-spacing: -0.01em;
@@ -73,13 +73,14 @@ th {
   cursor: pointer;
 }
 
-td {
+.tdUser {
   font-size: 18px;
   padding-top: 20px;
   padding-bottom: 20px;
   font-family: 'Jost', sans-serif;
   border-bottom: 1px solid #D2D0D0;
   color: #3C3A39;
+  margin-top: 10px;
 }
 
 td:focus {
@@ -122,4 +123,9 @@ li {
   font-size: 15px;
   line-height: 22px;
   color: #BCB8B8;
+}
+
+.tdDrop {
+  border: none;
+  padding-bottom: 20px;
 }

@@ -1,15 +1,27 @@
 import styles from './CreateUser.module.scss'
-import Header from "../Header/Header.jsx";
-import Menu from "../Menu/Menu.jsx";
-import InputLabel from "../InputLabel/InputLabel.jsx";
+import Header from "../../Header/Header.jsx";
+import Menu from "../../Menu/Menu.jsx";
+import InputLabel from "../../InputLabel/InputLabel.jsx";
 import {useState} from "react";
 
 const CreateUser = () => {
-    const [formValues, setFormValues] = useState({fio: '', login: '', email: '', site: '', phone: '', index: '', city: ''})
+    const [formValues, setFormValues] = useState(
+        {
+            fio: '',
+            login: '',
+            email: '',
+            site: '',
+            phone: '',
+            index: '',
+            city: '',
+            street: '',
+            nameComp: '',
+            descriptionComp: ''
+        })
 
     function handleInputChange(event) {
-        const { name, value } = event.target;
-        setFormValues(prevState => ({ ...prevState, [name]: value }));
+        const {name, value} = event.target.value
+        setFormValues(() => ({[name]: value}));
     }
 
     return (
@@ -103,6 +115,42 @@ const CreateUser = () => {
                         placeholder="Введите данные"
                     />
                 </section>
+
+                <InputLabel
+                    label="улица"
+                    id="street"
+                    type="text"
+                    name="street"
+                    value={formValues.street}
+                    onChange={handleInputChange}
+                    placeholder="Введите данные"
+                />
+
+                <p className={styles.subtitle}>Компания</p>
+
+                <section className={styles.inpContainer}>
+                    <InputLabel
+                        label="название"
+                        id="nameComp"
+                        type="text"
+                        name="nameComp"
+                        value={formValues.nameComp}
+                        onChange={handleInputChange}
+                        placeholder="Введите данные"
+                    />
+
+                    <InputLabel
+                        label="описание"
+                        id="descriptionComp"
+                        type="text"
+                        name="descriptionComp"
+                        value={formValues.descriptionComp}
+                        onChange={handleInputChange}
+                        placeholder="Введите данные"
+                    />
+                </section>
+
+                <button className={styles.btnSub}>создать >>></button>
             </div>
         </>
     )

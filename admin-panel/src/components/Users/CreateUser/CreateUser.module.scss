@@ -44,3 +44,16 @@
   line-height: 124%;
   color: #353231;
 }
+
+.btnSub {
+  margin-top: 40px;
+  width: 300px;
+  background-color: #BCB8B8;
+  color: #FFF;
+  font-size: 16px;
+  font-family: 'Furore', sans-serif;
+  padding: 15px 30px;
+  border: none;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 10px, 100% 100%, 0 100%);
+  cursor: pointer;
+}

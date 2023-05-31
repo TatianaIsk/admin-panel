@@ -1,3 +1,4 @@
+import React from "react";
 import axios from "axios";
 
 import './Users.scss'
@@ -5,12 +6,16 @@ import icon from './../../assets/icon-users.png'
 import thIcon from '../../assets/icon-mainUsers.png'
 import Header from "../Header/Header.jsx";
 import Menu from "../Menu/Menu.jsx";
-import {useState, useEffect} from "react";
+import Dropdown from "./Dropdown/Dropdown.jsx";
+
+import { useState, useEffect } from "react";
 
 const Users = () => {
     const [users, setUsers] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
     const [usersPerPage] = useState(24);
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const fetchUsers = async () => {
         try {
@@ -18,7 +23,6 @@ const Users = () => {
                 "https://jsonplaceholder.typicode.com/users"
             );
             setUsers(response.data)
-            setCount(response.data.length)
         } catch (error) {
             console.log(error)
         }
@@ -32,6 +36,13 @@ const Users = () => {
         return `${address.street}, ${address.city}, ${address.zipcode}`;
     }
 
+    const [selectedUserId, setSelectedUserId] = useState(null);
+
+    const toggleMenu = (userId) => {
+        setIsMenuOpen(!isMenuOpen);
+        setSelectedUserId(userId);
+    };
+
     const renderUsers = () => {
         if (currentUsers.length === 0) {
             return <tr>
@@ -40,17 +51,31 @@ const Users = () => {
         }
 
         return currentUsers.map(user => (
-            <tr key={user.id}>
-                <td><img src={icon} style={{width: 16 + 'px', cursor: "pointer"}} alt=""/></td>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
-                <td style={{width: 400 + 'px'}}>{formatAddress(user.address)}</td>
-                <td>{user.phone}</td>
-                <td>{user.website}</td>
-                <td>{user.company.name}</td>
-            </tr>
+            <>
+                {user.id === selectedUserId && isMenuOpen && (
+                    <tr>
+                        <td className="tdDrop" colSpan="3">
+                            <Dropdown onClose={() => toggleMenu(user.id)} to={`/users/view/${user.id}`}/>
+                        </td>
+                    </tr>
+                )}
+                <tr key={user.id}>
+                    <td className="tdUser"><img onClick={() => toggleMenu(user.id)}
+                             src={icon}
+                             style={{width: 16 + 'px', cursor: "pointer"}}
+                             alt=""
+                    />
+                    </td>
+                    <td className="tdUser">{user.id}</td>
+                    <td className="tdUser">{user.name}</td>
+                    <td className="tdUser">{user.username}</td>
+                    <td className="tdUser">{user.email}</td>
+                    <td className="tdUser" style={{width: 400 + 'px'}}>{formatAddress(user.address)}</td>
+                    <td className="tdUser">{user.phone}</td>
+                    <td className="tdUser">{user.website}</td>
+                    <td className="tdUser">{user.company.name}</td>
+                </tr>
+            </>
         ));
     };
 
@@ -95,34 +120,38 @@ const Users = () => {
                            placeholder="Поиск"
                     />
                 </div>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>
-                            <img src={thIcon} style={{width: 16 + 'px', cursor: "pointer"}} alt=""/>
+                <table className="tableUser">
+                    <thead className="theadUser">
+                    <tr className="trUser">
+                        <th className="thUser">
+                            <img
+                                src={thIcon}
+                                style={{width: 16 + 'px', cursor: "pointer"}}
+                                alt=""
+                            />
                         </th>
-                        <th>ID
+                        <th className="thUser">ID
                             <button className="btnTh"></button>
                         </th>
-                        <th>имя
+                        <th className="thUser">имя
                             <button className="btnTh"></button>
                         </th>
-                        <th>никнейм (eng)
+                        <th className="thUser">никнейм (eng)
                             <button className="btnTh"></button>
                         </th>
-                        <th>e-mail
+                        <th className="thUser">e-mail
                             <button className="btnTh"></button>
                         </th>
-                        <th>адрес
+                        <th className="thUser">адрес
                             <button className="btnTh"></button>
                         </th>
-                        <th>телефон
+                        <th className="thUser">телефон
                             <button className="btnTh"></button>
                         </th>
-                        <th>сайт
+                        <th className="thUser">сайт
                             <button className="btnTh"></button>
                         </th>
-                        <th>компания
+                        <th className="thUser">компания
                             <button className="btnTh"></button>
                         </th>
                     </tr>
@@ -141,4 +170,3 @@ const Users = () => {
 }
 
 export default Users
-
