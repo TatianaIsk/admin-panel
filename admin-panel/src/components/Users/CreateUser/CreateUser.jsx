@@ -1,28 +1,33 @@
 import styles from './CreateUser.module.scss'
 import Header from "../../Header/Header.jsx";
 import Menu from "../../Menu/Menu.jsx";
-import InputLabel from "../../InputLabel/InputLabel.jsx";
-import {useState} from "react";
 
-const CreateUser = () => {
+import {useState} from "react";
+import store from "../../../store.jsx";
+
+const CreateUser = ({ onUserAdded }) => {
     const [formValues, setFormValues] = useState(
         {
-            fio: '',
-            login: '',
+            name: '',
+            username: '',
             email: '',
-            site: '',
+            website: '',
             phone: '',
-            index: '',
+            zipcode: '',
             city: '',
             street: '',
             nameComp: '',
-            descriptionComp: ''
-        })
+            catchPhrase: ''
+        }
+    )
 
-    function handleInputChange(event) {
-        const {name, value} = event.target.value
-        setFormValues(() => ({[name]: value}));
-    }
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormValues((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    };
 
     return (
         <>
@@ -39,115 +44,155 @@ const CreateUser = () => {
                 </div>
                 <h2 className={styles.title}>Создать пользователя</h2>
                 <section className={styles.inpContainer}>
-                    <InputLabel
-                        label="ФИО"
-                        id="fio"
-                        type="text"
-                        name="fio"
-                        value={formValues.fio}
-                        onChange={handleInputChange}
-                        placeholder="Введите данные"
-                    />
+                    <div className={styles.inputBox}>
+                        <label className={styles.labelCreate}
+                               htmlFor="name"> ФИО
+                        </label>
+                        <input className={styles.inputCreate}
+                               id="name"
+                               name="name"
+                               type="text"
+                               value={formValues.name}
+                               onChange={handleInputChange}
+                               placeholder="Введите данные"
+                        />
+                    </div>
 
-                    <InputLabel
-                        label="логин"
-                        id="login"
-                        type="text"
-                        name="login"
-                        value={formValues.login}
-                        onChange={handleInputChange}
-                        placeholder="Введите данные"
-                    />
+                    <div className={styles.inputBox}>
+                        <label className={styles.labelCreate}
+                               htmlFor="username"> логин
+                        </label>
+                        <input className={styles.inputCreate}
+                               id="username"
+                               name="username"
+                               type="text"
+                               value={formValues.username}
+                               onChange={handleInputChange}
+                               placeholder="Введите данные"
+                        />
+                    </div>
                 </section>
 
                 <section className={styles.inpContainer}>
-                    <InputLabel
-                        label="e-mail"
-                        id="e-mail"
-                        type="text"
-                        name="email"
-                        value={formValues.email}
-                        onChange={handleInputChange}
-                        placeholder="Введите данные"
-                    />
+                    <div className={styles.inputBox}>
+                        <label className={styles.labelCreate}
+                               htmlFor="email"> e-mail
+                        </label>
+                        <input className={styles.inputCreate}
+                               id="email"
+                               name="email"
+                               type="text"
+                               value={formValues.email}
+                               onChange={handleInputChange}
+                               placeholder="Введите данные"
+                        />
+                    </div>
 
-                    <InputLabel
-                        label="веб-сайт"
-                        id="site"
-                        type="text"
-                        name="site"
-                        value={formValues.site}
-                        onChange={handleInputChange}
-                        placeholder="Введите данные"
-                    />
+                    <div className={styles.inputBox}>
+                        <label className={styles.labelCreate}
+                               htmlFor="website"> веб-сайт
+                        </label>
+                        <input className={styles.inputCreate}
+                               id="website"
+                               name="website"
+                               type="text"
+                               value={formValues.website}
+                               onChange={handleInputChange}
+                               placeholder="Введите данные"
+                        />
+                    </div>
                 </section>
 
-                <InputLabel
-                    label="телефон"
-                    id="phone"
-                    type="tel"
-                    name="phone"
-                    value={formValues.phone}
-                    onChange={handleInputChange}
-                    placeholder="Введите данные"
-                />
+                <div className={styles.inputBox}>
+                    <label className={styles.labelCreate}
+                           htmlFor="phone"> телефон
+                    </label>
+                    <input className={styles.inputCreate}
+                           id="phone"
+                           name="phone"
+                           type="text"
+                           value={formValues.phone}
+                           onChange={handleInputChange}
+                           placeholder="Введите данные"
+                    />
+                </div>
 
                 <p className={styles.subtitle}>Адрес</p>
 
                 <section className={styles.inpContainer}>
-                    <InputLabel
-                        label="индекс"
-                        id="index"
-                        type="text"
-                        name="index"
-                        value={formValues.index}
-                        onChange={handleInputChange}
-                        placeholder="Введите данные"
-                    />
+                    <div className={styles.inputBox}>
+                        <label className={styles.labelCreate}
+                               htmlFor="zipcode"> индекс
+                        </label>
+                        <input className={styles.inputCreate}
+                               id="zipcode"
+                               name="zipcode"
+                               type="text"
+                               value={formValues.zipcode}
+                               onChange={handleInputChange}
+                               placeholder="Введите данные"
+                        />
+                    </div>
 
-                    <InputLabel
-                        label="город"
-                        id="city"
-                        type="text"
-                        name="city"
-                        value={formValues.city}
-                        onChange={handleInputChange}
-                        placeholder="Введите данные"
-                    />
+                    <div className={styles.inputBox}>
+                        <label className={styles.labelCreate}
+                               htmlFor="city"> город
+                        </label>
+                        <input className={styles.inputCreate}
+                               id="city"
+                               name="city"
+                               type="text"
+                               value={formValues.city}
+                               onChange={handleInputChange}
+                               placeholder="Введите данные"
+                        />
+                    </div>
                 </section>
 
-                <InputLabel
-                    label="улица"
-                    id="street"
-                    type="text"
-                    name="street"
-                    value={formValues.street}
-                    onChange={handleInputChange}
-                    placeholder="Введите данные"
-                />
+                <div className={styles.inputBox}>
+                    <label className={styles.labelCreate}
+                           htmlFor="street"> улица
+                    </label>
+                    <input className={styles.inputCreate}
+                           id="street"
+                           name="street"
+                           type="text"
+                           value={formValues.street}
+                           onChange={handleInputChange}
+                           placeholder="Введите данные"
+                    />
+                </div>
 
                 <p className={styles.subtitle}>Компания</p>
 
                 <section className={styles.inpContainer}>
-                    <InputLabel
-                        label="название"
-                        id="nameComp"
-                        type="text"
-                        name="nameComp"
-                        value={formValues.nameComp}
-                        onChange={handleInputChange}
-                        placeholder="Введите данные"
-                    />
+                    <div className={styles.inputBox}>
+                        <label className={styles.labelCreate}
+                               htmlFor="nameComp"> название
+                        </label>
+                        <input className={styles.inputCreate}
+                               id="nameComp"
+                               name="nameComp"
+                               type="text"
+                               value={formValues.nameComp}
+                               onChange={handleInputChange}
+                               placeholder="Введите данные"
+                        />
+                    </div>
 
-                    <InputLabel
-                        label="описание"
-                        id="descriptionComp"
-                        type="text"
-                        name="descriptionComp"
-                        value={formValues.descriptionComp}
-                        onChange={handleInputChange}
-                        placeholder="Введите данные"
-                    />
+                    <div className={styles.inputBox}>
+                        <label className={styles.labelCreate}
+                               htmlFor="catchPhrase"> описание
+                        </label>
+                        <input className={styles.inputCreate}
+                               id="catchPhrase"
+                               name="catchPhrase"
+                               type="text"
+                               value={formValues.catchPhrase}
+                               onChange={handleInputChange}
+                               placeholder="Введите данные"
+                        />
+                    </div>
                 </section>
 
                 <button className={styles.btnSub}>создать >>></button>

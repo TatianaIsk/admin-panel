@@ -1,16 +1,15 @@
 import React from "react";
+import './UserList.scss'
+import thIcon from '../../../assets/icon-mainUsers.png'
+import Header from "../../Header/Header.jsx";
+import Menu from "../../Menu/Menu.jsx";
+import User from "../User.jsx";
+import {useState, useEffect} from "react";
+import store from "../../../store.jsx";
+import Pagination from "../../Pagination/Pagination.jsx";
 
-import './Users.scss'
-import icon from './../../assets/icon-users.png'
-import thIcon from '../../assets/icon-mainUsers.png'
-import Header from "../Header/Header.jsx";
-import Menu from "../Menu/Menu.jsx";
-import Dropdown from "./Dropdown/Dropdown.jsx";
 
-import { useState, useEffect } from "react";
-import store from "../../store.jsx";
-
-const Users = () => {
+const UserList = () => {
     const [users, setUsers] = useState(store.state.users);
 
     useEffect(() => {
@@ -18,6 +17,7 @@ const Users = () => {
             await store.fetchUsers();
             setUsers(store.state.users);
         }
+
         fetchData();
     }, []);
 
@@ -50,52 +50,17 @@ const Users = () => {
         }
 
         return currentUsers.map(user => (
-            <>
-                {user.id === selectedUserId && isMenuOpen && (
-                    <tr>
-                        <td className="tdDrop" colSpan="3">
-                            <Dropdown onClose={() => toggleMenu(user.id)} toView={`/users/view/${user.id}`} toEdit={`/users/edit/${user.id}`}/>
-                        </td>
-                    </tr>
-                )}
-                <tr key={user.id}>
-                    <td className="tdUser"><img onClick={() => toggleMenu(user.id)}
-                             src={icon}
-                             style={{width: 16 + 'px', cursor: "pointer"}}
-                             alt=""
-                    />
-                    </td>
-                    <td className="tdUser">{user.id}</td>
-                    <td className="tdUser">{user.name}</td>
-                    <td className="tdUser">{user.username}</td>
-                    <td className="tdUser">{user.email}</td>
-                    <td className="tdUser" style={{width: 400 + 'px'}}>{formatAddress(user.address)}</td>
-                    <td className="tdUser">{user.phone}</td>
-                    <td className="tdUser">{user.website}</td>
-                    <td className="tdUser">{user.company.name}</td>
-                </tr>
-            </>
+            <User
+                key={user.id}
+                user={user}
+                selectedUserId={selectedUserId}
+                isMenuOpen={isMenuOpen}
+                toggleMenu={toggleMenu}
+                formatAddress={formatAddress}
+                usersPerPage={usersPerPage}
+                currentPage={currentPage}
+            />
         ));
-    };
-
-    const renderPagination = () => {
-        const pageNumbers = [];
-
-        for (let i = 1; i <= Math.ceil(users.length / usersPerPage); i++) {
-            pageNumbers.push(i);
-        }
-
-        return (
-            <nav>
-                {pageNumbers.map(number => (
-                    <button key={number} className={`pageItem${number == currentPage ? ' active' : ''}`}>
-                        <button className="pageLink" onClick={() => setCurrentPage(number - 1)}>назад</button>
-                        <button className="pageLink" onClick={() => setCurrentPage(number)}>{number}</button>
-                        <button className="pageLink" onClick={() => setCurrentPage(number + 1)}>вперед</button>
-                    </button>
-                ))}
-            </nav>
-        );
     };
 
     return (
@@ -156,7 +121,7 @@ const Users = () => {
                     </tbody>
                 </table>
                 <div className="paginationCount">
-                    {renderPagination()}
+                    <Pagination users={users} usersPerPage={usersPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
                     <p className="countRows">Строк на странице: {currentUsers.length}</p>
                 </div>
             </div>
@@ -164,4 +129,4 @@ const Users = () => {
     )
 }
 
-export default Users
+export default UserList

@@ -11,17 +11,6 @@ function EditUser() {
 
     const [user, setUser] = useState(store.state.selectedUser);
 
-    const [name, setName] = useState(user ? user.name : '')
-    const [username, setUsername] = useState(user ? user.username : '')
-    const [email, setEmail] = useState(user ? user.email : '')
-    const [website, setWebsite] = useState(user ? user.website : '')
-    const [phone, setPhone] = useState(user ? user.phone : '')
-    const [zipcode, setZipcode] = useState(user ? user.address.zipcode : '')
-    const [city, setCity] = useState(user ? user.address.city : '')
-    const [street, setStreet] = useState(user ? user.address.street : '')
-    const [compName, setCompName] = useState(user ? user.company.name : '')
-    const [catchPhrase, setCatchPhrase] = useState(user ? user.company.catchPhrase : '')
-
     useEffect(() => {
         async function fetchData() {
             await store.fetchUser(userId);
@@ -52,21 +41,19 @@ function EditUser() {
                     <InputLabel
                         label="ФИО"
                         id="fio"
-                        value={name}
+                        value={user.name}
                         type="text"
                         name="fio"
                         placeholder="Введите данные"
-                        onChange={(event) => setName(event.target.value)}
                     />
 
                     <InputLabel
                         label="никнейм (eng)"
                         id="login"
-                        value={username}
+                        value={user.username}
                         type="text"
                         name="login"
                         placeholder="Введите данные"
-                        onChange={(event) => setUsername(event.target.value)}
                     />
                 </section>
 
@@ -74,32 +61,29 @@ function EditUser() {
                     <InputLabel
                         label="e-mail"
                         id="e-mail"
-                        value={email}
+                        value={user.email}
                         type="text"
                         name="email"
                         placeholder="Введите данные"
-                        onChange={(event) => setEmail(event.target.value)}
                     />
 
                     <InputLabel
                         label="веб-сайт"
                         id="site"
-                        value={website}
+                        value={user.website}
                         type="text"
                         name="site"
                         placeholder="Введите данные"
-                        onChange={(event) => setWebsite(event.target.value)}
                     />
                 </section>
 
                 <InputLabel
                     label="телефон"
                     id="phone"
-                    value={phone}
+                    value={user.phone}
                     type="tel"
                     name="phone"
                     placeholder="Введите данные"
-                    onChange={(event) => setPhone(event.target.value)}
                 />
 
                 <p className={styles.subtitle}>Адрес</p>
@@ -108,32 +92,29 @@ function EditUser() {
                     <InputLabel
                         label="индекс"
                         id="index"
-                        value={zipcode}
+                        value={user.address.zipcode}
                         type="text"
                         name="index"
                         placeholder="Введите данные"
-                        onChange={(event) => setZipcode(event.target.value)}
                     />
 
                     <InputLabel
                         label="город"
                         id="city"
-                        value={city}
+                        value={user.address.city}
                         type="text"
                         name="city"
                         placeholder="Введите данные"
-                        onChange={(event) => setCity(event.target.value)}
                     />
                 </section>
 
                 <InputLabel
                     label="улица"
                     id="street"
-                    value={street}
+                    value={user.address.street}
                     type="text"
                     name="street"
                     placeholder="Введите данные"
-                    onChange={(event) => setStreet(event.target.value)}
                 />
 
                 <p className={styles.subtitle}>Компания</p>
@@ -142,21 +123,19 @@ function EditUser() {
                     <InputLabel
                         label="название"
                         id="nameComp"
-                        value={compName}
+                        value={user.company.name}
                         type="text"
                         name="nameComp"
                         placeholder="Введите данные"
-                        onChange={(event) => setCompName(event.target.value)}
                     />
 
                     <InputLabel
                         label="описание"
                         id="descriptionComp"
-                        value={catchPhrase}
+                        value={user.company.catchPhrase}
                         type="text"
                         name="descriptionComp"
                         placeholder="Введите данные"
-                        onChange={(event) => setCatchPhrase(event.target.value)}
                     />
                 </section>
 

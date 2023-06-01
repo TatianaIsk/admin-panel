@@ -1,7 +1,7 @@
 import styles from './Dropdown.module.scss'
 import {Link} from "react-router-dom";
 import React from "react";
-const Dropdown = ({ onClose, toView, toEdit }) => {
+const Dropdown = ({ onClose, toView, toEdit, selectedUserId, isMenuOpen}) => {
     return (
         <div className={styles.dropdown}>
             <ul className={styles.linksBox}>

@@ -29,7 +29,7 @@ const store = {
             const newUser = await createUser(userData)
             this.state.users.push(newUser)
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
     },
 

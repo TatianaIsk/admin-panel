@@ -57,3 +57,43 @@
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 10px, 100% 100%, 0 100%);
   cursor: pointer;
 }
+
+.labelCreate {
+  font-family: 'Furore', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+
+  display: block;
+  color: #2D2B2A;
+  background-color: #dcdcdc;
+  padding: 8px;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 10px, 100% 100%, 0 100%);
+  &:focus {
+    color: #6159FC;
+  }
+}
+
+.inputCreate {
+  font-family: 'Jost', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 130%;
+
+  display: block;
+  width: 440px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  &:focus {
+    outline: none;
+  }
+}
+
+.inputBox {
+  margin-top: 35px;
+  margin-right: 60px;
+  width: 458px;
+}
