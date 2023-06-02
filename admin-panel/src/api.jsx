@@ -26,3 +26,13 @@ export const deleteUser = async (id) => {
     const response = await axios.delete(`${BASE_URL}/users/${id}`)
     return response.data
 }
+
+export const getTodos = async () => {
+    const response = await axios.get(`${BASE_URL}/todos`)
+    return response.data
+}
+
+export const getTodoById = async (id) => {
+    const response = await axios.get(`${BASE_URL}/todos/${id}`)
+    return response.data
+}

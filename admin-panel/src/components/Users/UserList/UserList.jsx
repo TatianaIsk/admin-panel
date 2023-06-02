@@ -8,7 +8,6 @@ import {useState, useEffect} from "react";
 import store from "../../../store.jsx";
 import Pagination from "../../Pagination/Pagination.jsx";
 
-
 const UserList = () => {
     const [users, setUsers] = useState(store.state.users);
 
@@ -37,6 +36,7 @@ const UserList = () => {
 
     const [selectedUserId, setSelectedUserId] = useState(null);
 
+
     const toggleMenu = (userId) => {
         setIsMenuOpen(!isMenuOpen);
         setSelectedUserId(userId);
@@ -61,6 +61,11 @@ const UserList = () => {
                 currentPage={currentPage}
             />
         ));
+    };
+
+    const handleUserAdded = (user) => {
+        setIsCreateUserVisible(false);
+        setUsers((prevState) => [...prevState, user]);
     };
 
     return (

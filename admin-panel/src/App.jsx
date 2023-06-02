@@ -9,6 +9,7 @@ import CreateUser from "./components/Users/CreateUser/CreateUser.jsx"
 import UserView from "./components/Users/UserView/UserView.jsx"
 import EditUser from "./components/Users/EditUser/EditUser.jsx"
 import store from "./store.jsx";
+import TaskList from "./components/Tasks/TaskList/TaskList.jsx";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/users/create" element={<CreateUser />} />
                 <Route path="/users/view/:userId" element={<UserView />} />
                 <Route path="/users/edit/:userId" element={<EditUser />} />
+                <Route path="todos" element={<TaskList/>}/>
                 <Route path="*" element={<Error />} />
             </Routes>
         </Router>

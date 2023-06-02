@@ -29,16 +29,11 @@ button {
     font-size: 19px;
     font-style: normal;
     font-weight: 550;
-    margin: 0;
     padding: 5px;
     cursor: pointer;
     text-decoration: none;
     color: black;
   }
-}
-
-ul, li {
-  margin: 0;
 }
 
 .btn {
@@ -106,7 +101,8 @@ ul, li {
 }
 
 .comment {
-  margin-left: 5px;
+  font-size: 14px;
+  margin: 0 5px;
 }
 
 .blog {

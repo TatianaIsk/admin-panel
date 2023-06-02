@@ -5,10 +5,22 @@ import {useSpring, animated} from "react-spring";
 function Menu() {
     const [isOpen, setIsOpen] = useState(false);
     const [isMiniOpen, setIsMiniOpen] = useState(false)
+    const [graphic, setGraphic] = useState(false)
+
+    const menuAnimation = useSpring({
+        transform: isOpen ? "translateX(0%)" : "translateX(-100%)",
+    });
 
     const miniMenuAnimation = useSpring({
-        transform: `translateY(${isMiniOpen ? 0 : -40}%)`,
-        config: {duration: 250},
+        height: isMiniOpen ? "100%" : "0%",
+        opacity: isMiniOpen ? 1 : 0,
+        config: { duration: 300 },
+    });
+
+    const graphMenuAnimation = useSpring({
+        height: isMiniOpen ? "100%" : "0%",
+        opacity: isMiniOpen ? 1 : 0,
+        config: { duration: 300 },
     });
 
     function toggleMenu() {
@@ -26,6 +38,10 @@ function Menu() {
         setIsMiniOpen(!isMiniOpen)
     }
 
+    function graphMenu() {
+        setGraphic(!graphic)
+    }
+
     return (
         <>
             <button className={isOpen ? styles.btn : styles.btnClose}
@@ -33,12 +49,24 @@ function Menu() {
             </button>
             <div className={styles.column}></div>
             {isOpen && (
-                <div className={styles.menu}>
+                <animated.div className={styles.menu} style={menuAnimation}>
                     <ul>
                         <a href="/users">Пользователи</a>
-                        <a href="">Задания</a>
-                        <a href="">Картинки</a>
-                        <a href="">Альбомы</a>
+                        <a href="/todos">Задания</a>
+                        <div className={styles.blog}>
+                            <a href="">Графика</a>
+                            <button className={isMiniOpen ? styles.iconOpen : styles.iconClose}
+                                    onClick={graphMenu}>
+                            </button>
+                        </div>
+                        {graphic && (
+                            <div className={styles.miniMenu}>
+                                <ul>
+                                    <a href="" className={styles.comment}>Картинки</a>
+                                    <a href="" className={styles.comment}>Альбомы</a>
+                                </ul>
+                            </div>
+                        )}
                         <div className={styles.blog}>
                             <a href="">Блог</a>
                             <button className={isMiniOpen ? styles.iconOpen : styles.iconClose}
@@ -54,7 +82,7 @@ function Menu() {
                             </div>
                         )}
                     </ul>
-                </div>
+                </animated.div>
             )}
         </>
     );

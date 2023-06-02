@@ -1,0 +1,42 @@
+.tableTask {
+  margin-top: 20px;
+  max-width: 1600px;
+}
+
+.theadTask {
+  height: 50px;
+  color: #BCB8B8;
+  border-bottom: 1px solid #D2D0D0;
+}
+
+.trTask {
+  font-family: 'Furore', sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  font-weight: 200;
+  border-bottom: 1px solid #D2D0D0;
+}
+
+.filters {
+  margin-top: 20px;
+}
+
+.selectTask {
+  padding: 8px 15px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-family: 'Furore', sans-serif;
+  background-color: #F3F2F2;
+}
+
+select:focus {
+  outline: none;
+}
+
+.btnCreate {
+  background-color: #F3F2F2;
+  border: 1px solid #D2D0D0;
+  font-size: 15px;
+  font-family: 'Furore', sans-serif;
+  padding: 8px 10px;
+}

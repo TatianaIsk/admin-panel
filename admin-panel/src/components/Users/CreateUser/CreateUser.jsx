@@ -3,23 +3,21 @@ import Header from "../../Header/Header.jsx";
 import Menu from "../../Menu/Menu.jsx";
 
 import {useState} from "react";
-import store from "../../../store.jsx";
+import axios from "axios";
 
-const CreateUser = ({ onUserAdded }) => {
-    const [formValues, setFormValues] = useState(
-        {
-            name: '',
-            username: '',
-            email: '',
-            website: '',
-            phone: '',
-            zipcode: '',
-            city: '',
-            street: '',
-            nameComp: '',
-            catchPhrase: ''
-        }
-    )
+const CreateUser = () => {
+    const [formValues, setFormValues] = useState({
+        name: '',
+        username: '',
+        email: '',
+        website: '',
+        phone: '',
+        zipcode: '',
+        city: '',
+        street: '',
+        nameComp: '',
+        catchPhrase: ''
+    });
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -29,11 +27,12 @@ const CreateUser = ({ onUserAdded }) => {
         }));
     };
 
+
     return (
         <>
             <Header/>
             <Menu/>
-            <div className="wrapper">
+            <form className="wrapper">
                 <div className={styles.panel}>
                     <a className={styles.panelLink} href="/users"> назад</a>
                     <div className={styles.panelRight}>
@@ -194,9 +193,8 @@ const CreateUser = ({ onUserAdded }) => {
                         />
                     </div>
                 </section>
-
                 <button className={styles.btnSub}>создать >>></button>
-            </div>
+            </form>
         </>
     )
 }

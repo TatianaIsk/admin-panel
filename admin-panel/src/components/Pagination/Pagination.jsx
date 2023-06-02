@@ -1,7 +1,7 @@
 import React from 'react';
 import './Pagination.scss';
 
-const Pagination = ({users, usersPerPage, setCurrentPage, currentPage }) => {
+const Pagination = ({users, usersPerPage, setCurrentPage, currentPage}) => {
     const renderPagination = () => {
         const pageNumbers = [];
 
@@ -11,22 +11,22 @@ const Pagination = ({users, usersPerPage, setCurrentPage, currentPage }) => {
 
         return (
             <nav>
+                <button className="pageLink" onClick={() => setCurrentPage(number - 1)}>
+                    назад
+                </button>
                 {pageNumbers.map((number) => (
                     <button
                         key={number}
                         className={`pageItem${number === currentPage ? ' active' : ''}`}
                     >
-                        <button className="pageLink" onClick={() => setCurrentPage(number - 1)}>
-                            назад
-                        </button>
                         <button className="pageLink" onClick={() => setCurrentPage(number)}>
                             {number}
                         </button>
-                        <button className="pageLink" onClick={() => setCurrentPage(number + 1)}>
-                            вперед
-                        </button>
                     </button>
                 ))}
+                <button className="pageLink" onClick={() => setCurrentPage(number + 1)}>
+                    вперед
+                </button>
             </nav>
         );
     };
