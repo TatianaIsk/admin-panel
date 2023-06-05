@@ -11,7 +11,7 @@ const Pagination = ({users, usersPerPage, setCurrentPage, currentPage}) => {
 
         return (
             <nav>
-                <button className="pageLink" onClick={() => setCurrentPage(number - 1)}>
+                <button className="pageLink" onClick={() => setCurrentPage(pageNumbers - 1)}>
                     назад
                 </button>
                 {pageNumbers.map((number) => (
@@ -24,7 +24,7 @@ const Pagination = ({users, usersPerPage, setCurrentPage, currentPage}) => {
                         </button>
                     </button>
                 ))}
-                <button className="pageLink" onClick={() => setCurrentPage(number + 1)}>
+                <button className="pageLink" onClick={() => setCurrentPage(pageNumbers + 1)}>
                     вперед
                 </button>
             </nav>

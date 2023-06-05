@@ -1,8 +1,12 @@
 import React, {useState} from "react";
 import styles from "./menu.module.scss";
 import {useSpring, animated} from "react-spring";
+import {useTheme} from "../../ThemeContext.jsx";
+import style from "../Header/Header.module.scss";
 
 function Menu() {
+    const { isDarkMode } = useTheme();
+
     const [isOpen, setIsOpen] = useState(false);
     const [isMiniOpen, setIsMiniOpen] = useState(false)
     const [graphic, setGraphic] = useState(false)
@@ -28,7 +32,7 @@ function Menu() {
 
         const otherComponent = document.querySelector('.wrapper');
         if (isOpen) {
-            otherComponent.style.margin = '0 0 0 100px';
+            otherComponent.style.margin = '0 100px 0 100px';
         } else {
             otherComponent.style.margin = '60px 0 0 440px';
         }
@@ -44,32 +48,33 @@ function Menu() {
 
     return (
         <>
-            <button className={isOpen ? styles.btn : styles.btnClose}
-                    onClick={toggleMenu}>
+            <button className={`${isOpen ? isDarkMode ? styles.btnDark : styles.btn : isDarkMode ? styles.btnCloseDark : styles.btnClose}`}
+                    onClick={toggleMenu}
+            >
             </button>
-            <div className={styles.column}></div>
+            <div className={`${styles.column} ${isDarkMode ? styles.columnDark : ''}`}></div>
             {isOpen && (
-                <animated.div className={styles.menu} style={menuAnimation}>
+                <animated.div className={`${styles.menu} ${isDarkMode ? styles.menuDark : ''}`} style={menuAnimation}>
                     <ul>
                         <a href="/users">Пользователи</a>
                         <a href="/todos">Задания</a>
                         <div className={styles.blog}>
                             <a href="">Графика</a>
-                            <button className={isMiniOpen ? styles.iconOpen : styles.iconClose}
+                            <button className={`${graphic ? isDarkMode ? styles.iconOpenDark : styles.iconOpen : isDarkMode ? styles.iconCloseDark : styles.iconClose}`}
                                     onClick={graphMenu}>
                             </button>
                         </div>
                         {graphic && (
                             <div className={styles.miniMenu}>
                                 <ul>
-                                    <a href="" className={styles.comment}>Картинки</a>
+                                    <a href="/picture" className={styles.comment}>Картинки</a>
                                     <a href="" className={styles.comment}>Альбомы</a>
                                 </ul>
                             </div>
                         )}
                         <div className={styles.blog}>
                             <a href="">Блог</a>
-                            <button className={isMiniOpen ? styles.iconOpen : styles.iconClose}
+                            <button className={`${isMiniOpen ? isDarkMode ? styles.iconOpenDark : styles.iconOpen : isDarkMode ? styles.iconCloseDark : styles.iconClose}`}
                                     onClick={miniMenu}>
                             </button>
                         </div>

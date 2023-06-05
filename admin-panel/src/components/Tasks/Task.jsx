@@ -7,7 +7,7 @@ import styles from './Task.module.scss'
 function Task({todo, username}) {
 
     return (
-        <tr key={todo.id}>
+        <tr className={styles.trTask} key={todo.id}>
             <td className={styles.tdTask}>{todo.id}</td>
             <td className={styles.tdTask}>{username}</td>
             <td className={styles.tdTask}>{todo.title}</td>
