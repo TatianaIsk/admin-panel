@@ -16,8 +16,9 @@ function TaskList() {
     const [selectedUser, setSelectedUser] = useState("");
     const [selectedStatus, setSelectedStatus] = useState("");
     const [loading, setLoading] = useState(true);
+    const [searchQuery, setSearchQuery] = useState("");
 
-    const { isDarkMode } = useTheme();
+    const {isDarkMode} = useTheme();
 
     useEffect(() => {
         async function fetchData() {
@@ -31,6 +32,7 @@ function TaskList() {
             const uniqueStatuses = [...new Set(statuses)];
             setStatusList(uniqueStatuses);
         }
+
         fetchData();
     }, []);
 
@@ -57,15 +59,23 @@ function TaskList() {
 
     const filterTodos = () => {
         let filteredTodos = todos;
+
         if (selectedUser) {
             const userId = users.find(user => user.name === selectedUser)?.id;
             filteredTodos = filteredTodos.filter(todo => todo.userId === userId);
         }
+
         if (selectedStatus !== "") {
             filteredTodos = filteredTodos.filter(todo => todo.completed === (selectedStatus === "true"));
         }
+
+        if (searchQuery.trim() !== "") {
+            filteredTodos = filteredTodos.filter(todo => todo.title.toLowerCase().includes(searchQuery.trim().toLowerCase()));
+        }
+
         return filteredTodos;
     };
+
 
     const renderTodos = () => {
         const filteredTodos = filterTodos();
@@ -100,6 +110,8 @@ function TaskList() {
                                 className={`searchUser ${isDarkMode ? 'searchUserDark' : ''}`}
                                 id="searchUser"
                                 placeholder="Поиск"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
                             />
                         </div>
                         <div className={styles.filters}>
@@ -120,33 +132,37 @@ function TaskList() {
                                 ))}
                             </select>
                         </div>
-                        <table className={styles.tableTask}>
-                            <thead className={styles.theadTask}>
-                            <tr className={styles.trTask}>
-                                <th className="thTask">
-                                    ID
-                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
-                                </th>
-                                <th className="thTask">
-                                    пользователь
-                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
-                                </th>
-                                <th className="thTask">
-                                    заголовок
-                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
-                                </th>
-                                <th className="thTask">
-                                    выполнена
-                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {renderTodos()}
-                            </tbody>
-                        </table>
+                        <div className="tableWrapper" style={{height: '700px', overflow: 'auto'}}>
+                            <table className={styles.tableTask}>
+                                <thead className={styles.theadTask}>
+                                <tr className={styles.trTask}>
+                                    <th className="thTask">
+                                        ID
+                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                    </th>
+                                    <th className="thTask">
+                                        пользователь
+                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                    </th>
+                                    <th className="thTask">
+                                        заголовок
+                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                    </th>
+                                    <th className="thTask">
+                                        выполнена
+                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {renderTodos()}
+                                </tbody>
+                            </table>
+                        </div>
                         <div className="paginationCount">
-                            <a href="/todos/create" className={`${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`}>Создать >>></a>
+                            <a href="/todos/create"
+                               className={`${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`}>Создать
+                                >>></a>
                             <Pagination users={todos} usersPerPage={todosPerPage} setCurrentPage={setCurrentPage}
                                         currentPage={currentPage}/>
                             <p className="countRows">Строк на странице: {currentTodos.length}</p>

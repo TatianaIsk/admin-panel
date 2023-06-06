@@ -16,46 +16,99 @@
 }
 
 .loginWrapper {
-  h2 {
+  .title {
     margin-top: 50px;
-    font-size: 32px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 400;
     font-family: 'Furore', sans-serif;
   }
-}
-
-.input {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.input {
-  input {
-    margin-top: 10px;
-    width: 350px;
-    height: 25px;
-    background: #F3F2F2;
-    border: 1px solid #D2D0D0;
-    padding: 8px 10px;
-
-    font-family: 'Jost', sans-serif;
-    font-size: 18px;
-    color: #3C3A39;
-  }
-
-  label {
+  .input {
     margin-top: 20px;
-    font-family: 'Jost', sans-serif;
-    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
+}
 
-  button {
-    margin-top: 60px;
-    width: 150px;
-    height: 40px;
+.inputBox {
+  margin-top: 30px;
+  width: 419px;
+}
+
+.labelCreate {
+  font-family: 'Furore', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+
+  display: block;
+  color: #2D2B2A;
+  background-color: #dcdcdc;
+  padding: 8px;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 10px, 100% 100%, 0 100%);
+  &:focus {
+    color: #6159FC;
   }
+  &.labelCreateDark {
+    color: #D2D0D0;
+    background-color: #2D2B2A;
+  }
+}
+
+.inputCreate {
+  font-family: 'Jost', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 130%;
+
+  display: block;
+  width: 400px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  &:focus {
+    outline: none;
+  }
+}
+
+.btnSub {
+  margin-top: 40px;
+  width: 300px;
+  background-color: #BCB8B8;
+  color: #FFF;
+  font-size: 16px;
+  font-family: 'Furore', sans-serif;
+  padding: 15px 30px;
+  border: none;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 10px, 100% 100%, 0 100%);
+  cursor: pointer;
+  &.btnSubDark {
+    background-color: #2D2B2A;
+  }
+}
+
+.loginWrapperDark {
+  .title {
+    color: #6DE8CE;
+  }
+}
+
+.errorLogin {
+  position: absolute;
+  top: 110px;
+  color: red;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+}
+
+.errorPassword {
+  position: absolute;
+  top: 220px;
+  color: red;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
 }

@@ -19,7 +19,7 @@ const Pagination = ({users, usersPerPage, setCurrentPage, currentPage}) => {
                 {pageNumbers.map((number) => (
                     <button
                         key={number}
-                        className={`pageItem${number === currentPage ? ' active' : ''}`}
+                        className={`pageItem${number === currentPage ? ' active' : ''} ${isDarkMode ? 'pageItemDark' : ''}`}
                     >
                         <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(number)}>
                             {number}

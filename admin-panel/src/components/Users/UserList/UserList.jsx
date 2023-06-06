@@ -17,7 +17,14 @@ import {useTheme} from "../../../ThemeContext.jsx";
 const UserList = () => {
     const [users, setUsers] = useState(store.state.users);
     const [loading, setLoading] = useState(true);
-    const { isDarkMode } = useTheme();
+    const {isDarkMode} = useTheme();
+    const [searchName, setSearchName] = useState('');
+
+    const handleSearch = (event) => {
+        setSearchName(event.target.value);
+    }
+
+    const filteredUsers = users.filter(user => user.name.toLowerCase().includes(searchName.toLowerCase()));
 
     useEffect(() => {
         async function fetchData() {
@@ -52,13 +59,13 @@ const UserList = () => {
     };
 
     const renderUsers = () => {
-        if (currentUsers.length === 0) {
+        if (filteredUsers.length === 0) {
             return <tr>
                 <td className={`errorMess ${isDarkMode ? 'errorMessDark' : ''}`} colSpan="3">Записи не найдены</td>
             </tr>
         }
 
-        return currentUsers.map(user => (
+        return filteredUsers.map(user => (
             <User
                 key={user.id}
                 user={user}
@@ -70,11 +77,6 @@ const UserList = () => {
                 currentPage={currentPage}
             />
         ));
-    };
-
-    const handleUserAdded = (user) => {
-        setIsCreateUserVisible(false);
-        setUsers((prevState) => [...prevState, user]);
     };
 
     return (
@@ -91,61 +93,66 @@ const UserList = () => {
                                    htmlFor="searchUser">
                                 пользователи
                             </label>
-                            <a href="/users/create" className={`btnCreate ${isDarkMode ? 'btnCreateDark' : ''}`}>Создать нового пользователя</a>
+                            <a href="/users/create" className={`btnCreate ${isDarkMode ? 'btnCreateDark' : ''}`}>Создать
+                                нового пользователя</a>
                             <input type="text"
                                    className={`searchUser ${isDarkMode ? 'searchUserDark' : ''}`}
                                    id="searchUser"
                                    placeholder="Поиск"
+                                   value={searchName}
+                                   onChange={handleSearch}
                             />
                         </div>
-                        <table className="tableUser">
-                            <thead className="theadUser">
-                            <tr className="trUser">
-                                <th className="thUser">
-                                    <img
-                                        className={`imgTh ${isDarkMode ? 'imgThDark' : ''}`}
-                                        src={`${isDarkMode ? thIconDark : thIcon}`}
-                                        alt=""
-                                    />
-                                </th>
-                                <th className="thUser">
-                                    ID
-                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
-                                </th>
-                                <th className="thUser">
-                                    имя
-                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
-                                </th>
-                                <th className="thUser">
-                                    никнейм (eng)
-                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
-                                </th>
-                                <th className="thUser">
-                                    e-mail
-                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
-                                </th>
-                                <th className="thUser">
-                                    адрес
-                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
-                                </th>
-                                <th className="thUser">
-                                    телефон
-                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
-                                </th>
-                                <th className="thUser">
-                                    сайт
-                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
-                                </th>
-                                <th className="thUser">
-                                    компания
-                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {renderUsers()}
-                            </tbody>
-                        </table>
+                        <div className="tableWrapper" style={{height: '700px', overflow: 'auto'}}>
+                            <table className="tableUser">
+                                <thead className="theadUser">
+                                <tr className="trUser">
+                                    <th className="thUser">
+                                        <img
+                                            className={`imgTh ${isDarkMode ? 'imgThDark' : ''}`}
+                                            src={`${isDarkMode ? thIconDark : thIcon}`}
+                                            alt=""
+                                        />
+                                    </th>
+                                    <th className="thUser">
+                                        ID
+                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                    </th>
+                                    <th className="thUser">
+                                        имя
+                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                    </th>
+                                    <th className="thUser">
+                                        никнейм (eng)
+                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                    </th>
+                                    <th className="thUser">
+                                        e-mail
+                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                    </th>
+                                    <th className="thUser">
+                                        адрес
+                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                    </th>
+                                    <th className="thUser">
+                                        телефон
+                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                    </th>
+                                    <th className="thUser">
+                                        сайт
+                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                    </th>
+                                    <th className="thUser">
+                                        компания
+                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {renderUsers()}
+                                </tbody>
+                            </table>
+                        </div>
                         <div className="paginationCount">
                             <Pagination users={users} usersPerPage={usersPerPage} setCurrentPage={setCurrentPage}
                                         currentPage={currentPage}/>

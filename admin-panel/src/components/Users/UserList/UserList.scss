@@ -62,8 +62,8 @@ input {
 }
 
 .tableUser {
-  margin-top: 40px;
-  max-width: 1700px;
+  margin-top: 20px;
+  width: 1700px;
 }
 
 .theadUser {
@@ -116,6 +116,9 @@ td:focus {
 .pageItem {
   margin-top: 40px;
   border: none;
+  &.pageItem {
+    background-color: #191919;
+  }
 }
 
 ul {
@@ -190,4 +193,8 @@ li {
   &.imgTrDark {
     width: 7px;
   }
+}
+
+.tableWrapper {
+  margin-top: 20px;
 }
