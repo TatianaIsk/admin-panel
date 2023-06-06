@@ -1,12 +1,22 @@
 @import url('https://fonts.cdnfonts.com/css/furore');
 
 
+.wrapper {
+  background-color: #F3F2F2;
+  &.wrapperDark {
+    background-color: #191919;
+  }
+}
+
 .titleUser {
   font-style: normal;
   font-weight: 400;
   font-family: 'Furore', sans-serif;
   font-size: 40px;
   letter-spacing: -0.01em;
+  &.titleUserDark {
+    color: #6DE8CE;
+  }
 }
 
 input {
@@ -30,6 +40,10 @@ input {
   font-family: 'Jost', sans-serif;
   font-size: 18px;
   color: #3C3A39;
+  &.searchUserDark {
+    background-color: #191919;
+    color: #D2D0D0;
+  }
 }
 
 .btnCreate {
@@ -42,6 +56,9 @@ input {
   cursor: pointer;
   margin-left: 550px;
   text-decoration: none;
+  &.btnCreateDark {
+    background-color: #191919;
+  }
 }
 
 .tableUser {
@@ -71,6 +88,12 @@ input {
   background-size: cover;
   border: none;
   cursor: pointer;
+  &.btnThDark {
+    background-image: url("../../../assets/darkAssets/icon-close-dark.png");
+    background-color: #191919;
+    width: 8px;
+    height: 8px;
+  }
 }
 
 .tdUser {
@@ -81,6 +104,9 @@ input {
   border-bottom: 1px solid #D2D0D0;
   color: #3C3A39;
   margin-top: 10px;
+  &.tdUserDark {
+    color: #D2D0D0;
+  }
 }
 
 td:focus {
@@ -110,6 +136,9 @@ li {
   height: 30px;
   padding: 0 20px;
   color: #BCB8B8;
+  &.pageLinkDark {
+    background: #191919;
+  }
 }
 
 .paginationCount {
@@ -136,4 +165,29 @@ li {
   position: absolute;
   margin-top: 10px;
   right: 800px;
+}
+
+.errorMessDark {
+  font-family: 'Furore', sans-serif;
+  font-size: 20px;
+  position: absolute;
+  margin-top: 10px;
+  right: 800px;
+  color: #D2D0D0;
+}
+
+.imgTh {
+  width: 16px;
+  cursor: pointer;
+  &.imgThDark {
+    width: 10px;
+  }
+}
+
+.imgTr {
+  width: 12px;
+  cursor: pointer;
+  &.imgTrDark {
+    width: 7px;
+  }
 }

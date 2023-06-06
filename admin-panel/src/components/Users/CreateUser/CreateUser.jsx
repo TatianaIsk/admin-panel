@@ -4,8 +4,11 @@ import Menu from "../../Menu/Menu.jsx";
 
 import {useState} from "react";
 import axios from "axios";
+import {useTheme} from "../../../ThemeContext.jsx";
 
 const CreateUser = () => {
+    const { isDarkMode } = useTheme();
+
     const [formValues, setFormValues] = useState({
         name: '',
         username: '',
@@ -32,7 +35,7 @@ const CreateUser = () => {
         <>
             <Header/>
             <Menu/>
-            <form className="wrapper">
+            <form className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
                 <div className={styles.panel}>
                     <a className={styles.panelLink} href="/users"> назад</a>
                     <div className={styles.panelRight}>
@@ -41,10 +44,10 @@ const CreateUser = () => {
                         <a className={styles.panelLink} href="">удалить пользователя</a>
                     </div>
                 </div>
-                <h2 className={styles.title}>Создать пользователя</h2>
+                <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Создать пользователя</h2>
                 <section className={styles.inpContainer}>
                     <div className={styles.inputBox}>
-                        <label className={styles.labelCreate}
+                        <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                                htmlFor="name"> ФИО
                         </label>
                         <input className={styles.inputCreate}
@@ -58,7 +61,7 @@ const CreateUser = () => {
                     </div>
 
                     <div className={styles.inputBox}>
-                        <label className={styles.labelCreate}
+                        <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                                htmlFor="username"> логин
                         </label>
                         <input className={styles.inputCreate}
@@ -74,7 +77,7 @@ const CreateUser = () => {
 
                 <section className={styles.inpContainer}>
                     <div className={styles.inputBox}>
-                        <label className={styles.labelCreate}
+                        <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                                htmlFor="email"> e-mail
                         </label>
                         <input className={styles.inputCreate}
@@ -88,7 +91,7 @@ const CreateUser = () => {
                     </div>
 
                     <div className={styles.inputBox}>
-                        <label className={styles.labelCreate}
+                        <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                                htmlFor="website"> веб-сайт
                         </label>
                         <input className={styles.inputCreate}
@@ -103,7 +106,7 @@ const CreateUser = () => {
                 </section>
 
                 <div className={styles.inputBox}>
-                    <label className={styles.labelCreate}
+                    <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                            htmlFor="phone"> телефон
                     </label>
                     <input className={styles.inputCreate}
@@ -116,11 +119,11 @@ const CreateUser = () => {
                     />
                 </div>
 
-                <p className={styles.subtitle}>Адрес</p>
+                <p className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>Адрес</p>
 
                 <section className={styles.inpContainer}>
                     <div className={styles.inputBox}>
-                        <label className={styles.labelCreate}
+                        <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                                htmlFor="zipcode"> индекс
                         </label>
                         <input className={styles.inputCreate}
@@ -134,7 +137,7 @@ const CreateUser = () => {
                     </div>
 
                     <div className={styles.inputBox}>
-                        <label className={styles.labelCreate}
+                        <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                                htmlFor="city"> город
                         </label>
                         <input className={styles.inputCreate}
@@ -149,7 +152,7 @@ const CreateUser = () => {
                 </section>
 
                 <div className={styles.inputBox}>
-                    <label className={styles.labelCreate}
+                    <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                            htmlFor="street"> улица
                     </label>
                     <input className={styles.inputCreate}
@@ -162,11 +165,11 @@ const CreateUser = () => {
                     />
                 </div>
 
-                <p className={styles.subtitle}>Компания</p>
+                <p className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>Компания</p>
 
                 <section className={styles.inpContainer}>
                     <div className={styles.inputBox}>
-                        <label className={styles.labelCreate}
+                        <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                                htmlFor="nameComp"> название
                         </label>
                         <input className={styles.inputCreate}
@@ -180,7 +183,7 @@ const CreateUser = () => {
                     </div>
 
                     <div className={styles.inputBox}>
-                        <label className={styles.labelCreate}
+                        <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                                htmlFor="catchPhrase"> описание
                         </label>
                         <input className={styles.inputCreate}
@@ -193,7 +196,7 @@ const CreateUser = () => {
                         />
                     </div>
                 </section>
-                <button className={styles.btnSub}>создать >>></button>
+                <button className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>создать >>></button>
             </form>
         </>
     )

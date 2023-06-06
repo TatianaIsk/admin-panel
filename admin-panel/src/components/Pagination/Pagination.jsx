@@ -1,7 +1,9 @@
 import React from 'react';
 import './Pagination.scss';
+import {useTheme} from "../../ThemeContext.jsx";
 
 const Pagination = ({users, usersPerPage, setCurrentPage, currentPage}) => {
+    const { isDarkMode } = useTheme();
     const renderPagination = () => {
         const pageNumbers = [];
 
@@ -11,7 +13,7 @@ const Pagination = ({users, usersPerPage, setCurrentPage, currentPage}) => {
 
         return (
             <nav>
-                <button className="pageLink" onClick={() => setCurrentPage(pageNumbers - 1)}>
+                <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(pageNumbers - 1)}>
                     назад
                 </button>
                 {pageNumbers.map((number) => (
@@ -19,12 +21,12 @@ const Pagination = ({users, usersPerPage, setCurrentPage, currentPage}) => {
                         key={number}
                         className={`pageItem${number === currentPage ? ' active' : ''}`}
                     >
-                        <button className="pageLink" onClick={() => setCurrentPage(number)}>
+                        <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(number)}>
                             {number}
                         </button>
                     </button>
                 ))}
-                <button className="pageLink" onClick={() => setCurrentPage(pageNumbers + 1)}>
+                <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(pageNumbers + 1)}>
                     вперед
                 </button>
             </nav>

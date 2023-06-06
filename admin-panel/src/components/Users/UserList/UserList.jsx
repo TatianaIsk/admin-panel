@@ -1,6 +1,9 @@
 import React from "react";
 import './UserList.scss'
+
 import thIcon from '../../../assets/icon-mainUsers.png'
+import thIconDark from '../../../assets/darkAssets/icon-close-dark-th.png'
+
 import Header from "../../Header/Header.jsx";
 import Menu from "../../Menu/Menu.jsx";
 import User from "../User.jsx";
@@ -8,10 +11,13 @@ import {useState, useEffect} from "react";
 import store from "../../../store.jsx";
 import Pagination from "../../Pagination/Pagination.jsx";
 import Loader from "../../Loading/Loading.jsx";
+import {useTheme} from "../../../ThemeContext.jsx";
+
 
 const UserList = () => {
     const [users, setUsers] = useState(store.state.users);
     const [loading, setLoading] = useState(true);
+    const { isDarkMode } = useTheme();
 
     useEffect(() => {
         async function fetchData() {
@@ -48,7 +54,7 @@ const UserList = () => {
     const renderUsers = () => {
         if (currentUsers.length === 0) {
             return <tr>
-                <td className="errorMess" colSpan="3">Записи не найдены</td>
+                <td className={`errorMess ${isDarkMode ? 'errorMessDark' : ''}`} colSpan="3">Записи не найдены</td>
             </tr>
         }
 
@@ -79,15 +85,15 @@ const UserList = () => {
                 <div>
                     <Header/>
                     <Menu/>
-                    <div className="wrapper">
+                    <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
                         <div className="searhcing">
-                            <label className="titleUser"
+                            <label className={`titleUser ${isDarkMode ? 'titleUserDark' : ''}`}
                                    htmlFor="searchUser">
                                 пользователи
                             </label>
-                            <a href="/users/create" className="btnCreate">Создать нового пользователя</a>
+                            <a href="/users/create" className={`btnCreate ${isDarkMode ? 'btnCreateDark' : ''}`}>Создать нового пользователя</a>
                             <input type="text"
-                                   className="searchUser"
+                                   className={`searchUser ${isDarkMode ? 'searchUserDark' : ''}`}
                                    id="searchUser"
                                    placeholder="Поиск"
                             />
@@ -97,34 +103,42 @@ const UserList = () => {
                             <tr className="trUser">
                                 <th className="thUser">
                                     <img
-                                        src={thIcon}
-                                        style={{width: 16 + 'px', cursor: "pointer"}}
+                                        className={`imgTh ${isDarkMode ? 'imgThDark' : ''}`}
+                                        src={`${isDarkMode ? thIconDark : thIcon}`}
                                         alt=""
                                     />
                                 </th>
-                                <th className="thUser">ID
-                                    <button className="btnTh"></button>
+                                <th className="thUser">
+                                    ID
+                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
                                 </th>
-                                <th className="thUser">имя
-                                    <button className="btnTh"></button>
+                                <th className="thUser">
+                                    имя
+                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
                                 </th>
-                                <th className="thUser">никнейм (eng)
-                                    <button className="btnTh"></button>
+                                <th className="thUser">
+                                    никнейм (eng)
+                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
                                 </th>
-                                <th className="thUser">e-mail
-                                    <button className="btnTh"></button>
+                                <th className="thUser">
+                                    e-mail
+                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
                                 </th>
-                                <th className="thUser">адрес
-                                    <button className="btnTh"></button>
+                                <th className="thUser">
+                                    адрес
+                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
                                 </th>
-                                <th className="thUser">телефон
-                                    <button className="btnTh"></button>
+                                <th className="thUser">
+                                    телефон
+                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
                                 </th>
-                                <th className="thUser">сайт
-                                    <button className="btnTh"></button>
+                                <th className="thUser">
+                                    сайт
+                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
                                 </th>
-                                <th className="thUser">компания
-                                    <button className="btnTh"></button>
+                                <th className="thUser">
+                                    компания
+                                    <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
                                 </th>
                             </tr>
                             </thead>

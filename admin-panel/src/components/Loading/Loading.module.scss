@@ -10,8 +10,11 @@
   height: 20px;
   opacity: 0.4;
   margin: 0 3px;
-  background-color: #000;
+  background-color: #2D2B2A;
   animation: loaderAnimation 1s ease-in-out infinite;
+  &.loaderBarDark {
+    background-color: #6DE8CE;
+  }
 }
 
 @keyframes loaderAnimation {

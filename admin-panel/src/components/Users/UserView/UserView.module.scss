@@ -28,6 +28,9 @@
   font-size: 40px;
   line-height: 116%;
   letter-spacing: -0.01em;
+  &.title {
+    color: #6DE8CE;
+  }
 }
 
 .btn {
@@ -43,6 +46,10 @@
   color: #2D2B2A;
   margin-right: 20px;
   background-color: #F3F2F2;
+  &.btnDark {
+    color: #D2D0D0;
+    background-color: #191919;
+  }
 }
 
 .btnCard {
@@ -58,6 +65,10 @@
   color: #6159FC;
   margin-right: 20px;
   background-color: #F3F2F2;
+  &.btnCardDark {
+    color: #6DE8CE;
+    background-color: #191919;
+  }
 }
 
 .table {
@@ -80,6 +91,9 @@
   font-size: 19px;
   line-height: 130%;
   letter-spacing: -0.01em;
+  &.thDark {
+    color: #D2D0D0;
+  }
 }
 
 .td {
@@ -90,4 +104,7 @@
   font-size: 19px;
   line-height: 130%;
   letter-spacing: -0.01em;
+  &.tdDark {
+    color: #D2D0D0;
+  }
 }

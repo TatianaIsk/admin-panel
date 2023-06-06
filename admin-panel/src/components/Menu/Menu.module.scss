@@ -139,12 +139,13 @@ button {
 }
 
 .iconOpenDark {
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   margin: 0 10px;
   background-image: url("../../assets/darkAssets/icon-open-dark.png");
   background-size: cover;
   border: none;
+  background-color: #191919;
 }
 
 .iconClose {
@@ -157,12 +158,13 @@ button {
 }
 
 .iconCloseDark {
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   margin: 0 10px;
   background-image: url("../../assets/darkAssets/icon-close-dark.png");
   background-size: cover;
   border: none;
+  background-color: #191919;
 }
 
 .miniMenu {

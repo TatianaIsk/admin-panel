@@ -6,8 +6,10 @@ import styles from './EditUser.module.scss'
 import InputLabel from "../../InputLabel/InputLabel.jsx";
 import store from "../../../store.jsx";
 import Loader from "../../Loading/Loading.jsx";
+import {useTheme} from "../../../ThemeContext.jsx";
 
 function EditUser() {
+    const { isDarkMode } = useTheme();
     const {userId} = useParams();
 
     const [user, setUser] = useState(store.state.selectedUser);
@@ -35,7 +37,7 @@ function EditUser() {
                 <>
                     <Header/>
                     <Menu/>
-                    <div className="wrapper">
+                    <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
                         <div className={styles.panel}>
                             <a className={styles.panelLink} href="/users"> назад</a>
                             <div className={styles.panelRight}>
@@ -44,7 +46,7 @@ function EditUser() {
                                 <a className={styles.panelLink} href="">удалить пользователя</a>
                             </div>
                         </div>
-                        <h2 className={styles.title}>Редактировать пользователя</h2>
+                        <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Редактировать пользователя</h2>
                         <section className={styles.inpContainer}>
                             <InputLabel
                                 label="ФИО"
@@ -94,7 +96,7 @@ function EditUser() {
                             placeholder="Введите данные"
                         />
 
-                        <p className={styles.subtitle}>Адрес</p>
+                        <p className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>Адрес</p>
 
                         <section className={styles.inpContainer}>
                             <InputLabel
@@ -125,7 +127,7 @@ function EditUser() {
                             placeholder="Введите данные"
                         />
 
-                        <p className={styles.subtitle}>Компания</p>
+                        <p className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>Компания</p>
 
                         <section className={styles.inpContainer}>
                             <InputLabel
@@ -147,7 +149,7 @@ function EditUser() {
                             />
                         </section>
 
-                        <button type="submit" className={styles.btnSub}>сохранить изменения >>></button>
+                        <button type="submit" className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>сохранить изменения >>></button>
                     </div>
                 </>
             )}

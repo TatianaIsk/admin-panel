@@ -24,6 +24,9 @@
   padding: 6px 10px;
   cursor: pointer;
   margin-right: 40px;
+  &.linksDark {
+    background: #191919;
+  }
 }
 
 .close {
@@ -36,4 +39,7 @@
   border: 1px solid #BCB8B8;
   padding: 6px 10px;
   cursor: pointer;
+  &.closeDark {
+    background: #191919;
+  }
 }

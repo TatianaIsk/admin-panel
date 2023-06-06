@@ -1,9 +1,11 @@
 import React from 'react';
 import icon from './../../assets/icon-users.png';
 import Dropdown from '..//Users/Dropdown/Dropdown.jsx';
+import {useTheme} from "../../ThemeContext.jsx";
+import iconDark from './../../assets/darkAssets/icon-close-dark-th.png'
 
 const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, currentPage}) => {
-
+    const { isDarkMode } = useTheme();
     const formatAddress = (address) => {
         return `${address.street}, ${address.city}, ${address.zipcode}`;
     }
@@ -24,24 +26,24 @@ const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, curre
                 </tr>
             )}
             <tr key={user.id}>
-                <td className="tdUser">
+                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>
                     <img
+                        className={`imgTr ${isDarkMode ? 'imgTrDark' : ''}`}
                         onClick={() => toggleMenu(user.id)}
-                        src={icon}
-                        style={{width: 16 + 'px', cursor: 'pointer'}}
+                        src={`${isDarkMode ? iconDark : icon}`}
                         alt=""
                     />
                 </td>
-                <td className="tdUser">{user.id}</td>
-                <td className="tdUser">{user.name}</td>
-                <td className="tdUser">{user.username}</td>
-                <td className="tdUser">{user.email}</td>
-                <td className="tdUser" style={{width: 400 + 'px'}}>
+                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.id}</td>
+                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.name}</td>
+                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.username}</td>
+                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.email}</td>
+                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`} style={{width: 400 + 'px'}}>
                     {formatAddress(user.address)}
                 </td>
-                <td className="tdUser">{user.phone}</td>
-                <td className="tdUser">{user.website}</td>
-                <td className="tdUser">{user.company.name}</td>
+                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.phone}</td>
+                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.website}</td>
+                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.company.name}</td>
             </tr>
         </>
     );

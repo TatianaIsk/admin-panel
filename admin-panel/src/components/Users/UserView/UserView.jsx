@@ -5,9 +5,10 @@ import Menu from "./../../Menu/Menu.jsx";
 import styles from './UserView.module.scss'
 import store from "../../../store.jsx";
 import Loader from "../../Loading/Loading.jsx";
-
+import {useTheme} from "../../../ThemeContext.jsx";
 
 function UserView() {
+    const { isDarkMode } = useTheme();
     const {userId} = useParams();
 
     const [user, setUser] = useState(store.state.selectedUser);
@@ -35,7 +36,7 @@ function UserView() {
                 <>
                     <Header/>
                     <Menu/>
-                    <div className="wrapper">
+                    <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
                         <div className={styles.panel}>
                             <a className={styles.panelLink} href="/users"> назад</a>
                             <div className={styles.panelRight}>
@@ -44,33 +45,73 @@ function UserView() {
                                 <a className={styles.panelLink} href="">удалить пользователя</a>
                             </div>
                         </div>
-                        <h2 className={styles.title}>Просмотр пользователя</h2>
+                        <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Просмотр пользователя</h2>
                         <div>
-                            <button className={styles.btn}>посты</button>
-                            <button className={styles.btn}>альбомы</button>
-                            <button className={styles.btn}>задачи</button>
-                            <button className={styles.btnCard}>сгенерировать карту компетенций >>></button>
+                            <button className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
+                                посты
+                            </button>
+                            <button className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
+                                альбомы
+                            </button>
+                            <button className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
+                                задачи
+                            </button>
+                            <button className={`${styles.btnCard} ${isDarkMode ? styles.btnCardDark : ''}`}>
+                                сгенерировать карту компетенций >>>
+                            </button>
                         </div>
                         <table className={styles.table}>
                             <tr className={styles.tr}>
-                                <th className={styles.th}>id:</th>
-                                <th className={styles.th}>ФИО:</th>
-                                <th className={styles.th}>Никнейм (eng):</th>
-                                <th className={styles.th}>Телефон:</th>
-                                <th className={styles.th}>E-mail:</th>
-                                <th className={styles.th}>Адрес:</th>
-                                <th className={styles.th}>Компания:</th>
-                                <th className={styles.th}>Веб-сайт:</th>
+                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                    id:
+                                </th>
+                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                    ФИО:
+                                </th>
+                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                    Никнейм (eng):
+                                </th>
+                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                    Телефон:
+                                </th>
+                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                    E-mail:
+                                </th>
+                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                    Адрес:
+                                </th>
+                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                    Компания:
+                                </th>
+                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                    Веб-сайт:
+                                </th>
                             </tr>
                             <tr className={styles.tr}>
-                                <td className={styles.td}>{user.id}</td>
-                                <td className={styles.td}>{user.name}</td>
-                                <td className={styles.td}>{user.username}</td>
-                                <td className={styles.td}>{user.phone}</td>
-                                <td className={styles.td}>{user.email}</td>
-                                <td className={styles.td}>{user.address.street}, {user.address.city}, {user.address.zipcode}</td>
-                                <td className={styles.td}>{user.company.name}</td>
-                                <td className={styles.td}>{user.website}</td>
+                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                    {user.id}
+                                </td>
+                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                    {user.name}
+                                </td>
+                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                    {user.username}
+                                </td>
+                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                    {user.phone}
+                                </td>
+                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                    {user.email}
+                                </td>
+                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                    {user.address.street}, {user.address.city}, {user.address.zipcode}
+                                </td>
+                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                    {user.company.name}
+                                </td>
+                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                    {user.website}
+                                </td>
                             </tr>
                         </table>
                     </div>

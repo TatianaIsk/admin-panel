@@ -3,11 +3,13 @@ import Header from "../../Header/Header.jsx";
 import Menu from "../../Menu/Menu.jsx";
 import React, {useEffect, useState} from "react";
 import store from "../../../store.jsx";
+import {useTheme} from "../../../ThemeContext.jsx";
 
 const CreateTask = () => {
     const [todos, setTodos] = useState(store.state.todos)
     const [users, setUsers] = useState(store.state.users)
     const [statusList, setStatusList] = useState([]);
+    const { isDarkMode } = useTheme();
 
     useEffect(() => {
         async function fetchData() {
@@ -28,16 +30,16 @@ const CreateTask = () => {
         <>
             <Header/>
             <Menu/>
-            <form className="wrapper">
+            <form className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
                 <div className={styles.panel}>
                     <a className={styles.panelLink} href="/todos"> назад</a>
                     <div className={styles.panelRight}>
                         <a className={styles.panelLink} href="/todos">список</a>
                     </div>
                 </div>
-                <h2 className={styles.title}>Создать задачу</h2>
+                <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Создать задачу</h2>
                 <div className={styles.selectBox}>
-                    <label className={styles.labelCreate}
+                    <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                            htmlFor="user"> пользователь
                     </label>
                     <select className={styles.selectCreate}
@@ -54,7 +56,7 @@ const CreateTask = () => {
                 </div>
 
                 <div className={styles.inputBox}>
-                    <label className={styles.labelCreate}
+                    <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                            htmlFor="task"> задача
                     </label>
                     <input className={styles.inputCreate}
@@ -68,7 +70,7 @@ const CreateTask = () => {
                 </div>
 
                 <div className={styles.selectBox}>
-                    <label className={styles.labelCreate}
+                    <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                            htmlFor="status"> статус выполнения
                     </label>
                     <select className={styles.selectCreate}
@@ -84,7 +86,7 @@ const CreateTask = () => {
                     </select>
                 </div>
 
-                <button className={styles.btnSub}>создать >>></button>
+                <button className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>создать >>></button>
             </form>
         </>
     )

@@ -14,22 +14,6 @@ import {ThemeProvider, useTheme} from "./ThemeContext.jsx";
 import {useEffect} from "react";
 
 function App() {
-    const { isDarkMode } = useTheme();
-
-    useEffect(() => {
-        const body = document.querySelector('body');
-
-        const setTheme = () => {
-            if (isDarkMode) {
-                body.classList.add('dark-mode');
-            } else {
-                body.classList.remove('dark-mode');
-            }
-        }
-
-        setTheme();
-    }, [isDarkMode]);
-
     return (
         <ThemeProvider>
             <Router>

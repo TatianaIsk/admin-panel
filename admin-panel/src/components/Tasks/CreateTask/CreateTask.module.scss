@@ -28,6 +28,9 @@
   font-size: 40px;
   line-height: 116%;
   letter-spacing: -0.01em;
+  &.titleDark {
+    color: #6DE8CE;
+  }
 }
 
 .inpContainer {
@@ -56,6 +59,9 @@
   border: none;
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 10px, 100% 100%, 0 100%);
   cursor: pointer;
+  &.btnSubDark {
+    background-color: #2D2B2A;
+  }
 }
 
 .labelCreate {
@@ -73,6 +79,10 @@
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 10px, 100% 100%, 0 100%);
   &:focus {
     color: #6159FC;
+  }
+  &.labelCreateDark {
+    color: #D2D0D0;
+    background-color: #2D2B2A;
   }
 }
 
