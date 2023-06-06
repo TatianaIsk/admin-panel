@@ -36,3 +36,13 @@ export const getTodoById = async (id) => {
     const response = await axios.get(`${BASE_URL}/todos/${id}`)
     return response.data
 }
+
+export const getPosts = async () => {
+    const response = await axios.get(`${BASE_URL}/posts`)
+    return response.data
+}
+
+export const getPostById = async (id) => {
+    const response = await axios.get(`${BASE_URL}/posts/${id}`)
+    return response.data
+}

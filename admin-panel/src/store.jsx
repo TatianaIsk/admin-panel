@@ -1,4 +1,4 @@
-import {getUsers, getUserById, createUser, updateUser, deleteUser, getTodos, getTodoById} from './api'
+import {getUsers, getUserById, createUser, updateUser, deleteUser, getTodos, getPosts} from './api'
 
 const store = {
     state: {
@@ -6,6 +6,8 @@ const store = {
         selectedUser: null,
         todos: [],
         selectedTodo: null,
+        posts: [],
+        selectedPost: null
     },
 
     async fetchUsers() {
@@ -31,7 +33,7 @@ const store = {
             const newUser = await createUser(userData)
             this.state.users.push(newUser)
         } catch (error) {
-            console.error(error);
+            console.error(error)
         }
     },
 
@@ -56,14 +58,21 @@ const store = {
 
     async fetchTodos() {
         try {
-            const todos = await getTodos();
-            this.state.todos = todos;
+            const todos = await getTodos()
+            this.state.todos = todos
         } catch (error) {
-            console.error(error);
+            console.error(error)
         }
     },
 
-
+    async fetchPosts() {
+        try {
+            const posts = await getPosts()
+            this.state.posts = posts
+        } catch (error) {
+            console.error(error)
+        }
+    }
 }
 
 export default store

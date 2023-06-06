@@ -81,7 +81,7 @@ function Menu() {
                         {isMiniOpen && (
                             <div className={styles.miniMenu}>
                                 <ul>
-                                    <a href="" className={styles.comment}>Посты</a>
+                                    <a href="/posts" className={styles.comment}>Посты</a>
                                     <a href="" className={styles.comment}>Комментарии</a>
                                 </ul>
                             </div>

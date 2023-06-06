@@ -12,11 +12,11 @@ import {useTheme} from "../../../ThemeContext.jsx";
 function TaskList() {
     const [todos, setTodos] = useState(store.state.todos)
     const [users, setUsers] = useState(store.state.users)
-    const [statusList, setStatusList] = useState([]);
-    const [selectedUser, setSelectedUser] = useState("");
-    const [selectedStatus, setSelectedStatus] = useState("");
-    const [loading, setLoading] = useState(true);
-    const [searchQuery, setSearchQuery] = useState("");
+    const [statusList, setStatusList] = useState([])
+    const [selectedUser, setSelectedUser] = useState("")
+    const [selectedStatus, setSelectedStatus] = useState("")
+    const [loading, setLoading] = useState(true)
+    const [searchQuery, setSearchQuery] = useState("")
 
     const {isDarkMode} = useTheme();
 
@@ -39,14 +39,14 @@ function TaskList() {
     const findUsername = (userId) => {
         const user = users.find((user) => user.id === userId);
         return user ? user.name : "";
-    };
+    }
 
-    const [currentPage, setCurrentPage] = useState(1);
-    const [todosPerPage] = useState(24);
+    const [currentPage, setCurrentPage] = useState(1)
+    const [todosPerPage] = useState(24)
 
-    const indexOfLastUser = currentPage * todosPerPage;
-    const indexOfFirstUser = indexOfLastUser - todosPerPage;
-    const currentTodos = todos.slice(indexOfFirstUser, indexOfLastUser);
+    const indexOfLastUser = currentPage * todosPerPage
+    const indexOfFirstUser = indexOfLastUser - todosPerPage
+    const currentTodos = todos.slice(indexOfFirstUser, indexOfLastUser)
 
     useEffect(() => {
         setSelectedUser("");

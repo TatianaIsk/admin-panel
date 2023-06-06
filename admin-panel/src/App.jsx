@@ -10,8 +10,8 @@ import EditUser from "./components/Users/EditUser/EditUser.jsx"
 import TaskList from "./components/Tasks/TaskList/TaskList.jsx";
 import CreateTask from "./components/Tasks/CreateTask/CreateTask.jsx";
 import Pictures from "./components/Pictures/Pictures.jsx";
-import {ThemeProvider, useTheme} from "./ThemeContext.jsx";
-import {useEffect} from "react";
+import { ThemeProvider } from "./ThemeContext.jsx";
+import PostList from "./components/Posts/PostList/PostList.jsx";
 
 function App() {
     return (
@@ -27,6 +27,7 @@ function App() {
                     <Route path="/todos" element={<TaskList/>}/>
                     <Route path="/todos/create" element={<CreateTask/>}/>
                     <Route path="/picture" element={<Pictures/>}/>
+                    <Route path="/posts" element={<PostList/>}/>
                     <Route path="*" element={<Error/>}/>
                 </Routes>
             </Router>
