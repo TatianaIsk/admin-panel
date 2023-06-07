@@ -82,7 +82,7 @@ function Menu() {
                             <div className={styles.miniMenu}>
                                 <ul>
                                     <a href="/posts" className={styles.comment}>Посты</a>
-                                    <a href="" className={styles.comment}>Комментарии</a>
+                                    <a href="/comments" className={styles.comment}>Комментарии</a>
                                 </ul>
                             </div>
                         )}

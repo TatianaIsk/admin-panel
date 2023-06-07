@@ -1,4 +1,5 @@
 import {BrowserRouter as Router, Route, Routes, Link} from "react-router-dom"
+import { ThemeProvider } from "./ThemeContext.jsx";
 
 import UserList from "./components/Users/UserList/UserList.jsx"
 import MainPage from "./components/MainPage/MainPage.jsx"
@@ -10,8 +11,9 @@ import EditUser from "./components/Users/EditUser/EditUser.jsx"
 import TaskList from "./components/Tasks/TaskList/TaskList.jsx";
 import CreateTask from "./components/Tasks/CreateTask/CreateTask.jsx";
 import Pictures from "./components/Pictures/Pictures.jsx";
-import { ThemeProvider } from "./ThemeContext.jsx";
 import PostList from "./components/Posts/PostList/PostList.jsx";
+import PostComment from "./components/Posts/PostComment/PostComment.jsx";
+import CommentsList from "./components/Comments/CommentsList/CommentsList.jsx";
 
 function App() {
     return (
@@ -28,6 +30,8 @@ function App() {
                     <Route path="/todos/create" element={<CreateTask/>}/>
                     <Route path="/picture" element={<Pictures/>}/>
                     <Route path="/posts" element={<PostList/>}/>
+                    <Route path="/posts/comment/:postId" element={<PostComment/>}/>
+                    <Route path="/comments" element={<CommentsList/>}/>
                     <Route path="*" element={<Error/>}/>
                 </Routes>
             </Router>

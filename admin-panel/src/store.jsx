@@ -1,4 +1,4 @@
-import {getUsers, getUserById, createUser, updateUser, deleteUser, getTodos, getPosts} from './api'
+import {getUsers, getUserById, createUser, updateUser, deleteUser, getTodos, getPosts, getComments} from './api'
 
 const store = {
     state: {
@@ -7,7 +7,9 @@ const store = {
         todos: [],
         selectedTodo: null,
         posts: [],
-        selectedPost: null
+        selectedPost: null,
+        comments: [],
+        selectedComment: null
     },
 
     async fetchUsers() {
@@ -69,6 +71,15 @@ const store = {
         try {
             const posts = await getPosts()
             this.state.posts = posts
+        } catch (error) {
+            console.error(error)
+        }
+    },
+
+    async fetchComments() {
+        try {
+            const comments = await getComments()
+            this.state.comments = comments
         } catch (error) {
             console.error(error)
         }

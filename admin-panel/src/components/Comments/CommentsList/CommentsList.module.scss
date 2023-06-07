@@ -1,0 +1,20 @@
+.select {
+  padding: 8px 15px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-family: 'Furore', sans-serif;
+  background-color: #F3F2F2;
+  border: 1px solid #D2D0D0;
+  margin-left: 70px;
+  &.selectDark {
+    background-color: #191919;
+    color: #D2D0D0;
+  }
+}
+
+.btnCreate {
+
+  &.btnCreateDark {
+
+  }
+}

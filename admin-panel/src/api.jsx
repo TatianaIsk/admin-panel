@@ -46,3 +46,13 @@ export const getPostById = async (id) => {
     const response = await axios.get(`${BASE_URL}/posts/${id}`)
     return response.data
 }
+
+export const getComments = async () => {
+    const response = await axios.get(`${BASE_URL}/comments`)
+    return response.data
+}
+
+export const getCommentId = async () => {
+    const response = await axios.get(`${BASE_URL}/comments/${id}`)
+    return response.data
+}

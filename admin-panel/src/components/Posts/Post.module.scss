@@ -3,10 +3,15 @@ h4, h5, p {
 }
 
 .post {
+  display: flex;
+  flex-direction: column;
   margin-top: 40px;
   border: 1px solid #D2D0D0;
-  width: 1200px;
+  width: 1220px;
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 10px, 100% 100%, 0 100%);
+  &.postDark {
+    border: 1px solid #2D2B2A;
+  }
 }
 
 .title {
@@ -15,6 +20,62 @@ h4, h5, p {
   background-color: #D2D0D0;
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 20px;
   letter-spacing: -0.01em;
+  &.titleDark {
+    background-color: #2D2B2A;
+    color: #D2D0D0;
+  }
+}
+
+.subtitle {
+  margin: 12px 7px;
+  font-family: 'Jost', sans-serif;
+  font-size: 19px;
+  &.subtitleDark {
+    color: #D2D0D0;
+  }
+}
+
+.text {
+  margin: 5px 10px 15px 7px;
+  font-size: 18px;
+  font-family: 'Jost', sans-serif;
+  &.textDark {
+    color: #D2D0D0;
+  }
+}
+
+.btns {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 20px;
+  margin-right: 30px;
+}
+
+.btnComment {
+  margin-right: 10px;
+  background-image: url("../../assets/icon-comment.png");
+  background-color: #F3F2F2;
+  width: 23px;
+  height: 23px;
+  background-size: cover;
+  border: none;
+  &.btnCommentDark {
+    background-image: url("../../assets/darkAssets/icon-comment-dark.png");
+    background-color: #191919;
+  }
+}
+
+.btnWrite {
+  background-image: url("../../assets/icon-write-comment.png");
+  background-color: #F3F2F2;
+  width: 23px;
+  height: 23px;
+  background-size: cover;
+  border: none;
+  &.btnWriteDark {
+    background-image: url("../../assets/darkAssets/icon-write-comment-dark.png");
+    background-color: #191919;
+  }
 }

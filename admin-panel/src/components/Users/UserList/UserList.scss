@@ -28,6 +28,11 @@ input {
   align-items: center;
 }
 
+.searching {
+  display: flex;
+  align-items: center;
+}
+
 .searchUser {
   position: absolute;
   width: 400px;
@@ -114,9 +119,10 @@ td:focus {
 }
 
 .pageItem {
+  background-color: #F3F2F2;
   margin-top: 40px;
   border: none;
-  &.pageItem {
+  &.pageItemDark {
     background-color: #191919;
   }
 }
