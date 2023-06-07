@@ -106,9 +106,9 @@ const CommentsList = () => {
                                 </option>
                             ))}
                     </select>
-                    <button className={`${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ""}`}>
-                        создать комментарий
-                    </button>
+                    <a href='/comments/create' className={`${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`}>
+                        создать комментарий >>>
+                    </a>
                 </div>
                 <div  className="tableWrapper" style={{height: '700px', overflow: 'auto'}}>
                     {renderComments()}
