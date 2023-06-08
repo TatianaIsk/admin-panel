@@ -12,7 +12,6 @@ import TaskList from "./components/Tasks/TaskList/TaskList.jsx";
 import CreateTask from "./components/Tasks/CreateTask/CreateTask.jsx";
 import Pictures from "./components/Pictures/Pictures.jsx";
 import PostList from "./components/Posts/PostList/PostList.jsx";
-import PostComment from "./components/Posts/PostComment/PostComment.jsx";
 import CommentsList from "./components/Comments/CommentsList/CommentsList.jsx";
 import CreateComment from "./components/Comments/CreateComment/CreateComment.jsx";
 
@@ -31,7 +30,6 @@ function App() {
                     <Route path="/todos/create" element={<CreateTask/>}/>
                     <Route path="/picture" element={<Pictures/>}/>
                     <Route path="/posts" element={<PostList/>}/>
-                    <Route path="/posts/comment/:postId" element={<PostComment/>}/>
                     <Route path="/comments" element={<CommentsList/>}/>
                     <Route path="/comments/create" element={<CreateComment/>}/>
                     <Route path="*" element={<Error/>}/>

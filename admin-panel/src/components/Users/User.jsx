@@ -6,8 +6,18 @@ import iconDark from './../../assets/darkAssets/icon-close-dark-th.png'
 
 const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, currentPage}) => {
     const { isDarkMode } = useTheme();
+
     const formatAddress = (address) => {
-        return `${address.street}, ${address.city}, ${address.zipcode}`;
+        const street = user.address?.street || '';
+        const city = user.address?.city || '';
+        const zipcode = user.address?.zipcode || '';
+        return `${street}, ${city}, ${zipcode}`;
+    }
+
+    const formatCompany = (company) => {
+        const compName = user.company?.name || '';
+        const compCatchPhrase = user.company?.catchPhrase || '';
+        return `${compName} ${compCatchPhrase}`
     }
 
     return (
@@ -36,14 +46,16 @@ const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, curre
                 </td>
                 <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.id}</td>
                 <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.name}</td>
-                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.username}</td>
+                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`} style={{width: 190 + 'px'}}>{user.username}</td>
                 <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.email}</td>
                 <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`} style={{width: 400 + 'px'}}>
                     {formatAddress(user.address)}
                 </td>
                 <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.phone}</td>
                 <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.website}</td>
-                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.company.name}</td>
+                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`} style={{width: 300 + 'px'}}>
+                    {formatCompany(user.company)}
+                </td>
             </tr>
         </>
     );

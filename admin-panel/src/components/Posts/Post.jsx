@@ -1,5 +1,6 @@
 import {useTheme} from "../../ThemeContext.jsx";
 import styles from "./Post.module.scss"
+import {Link} from "react-router-dom";
 
 const Post = ({ post, findUsername }) => {
     const { isDarkMode } = useTheme();
@@ -10,10 +11,7 @@ const Post = ({ post, findUsername }) => {
             <h5 className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>{post.title}</h5>
             <p className={`${styles.text} ${isDarkMode ? styles.textDark : ''}`}>{post.body}</p>
             <div className={styles.btns}>
-                <a href={`/posts/comment/${post.id}`}
-                   className={`${styles.btnComment} ${isDarkMode ? styles.btnCommentDark : ''}`}>
-                </a>
-                <a className={`${styles.btnWrite} ${isDarkMode ? styles.btnWriteDark : ''}`}/>
+                <a href='/comments/create' className={`${styles.btnWrite} ${isDarkMode ? styles.btnWriteDark : ''}`}/>
             </div>
         </div>
     );

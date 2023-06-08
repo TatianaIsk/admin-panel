@@ -9,13 +9,15 @@ const store = {
         posts: [],
         selectedPost: null,
         comments: [],
-        selectedComment: null
+        selectedComment: null,
     },
+    listeners: [],
 
     async fetchUsers() {
         try {
             const users = await getUsers()
             this.state.users = users
+            this.notifyListeners();
         } catch (error) {
             console.error(error)
         }
@@ -83,7 +85,28 @@ const store = {
         } catch (error) {
             console.error(error)
         }
-    }
+    },
+
+    onStateChange(callback) {
+
+        if (!this.listeners.includes(callback)) {
+            this.listeners.push(callback);
+        }
+
+        return () => {
+            this.removeListener(callback);
+        };
+    },
+
+    removeListener(callback) {
+        this.listeners = this.listeners.filter(listener => listener !== callback);
+    },
+
+    notifyListeners() {
+        this.listeners.forEach(listener => {
+            listener(this.state);
+        });
+    },
 }
 
-export default store
+export default store;

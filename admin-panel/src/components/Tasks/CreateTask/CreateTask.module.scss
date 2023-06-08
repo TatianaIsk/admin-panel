@@ -100,6 +100,11 @@
   &:focus {
     outline: none;
   }
+  &.inputCreateDark {
+    background-color: #191919;
+    border: 1px solid #2D2B2A;
+    color: #D2D0D0;
+  }
 }
 
 .selectCreate {
@@ -117,6 +122,11 @@
     outline: none;
   }
   cursor: pointer;
+  &.selectCreateDark {
+    border: 1px solid #2D2B2A;
+    background-color: #191919;
+    color: #D2D0D0;
+  }
 }
 
 .selectBox {

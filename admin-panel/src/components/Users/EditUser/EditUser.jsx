@@ -12,13 +12,34 @@ function EditUser() {
     const { isDarkMode } = useTheme();
     const {userId} = useParams();
 
-    const [user, setUser] = useState(store.state.selectedUser);
+    const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+
+    const [name, setName] = useState('')
+    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const [website, setWebsite] = useState('')
+    const [phone, setPhone] = useState('')
+    const [zipcode, setZipcode] = useState('')
+    const [city, setCity] = useState('')
+    const [street, setStreet] = useState('')
+    const [companyName, setCompanyName] = useState('')
+    const [catchPhrase, setCatchPhrase] = useState('')
 
     useEffect(() => {
         async function fetchData() {
-            await store.fetchUser(userId);
-            setUser(store.state.selectedUser);
+            await store.fetchUser(userId)
+            setUser(store.state.selectedUser)
+            setName(store.state.selectedUser.name)
+            setUsername(store.state.selectedUser.username)
+            setEmail(store.state.selectedUser.email)
+            setWebsite(store.state.selectedUser.website)
+            setPhone(store.state.selectedUser.phone)
+            setZipcode(store.state.selectedUser.address.zipcode)
+            setCity(store.state.selectedUser.address.city)
+            setStreet(store.state.selectedUser.address.street)
+            setCompanyName(store.state.selectedUser.company.name)
+            setCatchPhrase(store.state.selectedUser.company.catchPhrase)
             setLoading(false);
         }
 
@@ -48,105 +69,145 @@ function EditUser() {
                         </div>
                         <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Редактировать пользователя</h2>
                         <section className={styles.inpContainer}>
-                            <InputLabel
-                                label="ФИО"
-                                id="fio"
-                                value={user.name}
-                                type="text"
-                                name="fio"
-                                placeholder="Введите данные"
-                            />
+                            <div className={styles.inputBox}>
+                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                       htmlFor="nameComp"> фио
+                                </label>
+                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                       id="nameComp"
+                                       name="nameComp"
+                                       type="text"
+                                       placeholder="Введите данные"
+                                       value={user.name}
+                                />
+                            </div>
 
-                            <InputLabel
-                                label="никнейм (eng)"
-                                id="login"
-                                value={user.username}
-                                type="text"
-                                name="login"
-                                placeholder="Введите данные"
-                            />
+                            <div className={styles.inputBox}>
+                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                       htmlFor="nameComp"> никнейм (eng)
+                                </label>
+                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                       id="nameComp"
+                                       name="nameComp"
+                                       type="text"
+                                       placeholder="Введите данные"
+                                       value={user.username}
+                                />
+                            </div>
                         </section>
 
                         <section className={styles.inpContainer}>
-                            <InputLabel
-                                label="e-mail"
-                                id="e-mail"
-                                value={user.email}
-                                type="text"
-                                name="email"
-                                placeholder="Введите данные"
-                            />
+                            <div className={styles.inputBox}>
+                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                       htmlFor="nameComp"> e-mail
+                                </label>
+                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                       id="nameComp"
+                                       name="nameComp"
+                                       type="text"
+                                       placeholder="Введите данные"
+                                       value={user.email}
+                                />
+                            </div>
 
-                            <InputLabel
-                                label="веб-сайт"
-                                id="site"
-                                value={user.website}
-                                type="text"
-                                name="site"
-                                placeholder="Введите данные"
-                            />
+                            <div className={styles.inputBox}>
+                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                       htmlFor="nameComp"> веб-сайт
+                                </label>
+                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                       id="nameComp"
+                                       name="nameComp"
+                                       type="text"
+                                       placeholder="Введите данные"
+                                       value={user.website}
+                                />
+                            </div>
                         </section>
 
-                        <InputLabel
-                            label="телефон"
-                            id="phone"
-                            value={user.phone}
-                            type="tel"
-                            name="phone"
-                            placeholder="Введите данные"
-                        />
+                        <div className={styles.inputBox}>
+                            <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                   htmlFor="nameComp"> телефон
+                            </label>
+                            <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                   id="nameComp"
+                                   name="nameComp"
+                                   type="text"
+                                   placeholder="Введите данные"
+                                   value={user.phone}
+                            />
+                        </div>
 
                         <p className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>Адрес</p>
 
                         <section className={styles.inpContainer}>
-                            <InputLabel
-                                label="индекс"
-                                id="index"
-                                value={user.address.zipcode}
-                                type="text"
-                                name="index"
-                                placeholder="Введите данные"
-                            />
+                            <div className={styles.inputBox}>
+                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                       htmlFor="nameComp"> индекс
+                                </label>
+                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                       id="nameComp"
+                                       name="nameComp"
+                                       type="text"
+                                       placeholder="Введите данные"
+                                       value={user.address.zipcode}
+                                />
+                            </div>
 
-                            <InputLabel
-                                label="город"
-                                id="city"
-                                value={user.address.city}
-                                type="text"
-                                name="city"
-                                placeholder="Введите данные"
-                            />
+                            <div className={styles.inputBox}>
+                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                       htmlFor="nameComp"> город
+                                </label>
+                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                       id="nameComp"
+                                       name="nameComp"
+                                       type="text"
+                                       placeholder="Введите данные"
+                                       value={user.address.city}
+                                />
+                            </div>
                         </section>
 
-                        <InputLabel
-                            label="улица"
-                            id="street"
-                            value={user.address.street}
-                            type="text"
-                            name="street"
-                            placeholder="Введите данные"
-                        />
+                        <div className={styles.inputBox}>
+                            <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                   htmlFor="nameComp"> улица
+                            </label>
+                            <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                   id="nameComp"
+                                   name="nameComp"
+                                   type="text"
+                                   placeholder="Введите данные"
+                                   value={user.address.street}
+                            />
+                        </div>
 
                         <p className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>Компания</p>
 
                         <section className={styles.inpContainer}>
-                            <InputLabel
-                                label="название"
-                                id="nameComp"
-                                value={user.company.name}
-                                type="text"
-                                name="nameComp"
-                                placeholder="Введите данные"
-                            />
+                            <div className={styles.inputBox}>
+                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                       htmlFor="nameComp"> название
+                                </label>
+                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                       id="nameComp"
+                                       name="nameComp"
+                                       type="text"
+                                       placeholder="Введите данные"
+                                       value={user.company.name}
+                                />
+                            </div>
 
-                            <InputLabel
-                                label="описание"
-                                id="descriptionComp"
-                                value={user.company.catchPhrase}
-                                type="text"
-                                name="descriptionComp"
-                                placeholder="Введите данные"
-                            />
+                            <div className={styles.inputBox}>
+                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                       htmlFor="nameComp"> описание
+                                </label>
+                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                       id="nameComp"
+                                       name="nameComp"
+                                       type="text"
+                                       placeholder="Введите данные"
+                                       value={user.company.catchPhrase}
+                                />
+                            </div>
                         </section>
 
                         <button type="submit" className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>сохранить изменения >>></button>

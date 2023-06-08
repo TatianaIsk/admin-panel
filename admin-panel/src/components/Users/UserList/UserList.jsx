@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useReducer} from "react";
 import './UserList.scss'
 
 import thIcon from '../../../assets/icon-mainUsers.png'
@@ -20,11 +20,14 @@ const UserList = () => {
     const {isDarkMode} = useTheme();
     const [searchName, setSearchName] = useState('');
 
+    const filteredUsers = users.filter(user =>
+        user.name.toLowerCase().includes(searchName.toLowerCase()));
+
     const handleSearch = (event) => {
         setSearchName(event.target.value);
-    }
+    };
 
-    const filteredUsers = users.filter(user => user.name.toLowerCase().includes(searchName.toLowerCase()));
+    console.log(users)
 
     useEffect(() => {
         async function fetchData() {
@@ -35,6 +38,15 @@ const UserList = () => {
 
         fetchData();
     }, []);
+
+    useEffect(() => {
+        const unsubscribe = store.onStateChange(state => {
+            setUsers(state.users);
+        });
+        setLoading(false);
+        return unsubscribe;
+    }, []);
+
 
     const [currentPage, setCurrentPage] = useState(1);
     const [usersPerPage] = useState(24);
@@ -51,7 +63,6 @@ const UserList = () => {
     }
 
     const [selectedUserId, setSelectedUserId] = useState(null);
-
 
     const toggleMenu = (userId) => {
         setIsMenuOpen(!isMenuOpen);

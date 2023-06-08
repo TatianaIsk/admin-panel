@@ -42,7 +42,7 @@ const CreateTask = () => {
                     <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                            htmlFor="user"> пользователь
                     </label>
-                    <select className={styles.selectCreate}
+                    <select className={`${styles.selectCreate} ${isDarkMode ? styles.selectCreateDark : ''}`}
                             id="user"
                             name="user"
                             value=""
@@ -59,7 +59,7 @@ const CreateTask = () => {
                     <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                            htmlFor="task"> задача
                     </label>
-                    <input className={styles.inputCreate}
+                    <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
                            id="task"
                            name="task"
                            type="text"
@@ -73,9 +73,9 @@ const CreateTask = () => {
                     <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
                            htmlFor="status"> статус выполнения
                     </label>
-                    <select className={styles.selectCreate}
-                            id="status"
-                            name="status"
+                    <select className={`${styles.selectCreate} ${isDarkMode ? styles.selectCreateDark : ''}`}
+                            id="user"
+                            name="user"
                             value=""
                             onChange=""
                     >
