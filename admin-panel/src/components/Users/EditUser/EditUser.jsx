@@ -50,6 +50,19 @@ function EditUser() {
         return <div>Пользователь не найден</div>;
     }
 
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const userData = { name, username, email, website, phone, zipcode, city, street, companyName, catchPhrase };
+        try {
+            await store.updateUser(userId, userData);
+            console.log('Данные успешно изменены');
+            console.log(userData)
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+
     return (
         <div>
             {loading ? (
@@ -58,7 +71,7 @@ function EditUser() {
                 <>
                     <Header/>
                     <Menu/>
-                    <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
+                    <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`} onSubmit={handleSubmit}>
                         <div className={styles.panel}>
                             <a className={styles.panelLink} href="/users"> назад</a>
                             <div className={styles.panelRight}>
@@ -78,7 +91,8 @@ function EditUser() {
                                        name="nameComp"
                                        type="text"
                                        placeholder="Введите данные"
-                                       value={user.name}
+                                       value={name}
+                                       onChange={(event) => setName(event.target.value)}
                                 />
                             </div>
 
@@ -91,7 +105,8 @@ function EditUser() {
                                        name="nameComp"
                                        type="text"
                                        placeholder="Введите данные"
-                                       value={user.username}
+                                       value={username}
+                                       onChange={(event) => setUsername(event.target.value)}
                                 />
                             </div>
                         </section>
@@ -106,7 +121,8 @@ function EditUser() {
                                        name="nameComp"
                                        type="text"
                                        placeholder="Введите данные"
-                                       value={user.email}
+                                       value={email}
+                                       onChange={(event) => setEmail(event.target.value)}
                                 />
                             </div>
 
@@ -119,7 +135,8 @@ function EditUser() {
                                        name="nameComp"
                                        type="text"
                                        placeholder="Введите данные"
-                                       value={user.website}
+                                       value={website}
+                                       onChange={(event) => setWebsite(event.target.value)}
                                 />
                             </div>
                         </section>
@@ -133,7 +150,8 @@ function EditUser() {
                                    name="nameComp"
                                    type="text"
                                    placeholder="Введите данные"
-                                   value={user.phone}
+                                   value={phone}
+                                   onChange={(event) => setPhone(event.target.value)}
                             />
                         </div>
 
@@ -149,7 +167,8 @@ function EditUser() {
                                        name="nameComp"
                                        type="text"
                                        placeholder="Введите данные"
-                                       value={user.address.zipcode}
+                                       value={zipcode}
+                                       onChange={(event) => setZipcode(event.target.value)}
                                 />
                             </div>
 
@@ -162,7 +181,8 @@ function EditUser() {
                                        name="nameComp"
                                        type="text"
                                        placeholder="Введите данные"
-                                       value={user.address.city}
+                                       value={city}
+                                       onChange={(event) => setCity(event.target.value)}
                                 />
                             </div>
                         </section>
@@ -176,7 +196,8 @@ function EditUser() {
                                    name="nameComp"
                                    type="text"
                                    placeholder="Введите данные"
-                                   value={user.address.street}
+                                   value={street}
+                                   onChange={(event) => setStreet(event.target.value)}
                             />
                         </div>
 
@@ -192,7 +213,8 @@ function EditUser() {
                                        name="nameComp"
                                        type="text"
                                        placeholder="Введите данные"
-                                       value={user.company.name}
+                                       value={companyName}
+                                       onChange={(event) => setCompanyName(event.target.value)}
                                 />
                             </div>
 
@@ -205,12 +227,14 @@ function EditUser() {
                                        name="nameComp"
                                        type="text"
                                        placeholder="Введите данные"
-                                       value={user.company.catchPhrase}
+                                       value={catchPhrase}
+                                       onChange={(event) => setCatchPhrase(event.target.value)}
                                 />
                             </div>
                         </section>
 
-                        <button type="submit" className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>сохранить изменения >>></button>
+                        <button onClick={handleSubmit} className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>сохранить изменения >>></button>
+
                     </div>
                 </>
             )}

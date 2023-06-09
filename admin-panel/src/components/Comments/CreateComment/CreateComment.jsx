@@ -4,10 +4,11 @@ import Header from "../../Header/Header.jsx";
 import Menu from "../../Menu/Menu.jsx";
 import React, {useEffect, useState} from "react";
 import store from "../../../store.jsx";
+import {useNavigate} from "react-router-dom";
+import axios from "axios";
 const CreateComment = () => {
     const { isDarkMode } = useTheme();
     const [posts, setPosts] = useState([])
-    const [selectedPost, setSelectedPost] = useState("");
 
     useEffect(() => {
         async function fetchData() {
@@ -18,11 +19,38 @@ const CreateComment = () => {
         fetchData();
     }, []);
 
+    const navigate = useNavigate();
+    const [formValues, setFormValues] = useState({
+        post: '',
+        title: '',
+        textComment: ''
+    });
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormValues((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const response = await axios.post('https://jsonplaceholder.typicode.com/comments', formValues);
+            store.state.comments.push(response.data);
+            navigate('/comments');
+            console.log(response.data)
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     return (
         <>
             <Header/>
             <Menu/>
-            <div className={`wrapper ${isDarkMode ? "wrapperDark" : ""}`}>
+            <div className={`wrapper ${isDarkMode ? "wrapperDark" : ""}`} onSubmit={handleSubmit}>
                 <div className={styles.panel}>
                     <a className={styles.panelLink} href="/users"> назад</a>
                     <div className={styles.panelRight}>
@@ -35,14 +63,14 @@ const CreateComment = () => {
                 <section className={styles.inpContainer}>
                     <div className={styles.selectBox}>
                         <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                               htmlFor="user"> пост
+                               htmlFor="post"> пост
                         </label>
                         <select
                             className={`${styles.selectCreate} ${isDarkMode ? styles.selectCreateDark : ''}`}
-                            id="user"
-                            name="user"
-                            value={selectedPost}
-                            onChange={(e) => setSelectedPost(e.target.value)}
+                            id="post"
+                            name="post"
+                            value={formValues.post}
+                            onChange={handleInputChange}
                         >
                             <option className={styles.optionFirst} value="">Выберите пост</option>
                             {posts
@@ -59,19 +87,26 @@ const CreateComment = () => {
 
                     <div className={styles.inputBox}>
                         <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                               htmlFor="username"> заголовок
+                               htmlFor="title"> заголовок
                         </label>
                         <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
-                               id="username"
-                               name="username"
+                               id="title"
+                               name="title"
                                type="text"
+                               value={formValues.title}
                                placeholder="Введите данные"
+                               onChange={handleInputChange}
                         />
                     </div>
                 </section>
                 <p className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>Текст комментария</p>
-                <textarea placeholder="Enter text here" className={`${styles.textArea} ${isDarkMode ? styles.textAreaDark : ''}`}/>
-                <button className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>создать >>></button>
+                <textarea placeholder="Enter text here"
+                          className={`${styles.textArea} ${isDarkMode ? styles.textAreaDark : ''}`}
+                          name="textComment"
+                          value={formValues.textComment}
+                          onChange={handleInputChange}
+                />
+                <button className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`} onClick={handleSubmit}>создать >>></button>
             </div>
         </>
     )

@@ -28,7 +28,6 @@ function App() {
                     <Route path="/users/edit/:userId" element={<EditUser/>}/>
                     <Route path="/todos" element={<TaskList/>}/>
                     <Route path="/todos/create" element={<CreateTask/>}/>
-                    <Route path="/picture" element={<Pictures/>}/>
                     <Route path="/posts" element={<PostList/>}/>
                     <Route path="/comments" element={<CommentsList/>}/>
                     <Route path="/comments/create" element={<CreateComment/>}/>

@@ -4,6 +4,8 @@ import Menu from "../../Menu/Menu.jsx";
 import React, {useEffect, useState} from "react";
 import store from "../../../store.jsx";
 import {useTheme} from "../../../ThemeContext.jsx";
+import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 const CreateTask = () => {
     const [todos, setTodos] = useState(store.state.todos)
@@ -26,11 +28,39 @@ const CreateTask = () => {
         fetchData();
     }, []);
 
+    const navigate = useNavigate();
+    const [formValues, setFormValues] = useState({
+        user: '',
+        task: '',
+        status: ''
+    });
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormValues((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const response = await axios.post('https://jsonplaceholder.typicode.com/todos', formValues);
+            store.state.todos.push(response.data);
+            navigate('/todos');
+            console.log(response.data)
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+
     return (
         <>
             <Header/>
             <Menu/>
-            <form className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
+            <form className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`} onSubmit={handleSubmit}>
                 <div className={styles.panel}>
                     <a className={styles.panelLink} href="/todos"> назад</a>
                     <div className={styles.panelRight}>
@@ -45,8 +75,8 @@ const CreateTask = () => {
                     <select className={`${styles.selectCreate} ${isDarkMode ? styles.selectCreateDark : ''}`}
                             id="user"
                             name="user"
-                            value=""
-                            onChange=""
+                            value={formValues.user}
+                            onChange={handleInputChange}
                     >
                         <option className={styles.optionFirst} value="" defaultValue>Выберите пользователя</option>
                         {users.map((user) => (
@@ -63,8 +93,8 @@ const CreateTask = () => {
                            id="task"
                            name="task"
                            type="text"
-                           value=""
-                           onChange=""
+                           value={formValues.task}
+                           onChange={handleInputChange}
                            placeholder="Введите данные"
                     />
                 </div>
@@ -74,10 +104,10 @@ const CreateTask = () => {
                            htmlFor="status"> статус выполнения
                     </label>
                     <select className={`${styles.selectCreate} ${isDarkMode ? styles.selectCreateDark : ''}`}
-                            id="user"
-                            name="user"
-                            value=""
-                            onChange=""
+                            id="status"
+                            name="status"
+                            value={formValues.status}
+                            onChange={handleInputChange}
                     >
                         <option className={styles.optionFirst} value="" defaultValue>Выберите статус выполения</option>
                         {statusList.map((status, index) => (
@@ -86,7 +116,7 @@ const CreateTask = () => {
                     </select>
                 </div>
 
-                <button className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>создать >>></button>
+                <button onClick={handleSubmit} className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>создать >>></button>
             </form>
         </>
     )
