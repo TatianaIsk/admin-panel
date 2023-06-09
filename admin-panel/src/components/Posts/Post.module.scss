@@ -53,16 +53,16 @@ h4, h5, p {
   margin-right: 30px;
 }
 
-.btnComment {
+.btnView {
   margin-right: 10px;
-  background-image: url("../../assets/icon-comment.png");
+  background-image: url("../../assets/view-post-icon.png");
   background-color: #F3F2F2;
   width: 23px;
   height: 23px;
   background-size: cover;
   border: none;
-  &.btnCommentDark {
-    background-image: url("../../assets/darkAssets/icon-comment-dark.png");
+  &.btnViewDark {
+    background-image: url("../../assets/darkAssets/view-post-icon-dark.png");
     background-color: #191919;
   }
 }

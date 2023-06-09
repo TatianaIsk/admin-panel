@@ -13,7 +13,8 @@ import CreateTask from "./components/Tasks/CreateTask/CreateTask.jsx";
 import PostList from "./components/Posts/PostList/PostList.jsx";
 import CommentsList from "./components/Comments/CommentsList/CommentsList.jsx";
 import CreateComment from "./components/Comments/CreateComment/CreateComment.jsx";
-import AlbumList from "./components/AlbumList/AlbumList.jsx";
+import AlbumList from "./components/Albums/AlbumList/AlbumList.jsx";
+import PostView from "./components/Posts/PostView/PostView.jsx";
 
 function App() {
     return (
@@ -30,6 +31,7 @@ function App() {
                     <Route path="/todos/create" element={<CreateTask/>}/>
                     <Route path="/albums" element={<AlbumList/>}/>
                     <Route path="/posts" element={<PostList/>}/>
+                    <Route path="/posts/view/:postId" element={<PostView/>}/>
                     <Route path="/comments" element={<CommentsList/>}/>
                     <Route path="/comments/create" element={<CreateComment/>}/>
                     <Route path="*" element={<Error/>}/>

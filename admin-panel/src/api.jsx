@@ -61,3 +61,8 @@ export const getAlbums = async () => {
     const response = await axios.get(`${BASE_URL}/albums`)
     return response.data
 }
+
+export const getAlbumById = async (id) => {
+    const response = await axios.get(`${BASE_URL}/albums/${id}`)
+    return response.data
+}

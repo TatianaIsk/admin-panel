@@ -1,12 +1,12 @@
-import Header from "../Header/Header.jsx";
-import Menu from "../Menu/Menu.jsx";
-import {useTheme} from "../../ThemeContext.jsx";
+import Header from "../../Header/Header.jsx";
+import Menu from "../../Menu/Menu.jsx";
+import {useTheme} from "../../../ThemeContext.jsx";
 import React, {useEffect, useState} from "react";
-import store from "../../store.jsx";
-import Album from "../Albums/Album.jsx";
-import Loader from "../Loading/Loading.jsx";
-import styles from "../Tasks/TaskList/TaskList.module.scss";
-import Pagination from "../Pagination/Pagination.jsx";
+import store from "../../../store.jsx";
+import Album from "../Album.jsx";
+import Loader from "../../Loading/Loading.jsx";
+import styles from "../../Tasks/TaskList/TaskList.module.scss";
+import Pagination from "../../Pagination/Pagination.jsx";
 
 const AlbumList = () => {
     const {isDarkMode} = useTheme();

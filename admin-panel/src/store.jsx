@@ -7,7 +7,7 @@ import {
     getTodos,
     getPosts,
     getComments,
-    getAlbums
+    getAlbums, getPostById
 } from './api'
 
 const store = {
@@ -90,6 +90,15 @@ const store = {
         }
     },
 
+    async fetchPost(postId) {
+        try {
+            const post = await getPostById(postId)
+            this.state.selectedPost = post
+        } catch (error) {
+            console.error(error)
+        }
+    },
+
     async fetchComments() {
         try {
             const comments = await getComments()
@@ -128,6 +137,7 @@ const store = {
             console.error(error)
         }
     },
+
 }
 
 export default store;
