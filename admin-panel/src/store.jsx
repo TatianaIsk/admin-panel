@@ -1,4 +1,14 @@
-import {getUsers, getUserById, createUser, updateUser, deleteUser, getTodos, getPosts, getComments} from './api'
+import {
+    getUsers,
+    getUserById,
+    createUser,
+    updateUser,
+    deleteUser,
+    getTodos,
+    getPosts,
+    getComments,
+    getAlbums
+} from './api'
 
 const store = {
     state: {
@@ -10,6 +20,8 @@ const store = {
         selectedPost: null,
         comments: [],
         selectedComment: null,
+        albums: [],
+        selectedAlbums: null
     },
     listeners: [],
 
@@ -106,6 +118,15 @@ const store = {
         this.listeners.forEach(listener => {
             listener(this.state);
         });
+    },
+
+    async fetchAlbums() {
+        try {
+            const albums = await getAlbums()
+            this.state.albums = albums
+        } catch (error) {
+            console.error(error)
+        }
     },
 }
 

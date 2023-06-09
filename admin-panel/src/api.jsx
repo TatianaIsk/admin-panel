@@ -56,3 +56,8 @@ export const getCommentId = async () => {
     const response = await axios.get(`${BASE_URL}/comments/${id}`)
     return response.data
 }
+
+export const getAlbums = async () => {
+    const response = await axios.get(`${BASE_URL}/albums`)
+    return response.data
+}

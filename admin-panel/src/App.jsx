@@ -10,10 +10,10 @@ import UserView from "./components/Users/UserView/UserView.jsx"
 import EditUser from "./components/Users/EditUser/EditUser.jsx"
 import TaskList from "./components/Tasks/TaskList/TaskList.jsx";
 import CreateTask from "./components/Tasks/CreateTask/CreateTask.jsx";
-import Pictures from "./components/Pictures/Pictures.jsx";
 import PostList from "./components/Posts/PostList/PostList.jsx";
 import CommentsList from "./components/Comments/CommentsList/CommentsList.jsx";
 import CreateComment from "./components/Comments/CreateComment/CreateComment.jsx";
+import AlbumList from "./components/AlbumList/AlbumList.jsx";
 
 function App() {
     return (
@@ -28,6 +28,7 @@ function App() {
                     <Route path="/users/edit/:userId" element={<EditUser/>}/>
                     <Route path="/todos" element={<TaskList/>}/>
                     <Route path="/todos/create" element={<CreateTask/>}/>
+                    <Route path="/albums" element={<AlbumList/>}/>
                     <Route path="/posts" element={<PostList/>}/>
                     <Route path="/comments" element={<CommentsList/>}/>
                     <Route path="/comments/create" element={<CreateComment/>}/>
