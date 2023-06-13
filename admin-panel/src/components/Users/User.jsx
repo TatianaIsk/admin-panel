@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import icon from './../../assets/icon-users.png';
 import Dropdown from '..//Users/Dropdown/Dropdown.jsx';
 import {useTheme} from "../../ThemeContext.jsx";
 import iconDark from './../../assets/darkAssets/icon-close-dark-th.png'
 
-const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, currentPage}) => {
+
+const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, currentPage, toggleDeleteModal}) => {
     const { isDarkMode } = useTheme();
 
     const formatAddress = (address) => {
@@ -31,6 +32,7 @@ const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, curre
                             toEdit={`/users/edit/${user.id}`}
                             selectedUserId={selectedUserId}
                             isMenuOpen={isMenuOpen}
+                            toggleDeleteModal={() => toggleDeleteModal(user.id)}
                         />
                     </td>
                 </tr>

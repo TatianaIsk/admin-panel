@@ -1,0 +1,36 @@
+.modalWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.title {
+  font-family: 'Furore', sans-serif;
+  font-size: 21px;
+  margin-bottom: 30px;
+}
+
+.subtitle {
+  font-family: 'Jost', sans-serif;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.btn {
+  width: 90px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 3px solid #191919;
+  background-color: #f3f2f2;
+  border-radius: 4px;
+  font-family: 'Furore', sans-serif;
+  font-size: 15px;
+  color: #191919;
+}

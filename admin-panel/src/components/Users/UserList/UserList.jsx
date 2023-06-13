@@ -12,6 +12,7 @@ import store from "../../../store.jsx";
 import Pagination from "../../Pagination/Pagination.jsx";
 import Loader from "../../Loading/Loading.jsx";
 import {useTheme} from "../../../ThemeContext.jsx";
+import ModalDelete from "../../Modal/ModalDelete.jsx";
 
 
 const UserList = () => {
@@ -64,9 +65,36 @@ const UserList = () => {
 
     const [selectedUserId, setSelectedUserId] = useState(null);
 
+    const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
+    const [userIdToDelete, setUserIdToDelete] = useState(null);
+
     const toggleMenu = (userId) => {
-        setIsMenuOpen(!isMenuOpen);
-        setSelectedUserId(userId);
+        if (selectedUserId === userId) {
+            setIsMenuOpen(!isMenuOpen);
+        } else {
+            setSelectedUserId(userId);
+            setIsMenuOpen(true);
+        }
+    };
+
+    const toggleDeleteModal = (userId) => {
+        setUserIdToDelete(userId);
+        setIsOpenDeleteModal(true);
+    };
+
+    const handleCloseDeleteModal = () => {
+        setIsOpenDeleteModal(false);
+    };
+
+    const handleDeleteUser = async () => {
+        try {
+            await store.deleteUser(userIdToDelete);
+            setUsers((prevState) => prevState.filter((user) => user.id !== userIdToDelete));
+            console.log('Пользователь удален');
+        } catch (error) {
+            console.error(error);
+        }
+        setIsOpenDeleteModal(false);
     };
 
     const renderUsers = () => {
@@ -83,9 +111,7 @@ const UserList = () => {
                 selectedUserId={selectedUserId}
                 isMenuOpen={isMenuOpen}
                 toggleMenu={toggleMenu}
-                formatAddress={formatAddress}
-                usersPerPage={usersPerPage}
-                currentPage={currentPage}
+                toggleDeleteModal={toggleDeleteModal}
             />
         ));
     };
@@ -163,7 +189,13 @@ const UserList = () => {
                                 {renderUsers()}
                                 </tbody>
                             </table>
-                        </div>
+                            {isOpenDeleteModal && (
+                                <ModalDelete
+                                    isOpen={isOpenDeleteModal}
+                                    onClose={handleCloseDeleteModal}
+                                    onDelete={handleDeleteUser}
+                                />)}
+                    </div>
                         <div className="paginationCount">
                             <Pagination users={users} usersPerPage={usersPerPage} setCurrentPage={setCurrentPage}
                                         currentPage={currentPage}/>
