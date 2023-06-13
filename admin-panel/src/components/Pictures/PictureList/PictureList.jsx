@@ -3,15 +3,15 @@ import Menu from "../../Menu/Menu.jsx";
 import {useTheme} from "../../../ThemeContext.jsx";
 import React, {useEffect, useState} from "react";
 import store from "../../../store.jsx";
-import Album from "../Album.jsx";
 import Loader from "../../Loading/Loading.jsx";
 import styles from "../../Tasks/TaskList/TaskList.module.scss";
 import Pagination from "../../Pagination/Pagination.jsx";
+import Picture from "../Picture.jsx";
 
 const PictureList = () => {
     const {isDarkMode} = useTheme();
     const [albums, setAlbums] = useState(store.state.albums)
-    const [users, setUsers] = useState(store.state.users)
+    const [pictures, setPictures] = useState(store.state.pictures)
     const [loading, setLoading] = useState(true)
     const [searchQuery, setSearchQuery] = useState("")
 
@@ -19,47 +19,49 @@ const PictureList = () => {
         async function fetchData() {
             await store.fetchAlbums();
             setAlbums(store.state.albums);
-            await store.fetchUsers();
-            setUsers(store.state.users);
+            await store.fetchPictures();
+            setPictures(store.state.pictures);
             setLoading(false);
         }
 
         fetchData();
     }, []);
 
-    const findUsername = (userId) => {
-        const user = users.find((user) => user.id === userId);
-        return user ? user.name : "";
+    const findAlbum = (albumId) => {
+        const album = albums !== undefined ? albums.find((album) => album.id === albumId) : null;
+        return album ? album.title : "";
     };
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [albumsPerPage] = useState(24)
+    const [picturesPerPage] = useState(24)
 
-    const indexOfLastAlbum = currentPage * albumsPerPage
-    const indexOfFirstAlbum = indexOfLastAlbum - albumsPerPage
-    const currentAlbums = albums.slice(indexOfFirstAlbum, indexOfLastAlbum)
+    const indexOfLastPicture = currentPage * picturesPerPage
+    const indexOfFirstPicture = indexOfLastPicture - picturesPerPage
+    const currentPictures = pictures.slice(indexOfFirstPicture, indexOfLastPicture)
 
-    const filterAlbums = () => {
-        let filteredAlbums = albums;
+    const filterPicture = () => {
+        let filteredPictures = pictures;
 
         if (searchQuery.trim() !== "") {
-            filteredAlbums = filteredAlbums.filter(album => album.title.toLowerCase().includes(searchQuery.trim().toLowerCase()));
+            filteredPictures = filteredPictures.filter(picture => picture.title.toLowerCase().includes(searchQuery.trim().toLowerCase()));
         }
 
-        return filteredAlbums;
+        return filteredPictures;
     };
 
-    const renderAlbums = () => {
-        const filteredAlbums = filterAlbums();
-        if (filteredAlbums.length === 0) {
-            return <tr>
-                <td className="errorMess" colSpan="3">Записи не найдены</td>
-            </tr>
+    const renderPictures = () => {
+        const filteredPictures = filterPicture();
+        if (filteredPictures.length === 0) {
+            return (
+                <tr>
+                    <td className="errorMess" colSpan="3">Записи не найдены</td>
+                </tr>
+            );
         }
 
-        return filteredAlbums.slice(indexOfFirstAlbum, indexOfLastAlbum).map((album) => {
-            return <Album key={album.id} album={album} username={findUsername(album.userId)}/>
-        })
+        return currentPictures.map((picture) => {
+            return <Picture key={picture.id} picture={picture} album={findAlbum(picture.albumId)}/>;
+        });
     };
 
     return (
@@ -74,7 +76,7 @@ const PictureList = () => {
                         <div className="searhcing">
                             <label className={`titleUser ${isDarkMode ? 'titleUserDark' : ''}`}
                                    htmlFor="searchAlbums">
-                                альбомы
+                                картинки
                             </label>
                             <input
                                 type="text"
@@ -94,17 +96,21 @@ const PictureList = () => {
                                         <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
                                     </th>
                                     <th className="thTask">
-                                        пользователь
+                                        Альбом
                                         <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
                                     </th>
                                     <th className="thTask">
-                                        заголовок
+                                        Заголовок
+                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                    </th>
+                                    <th className="thTask">
+                                        Картинка
                                         <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {renderAlbums()}
+                                {renderPictures()}
                                 </tbody>
                             </table>
                         </div>
@@ -112,9 +118,9 @@ const PictureList = () => {
                             <a href="/todos/create"
                                className={`${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`}>Создать
                                 >>></a>
-                            <Pagination users={albums} usersPerPage={albumsPerPage} setCurrentPage={setCurrentPage}
+                            <Pagination users={pictures} usersPerPage={picturesPerPage} setCurrentPage={setCurrentPage}
                                         currentPage={currentPage}/>
-                            <p className="countRows">Строк на странице: {currentAlbums.length}</p>
+                            <p className="countRows">Строк на странице: {currentPictures.length}</p>
                         </div>
                     </div>
                 </div>

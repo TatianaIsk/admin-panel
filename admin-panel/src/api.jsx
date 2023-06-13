@@ -68,11 +68,16 @@ export const getAlbumById = async (id) => {
 }
 
 export const getPictures = async () => {
-    const response = await axios.get(`${BASE_URL}/pictures`)
+    const response = await axios.get(`${BASE_URL}/photos`)
     return response.data
 }
 
 export const getPictureById = async (id) => {
-    const response = await axios.get(`${BASE_URL}/pictures/${id}`)
+    const response = await axios.get(`${BASE_URL}/photos/${id}`)
+    return response.data
+}
+
+export const updatePicture = async (id, userData) => {
+    const response = await axios.put(`${BASE_URL}/photos/${id}`, userData)
     return response.data
 }

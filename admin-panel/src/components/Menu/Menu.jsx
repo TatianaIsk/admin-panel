@@ -67,7 +67,7 @@ function Menu() {
                         {graphic && (
                             <div className={styles.miniMenu}>
                                 <ul>
-                                    <a href="/picture" className={styles.comment}>Картинки</a>
+                                    <a href="/pictures" className={styles.comment}>Картинки</a>
                                     <a href="/albums" className={styles.comment}>Альбомы</a>
                                 </ul>
                             </div>

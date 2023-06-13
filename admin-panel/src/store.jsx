@@ -149,7 +149,7 @@ const store = {
         }
     },
 
-    async fetchAPictures() {
+    async fetchPictures() {
         try {
             const pictures = await getPictures()
             this.state.pictures = pictures
@@ -162,6 +162,16 @@ const store = {
         try {
             const picture = await getPictureById(pictureId)
             this.state.selectedPictures = picture
+        } catch (error) {
+            console.error(error)
+        }
+    },
+
+    async updatePicture(pictureId, pictureData) {
+        try {
+            const updatedPicture = await updateUser(pictureId, pictureData)
+            const index = this.state.pictures.findIndex((picture) => picture.id === updatedPicture.id)
+            this.state.pictures.splice(index, 1, updatedPicture)
         } catch (error) {
             console.error(error)
         }

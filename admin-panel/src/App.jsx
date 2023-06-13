@@ -17,6 +17,7 @@ import AlbumList from "./components/Albums/AlbumList/AlbumList.jsx";
 import PostView from "./components/Posts/PostView/PostView.jsx";
 import AlbumView from "./components/Albums/AlbumView/AlbumView.jsx";
 import EditPicture from "./components/Pictures/EditPicture/EditPicture.jsx";
+import PictureList from "./components/Pictures/PictureList/PictureList.jsx";
 
 function App() {
     return (
@@ -33,7 +34,7 @@ function App() {
                     <Route path="/todos/create" element={<CreateTask/>}/>
                     <Route path="/albums" element={<AlbumList/>}/>
                     <Route path="/albums/view/:albumId" element={<AlbumView/>}/>
-                    <Route path="/pictures" element={<PostList/>}/>
+                    <Route path="/pictures" element={<PictureList/>}/>
                     <Route path="/pictures/edit/:pictureId" element={<EditPicture/>}/>
                     <Route path="/posts" element={<PostList/>}/>
                     <Route path="/posts/view/:postId" element={<PostView/>}/>

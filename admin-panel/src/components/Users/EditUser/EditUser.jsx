@@ -3,7 +3,6 @@ import {Link, useParams} from "react-router-dom";
 import Header from "./../../Header/Header.jsx";
 import Menu from "./../../Menu/Menu.jsx";
 import styles from './EditUser.module.scss'
-import InputLabel from "../../InputLabel/InputLabel.jsx";
 import store from "../../../store.jsx";
 import Loader from "../../Loading/Loading.jsx";
 import {useTheme} from "../../../ThemeContext.jsx";
