@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import Header from "./../../Header/Header.jsx";
 import Menu from "./../../Menu/Menu.jsx";
 import styles from './EditPicture.module.scss'
@@ -64,11 +64,9 @@ function EditPicture() {
                     <Menu/>
                     <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`} onSubmit={handleSubmit}>
                         <div className={styles.panel}>
-                            <a className={styles.panelLink} href="/users"> назад</a>
+                            <a className={styles.panelLink} href="/pictures"> назад</a>
                             <div className={styles.panelRight}>
-                                <Link className={styles.panelLink} to={`/users/view/${picture.id}`}>просмотр</Link>
-                                <a className={styles.panelLink} href="">список</a>
-                                <a className={styles.panelLink} href="">удалить пользователя</a>
+                                <a className={styles.panelLink} href="/pictures">список</a>
                             </div>
                         </div>
                         <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Редактировать изображение</h2>
