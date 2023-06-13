@@ -74,7 +74,7 @@ const AlbumList = () => {
                         <div className="searhcing">
                             <label className={`titleUser ${isDarkMode ? 'titleUserDark' : ''}`}
                                    htmlFor="searchAlbums">
-                                задания
+                                альбомы
                             </label>
                             <input
                                 type="text"

@@ -7,7 +7,7 @@ import {
     getTodos,
     getPosts,
     getComments,
-    getAlbums, getPostById
+    getAlbums, getPostById, getAlbumById, getPictures, getPictureById
 } from './api'
 
 const store = {
@@ -21,7 +21,9 @@ const store = {
         comments: [],
         selectedComment: null,
         albums: [],
-        selectedAlbums: null
+        selectedAlbums: null,
+        pictures: [],
+        selectedPictures: null
     },
     listeners: [],
 
@@ -133,6 +135,33 @@ const store = {
         try {
             const albums = await getAlbums()
             this.state.albums = albums
+        } catch (error) {
+            console.error(error)
+        }
+    },
+
+    async fetchAlbum(albumId) {
+        try {
+            const album = await getAlbumById(albumId)
+            this.state.selectedAlbums = album
+        } catch (error) {
+            console.error(error)
+        }
+    },
+
+    async fetchAPictures() {
+        try {
+            const pictures = await getPictures()
+            this.state.pictures = pictures
+        } catch (error) {
+            console.error(error)
+        }
+    },
+
+    async fetchPicture(pictureId) {
+        try {
+            const picture = await getPictureById(pictureId)
+            this.state.selectedPictures = picture
         } catch (error) {
             console.error(error)
         }

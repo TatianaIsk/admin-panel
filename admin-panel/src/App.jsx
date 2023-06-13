@@ -15,6 +15,8 @@ import CommentsList from "./components/Comments/CommentsList/CommentsList.jsx";
 import CreateComment from "./components/Comments/CreateComment/CreateComment.jsx";
 import AlbumList from "./components/Albums/AlbumList/AlbumList.jsx";
 import PostView from "./components/Posts/PostView/PostView.jsx";
+import AlbumView from "./components/Albums/AlbumView/AlbumView.jsx";
+import EditPicture from "./components/Pictures/EditPicture/EditPicture.jsx";
 
 function App() {
     return (
@@ -30,6 +32,9 @@ function App() {
                     <Route path="/todos" element={<TaskList/>}/>
                     <Route path="/todos/create" element={<CreateTask/>}/>
                     <Route path="/albums" element={<AlbumList/>}/>
+                    <Route path="/albums/view/:albumId" element={<AlbumView/>}/>
+                    <Route path="/pictures" element={<PostList/>}/>
+                    <Route path="/pictures/edit/:pictureId" element={<EditPicture/>}/>
                     <Route path="/posts" element={<PostList/>}/>
                     <Route path="/posts/view/:postId" element={<PostView/>}/>
                     <Route path="/comments" element={<CommentsList/>}/>

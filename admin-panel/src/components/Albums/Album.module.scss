@@ -10,3 +10,17 @@
     color: #D2D0D0;
   }
 }
+
+.btn {
+  font-size: 14px;
+  font-family: 'Furore', sans-serif;
+  background: #F3F2F2;
+  color: #BCB8B8;
+  border: 1px solid #BCB8B8;
+  padding: 6px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  &.btnDark {
+    background-color: #191919;
+  }
+}

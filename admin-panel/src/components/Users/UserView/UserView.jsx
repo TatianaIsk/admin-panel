@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import Header from "./../../Header/Header.jsx";
 import Menu from "./../../Menu/Menu.jsx";
 import styles from './UserView.module.scss'
@@ -8,7 +8,7 @@ import Loader from "../../Loading/Loading.jsx";
 import {useTheme} from "../../../ThemeContext.jsx";
 
 function UserView() {
-    const { isDarkMode } = useTheme();
+    const {isDarkMode} = useTheme();
     const {userId} = useParams();
 
     const [user, setUser] = useState(store.state.selectedUser);
@@ -40,22 +40,31 @@ function UserView() {
                         <div className={styles.panel}>
                             <a className={styles.panelLink} href="/users"> назад</a>
                             <div className={styles.panelRight}>
-                                <a className={styles.panelLink} href="">редактировать</a>
-                                <a className={styles.panelLink} href="/users">список</a>
-                                <a className={styles.panelLink} href="">удалить пользователя</a>
+                                <Link to={`/users/edit/${user.id}`}
+                                      className={styles.panelLink} href="">
+                                    редактировать
+                                </Link>
+                                <Link to={`/users`}
+                                      className={styles.panelLink}>
+                                    список
+                                </Link>
+                                <Link to={`/users/delete/${user.id}`}
+                                      className={styles.panelLink}>
+                                    удалить пользователя
+                                </Link>
                             </div>
                         </div>
-                        <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Просмотр пользователя</h2>
+                        <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Просмотр
+                            пользователя</h2>
                         <div>
-                            <button className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
+                            <Link to={`/posts/view/${user.id}`}
+                                  className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
                                 посты
-                            </button>
-                            <button className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
+                            </Link>
+                            <Link to={`/albums/view/${user.id}`}
+                                  className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
                                 альбомы
-                            </button>
-                            <button className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
-                                задачи
-                            </button>
+                            </Link>
                             <button className={`${styles.btnCard} ${isDarkMode ? styles.btnCardDark : ''}`}>
                                 сгенерировать карту компетенций >>>
                             </button>
