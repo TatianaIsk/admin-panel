@@ -107,7 +107,7 @@ function TaskList() {
                             </label>
                             <input
                                 type="text"
-                                className={`searchUser ${isDarkMode ? 'searchUserDark' : ''}`}
+                                className={`${styles.searchTask} ${isDarkMode ? styles.searchTaskDark : ''}`}
                                 id="searchUser"
                                 placeholder="Поиск"
                                 value={searchQuery}
@@ -123,7 +123,7 @@ function TaskList() {
                                     <option key={user.id}>{user.name}</option>
                                 ))}
                             </select>
-                            <select className={`${styles.selectTask} ${isDarkMode ? styles.selectTaskDark : ''}`}
+                            <select className={`${styles.selectTodos} ${isDarkMode ? styles.selectTodosDark : ''}`}
                                     onChange={(e) => setSelectedStatus(e.target.value)}
                             >
                                 <option className={styles.optionTask} value="" defaultValue>статус</option>
@@ -159,13 +159,15 @@ function TaskList() {
                                 </tbody>
                             </table>
                         </div>
-                        <div className="paginationCount">
+                        <div className={styles.paginateBlock}>
                             <a href="/todos/create"
                                className={`${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`}>Создать
                                 >>></a>
-                            <Pagination users={todos} usersPerPage={todosPerPage} setCurrentPage={setCurrentPage}
-                                        currentPage={currentPage}/>
-                            <p className="countRows">Строк на странице: {currentTodos.length}</p>
+                            <div className={styles.pagination}>
+                                <Pagination users={todos} usersPerPage={todosPerPage} setCurrentPage={setCurrentPage}
+                                            currentPage={currentPage}/>
+                            </div>
+                            <p className={styles.countRows}>Строк на странице: {currentTodos.length}</p>
                         </div>
                     </div>
                 </div>

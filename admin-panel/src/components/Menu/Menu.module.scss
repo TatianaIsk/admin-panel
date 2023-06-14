@@ -194,6 +194,8 @@ button {
   align-items: center;
 }
 
+
+
 @media screen and (max-width: 425px) {
 
   .wrapper {
@@ -204,6 +206,21 @@ button {
     display: flex;
     flex-direction: column;
     background-color: #F3F2F2;
+    top: 70px;
+    width: 80px;
+    height: 400px;
+    border: 1px solid #D2D0D0;
+    position: absolute;
+    z-index: 100;
+    padding: 50px 40px;
+    left: 400px;
+    text-decoration: none;
+  }
+
+  .menuDark {
+    display: flex;
+    flex-direction: column;
+    background-color: #191919;
     top: 70px;
     width: 80px;
     height: 400px;
@@ -251,6 +268,18 @@ button {
     left: 400px;
   }
 
+  .btnDark {
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    margin: 0;
+    background-image: url("../../assets/darkAssets/navigation-menu-dark.png");
+    background-size: cover;
+    border: none;
+    top: 20px;
+    left: 400px;
+  }
+
   .btnClose {
     position: absolute;
     width: 160px;
@@ -262,4 +291,36 @@ button {
     top: 20px;
     left: 400px;
   }
+
+  .btnCloseDark {
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    margin: 0;
+    background-image: url("../../assets/darkAssets/navigation-menu-dark.png");
+    background-size: cover;
+    border: none;
+    top: 20px;
+    left: 400px;
+  }
+
+  .column {
+    position: absolute;
+    top: 120px;
+    width: 58px;
+    height: 100%;
+    border: 1px solid #D2D0D0;
+    z-index: 0;
+  }
+
+  .columnDark {
+    position: absolute;
+    top: 120px;
+    width: 58px;
+    height: 100%;
+    border: 1px solid #FFFFFF;
+    background: #191919;
+    z-index: 0;
+  }
+
 }

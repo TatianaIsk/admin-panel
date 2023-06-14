@@ -8,7 +8,7 @@ import Loader from "../../Loading/Loading.jsx";
 import {useTheme} from "../../../ThemeContext.jsx";
 
 function EditUser() {
-    const { isDarkMode } = useTheme();
+    const {isDarkMode} = useTheme();
     const {userId} = useParams();
 
     const [user, setUser] = useState(null);
@@ -50,10 +50,9 @@ function EditUser() {
     }
 
 
-
     async function handleSubmit(event) {
         event.preventDefault();
-        const userData = { name, username, email, website, phone, zipcode, city, street, companyName, catchPhrase };
+        const userData = {name, username, email, website, phone, zipcode, city, street, companyName, catchPhrase};
         try {
             await store.updateUser(userId, userData);
             console.log('Данные успешно изменены');
@@ -74,168 +73,189 @@ function EditUser() {
                     <Menu/>
                     <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`} onSubmit={handleSubmit}>
                         <div className={styles.panel}>
-                            <a className={styles.panelLink} href="/users"> назад</a>
+                            <a className={styles.panelBack} href="/users"> назад</a>
                             <div className={styles.panelRight}>
                                 <Link className={styles.panelLink} to={`/users/view/${user.id}`}>просмотр</Link>
                                 <a className={styles.panelLink} href="">список</a>
                                 <a className={styles.panelLink} href="">удалить пользователя</a>
                             </div>
                         </div>
-                        <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Редактировать пользователя</h2>
-                        <section className={styles.inpContainer}>
+                        <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Редактировать
+                            пользователя</h2>
+                        <div className={styles.blocks}>
+                            <section className={styles.inpContainer}>
+                                <div className={styles.inputBox}>
+                                    <label
+                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                        htmlFor="nameComp"> фио
+                                    </label>
+                                    <input
+                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        id="nameComp"
+                                        name="nameComp"
+                                        type="text"
+                                        placeholder="Введите данные"
+                                        value={name}
+                                        onChange={(event) => setName(event.target.value)}
+                                    />
+                                </div>
+
+                                <div className={styles.inputBox}>
+                                    <label
+                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                        htmlFor="nameComp"> никнейм (eng)
+                                    </label>
+                                    <input
+                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        id="nameComp"
+                                        name="nameComp"
+                                        type="text"
+                                        placeholder="Введите данные"
+                                        value={username}
+                                        onChange={(event) => setUsername(event.target.value)}
+                                    />
+                                </div>
+                            </section>
+
+                            <section className={styles.inpContainer}>
+                                <div className={styles.inputBox}>
+                                    <label
+                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                        htmlFor="nameComp"> e-mail
+                                    </label>
+                                    <input
+                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        id="nameComp"
+                                        name="nameComp"
+                                        type="text"
+                                        placeholder="Введите данные"
+                                        value={email}
+                                        onChange={(event) => setEmail(event.target.value)}
+                                    />
+                                </div>
+
+                                <div className={styles.inputBox}>
+                                    <label
+                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                        htmlFor="nameComp"> веб-сайт
+                                    </label>
+                                    <input
+                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        id="nameComp"
+                                        name="nameComp"
+                                        type="text"
+                                        placeholder="Введите данные"
+                                        value={website}
+                                        onChange={(event) => setWebsite(event.target.value)}
+                                    />
+                                </div>
+                            </section>
+
                             <div className={styles.inputBox}>
                                 <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                       htmlFor="nameComp"> фио
+                                       htmlFor="nameComp"> телефон
                                 </label>
                                 <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
                                        id="nameComp"
                                        name="nameComp"
                                        type="text"
                                        placeholder="Введите данные"
-                                       value={name}
-                                       onChange={(event) => setName(event.target.value)}
+                                       value={phone}
+                                       onChange={(event) => setPhone(event.target.value)}
                                 />
                             </div>
 
+                            <p className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>Адрес</p>
+
+                            <section className={styles.inpContainer}>
+                                <div className={styles.inputBox}>
+                                    <label
+                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                        htmlFor="nameComp"> индекс
+                                    </label>
+                                    <input
+                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        id="nameComp"
+                                        name="nameComp"
+                                        type="text"
+                                        placeholder="Введите данные"
+                                        value={zipcode}
+                                        onChange={(event) => setZipcode(event.target.value)}
+                                    />
+                                </div>
+
+                                <div className={styles.inputBox}>
+                                    <label
+                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                        htmlFor="nameComp"> город
+                                    </label>
+                                    <input
+                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        id="nameComp"
+                                        name="nameComp"
+                                        type="text"
+                                        placeholder="Введите данные"
+                                        value={city}
+                                        onChange={(event) => setCity(event.target.value)}
+                                    />
+                                </div>
+                            </section>
+
                             <div className={styles.inputBox}>
                                 <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                       htmlFor="nameComp"> никнейм (eng)
+                                       htmlFor="nameComp"> улица
                                 </label>
                                 <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
                                        id="nameComp"
                                        name="nameComp"
                                        type="text"
                                        placeholder="Введите данные"
-                                       value={username}
-                                       onChange={(event) => setUsername(event.target.value)}
-                                />
-                            </div>
-                        </section>
-
-                        <section className={styles.inpContainer}>
-                            <div className={styles.inputBox}>
-                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                       htmlFor="nameComp"> e-mail
-                                </label>
-                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
-                                       id="nameComp"
-                                       name="nameComp"
-                                       type="text"
-                                       placeholder="Введите данные"
-                                       value={email}
-                                       onChange={(event) => setEmail(event.target.value)}
+                                       value={street}
+                                       onChange={(event) => setStreet(event.target.value)}
                                 />
                             </div>
 
-                            <div className={styles.inputBox}>
-                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                       htmlFor="nameComp"> веб-сайт
-                                </label>
-                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
-                                       id="nameComp"
-                                       name="nameComp"
-                                       type="text"
-                                       placeholder="Введите данные"
-                                       value={website}
-                                       onChange={(event) => setWebsite(event.target.value)}
-                                />
-                            </div>
-                        </section>
+                            <p className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>Компания</p>
 
-                        <div className={styles.inputBox}>
-                            <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                   htmlFor="nameComp"> телефон
-                            </label>
-                            <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
-                                   id="nameComp"
-                                   name="nameComp"
-                                   type="text"
-                                   placeholder="Введите данные"
-                                   value={phone}
-                                   onChange={(event) => setPhone(event.target.value)}
-                            />
+                            <section className={styles.inpContainer}>
+                                <div className={styles.inputBox}>
+                                    <label
+                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                        htmlFor="nameComp"> название
+                                    </label>
+                                    <input
+                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        id="nameComp"
+                                        name="nameComp"
+                                        type="text"
+                                        placeholder="Введите данные"
+                                        value={companyName}
+                                        onChange={(event) => setCompanyName(event.target.value)}
+                                    />
+                                </div>
+
+                                <div className={styles.inputBox}>
+                                    <label
+                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                        htmlFor="nameComp"> описание
+                                    </label>
+                                    <input
+                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        id="nameComp"
+                                        name="nameComp"
+                                        type="text"
+                                        placeholder="Введите данные"
+                                        value={catchPhrase}
+                                        onChange={(event) => setCatchPhrase(event.target.value)}
+                                    />
+                                </div>
+                            </section>
+
+                            <button onClick={handleSubmit}
+                                    className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>сохранить
+                                изменения >>>
+                            </button>
                         </div>
-
-                        <p className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>Адрес</p>
-
-                        <section className={styles.inpContainer}>
-                            <div className={styles.inputBox}>
-                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                       htmlFor="nameComp"> индекс
-                                </label>
-                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
-                                       id="nameComp"
-                                       name="nameComp"
-                                       type="text"
-                                       placeholder="Введите данные"
-                                       value={zipcode}
-                                       onChange={(event) => setZipcode(event.target.value)}
-                                />
-                            </div>
-
-                            <div className={styles.inputBox}>
-                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                       htmlFor="nameComp"> город
-                                </label>
-                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
-                                       id="nameComp"
-                                       name="nameComp"
-                                       type="text"
-                                       placeholder="Введите данные"
-                                       value={city}
-                                       onChange={(event) => setCity(event.target.value)}
-                                />
-                            </div>
-                        </section>
-
-                        <div className={styles.inputBox}>
-                            <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                   htmlFor="nameComp"> улица
-                            </label>
-                            <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
-                                   id="nameComp"
-                                   name="nameComp"
-                                   type="text"
-                                   placeholder="Введите данные"
-                                   value={street}
-                                   onChange={(event) => setStreet(event.target.value)}
-                            />
-                        </div>
-
-                        <p className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>Компания</p>
-
-                        <section className={styles.inpContainer}>
-                            <div className={styles.inputBox}>
-                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                       htmlFor="nameComp"> название
-                                </label>
-                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
-                                       id="nameComp"
-                                       name="nameComp"
-                                       type="text"
-                                       placeholder="Введите данные"
-                                       value={companyName}
-                                       onChange={(event) => setCompanyName(event.target.value)}
-                                />
-                            </div>
-
-                            <div className={styles.inputBox}>
-                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                       htmlFor="nameComp"> описание
-                                </label>
-                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
-                                       id="nameComp"
-                                       name="nameComp"
-                                       type="text"
-                                       placeholder="Введите данные"
-                                       value={catchPhrase}
-                                       onChange={(event) => setCatchPhrase(event.target.value)}
-                                />
-                            </div>
-                        </section>
-
-                        <button onClick={handleSubmit} className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>сохранить изменения >>></button>
-
                     </div>
                 </>
             )}

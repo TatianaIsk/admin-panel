@@ -38,7 +38,7 @@ function UserView() {
                     <Menu/>
                     <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
                         <div className={styles.panel}>
-                            <a className={styles.panelLink} href="/users"> назад</a>
+                            <a className={styles.panelBack} href="/users"> назад</a>
                             <div className={styles.panelRight}>
                                 <Link to={`/users/edit/${user.id}`}
                                       className={styles.panelLink} href="">
@@ -56,7 +56,7 @@ function UserView() {
                         </div>
                         <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Просмотр
                             пользователя</h2>
-                        <div>
+                        <div className={styles.btns}>
                             <Link to={`/posts/view/${user.id}`}
                                   className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
                                 посты

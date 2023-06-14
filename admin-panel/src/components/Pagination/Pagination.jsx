@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Pagination.scss';
-import {useTheme} from "../../ThemeContext.jsx";
+import { useTheme } from '../../ThemeContext';
 
-const Pagination = ({users, usersPerPage, setCurrentPage, currentPage}) => {
+const Pagination = ({ users, usersPerPage, setCurrentPage, currentPage }) => {
     const { isDarkMode } = useTheme();
+    const [showCurrentPage, setShowCurrentPage] = useState(false);
+
     const renderPagination = () => {
         const visiblePages = 5;
         const pageNumbers = [];
@@ -16,16 +18,31 @@ const Pagination = ({users, usersPerPage, setCurrentPage, currentPage}) => {
             endPage = pageNumbers.length;
             startPage = endPage - visiblePages;
         }
-        const firstPage = currentPage > Math.floor(visiblePages / 2) && pageNumbers.length > visiblePages ? (
-            <button key={1} className={`pageItem${currentPage === 1 ? ' active' : ''} ${isDarkMode ? 'pageItemDark' : ''}`}>
-                <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(1)}>1</button>
-            </button>
-        ) : null;
-        const lastPage = currentPage < pageNumbers.length - Math.floor(visiblePages / 2) && pageNumbers.length > visiblePages ? (
-            <button key={pageNumbers.length} className={`pageItem${currentPage === pageNumbers.length ? ' active' : ''} ${isDarkMode ? 'pageItemDark' : ''}`}>
-                <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(pageNumbers.length)}>{pageNumbers.length}</button>
-            </button>
-        ) : null;
+        const firstPage =
+            currentPage > Math.floor(visiblePages / 2) && pageNumbers.length > visiblePages ? (
+                <button
+                    key={1}
+                    className={`pageItem ${currentPage === 1 ? 'active' : ''} ${isDarkMode ? 'pageItemDark' : ''}`}
+                >
+                    <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(1)}>
+                        1
+                    </button>
+                </button>
+            ) : null;
+        const lastPage =
+            currentPage < pageNumbers.length - Math.floor(visiblePages / 2) && pageNumbers.length > visiblePages ? (
+                <button
+                    key={pageNumbers.length}
+                    className={`pageItem ${currentPage === pageNumbers.length ? 'active' : ''} ${isDarkMode ? 'pageItemDark' : ''}`}
+                >
+                    <button
+                        className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`}
+                        onClick={() => setCurrentPage(pageNumbers.length)}
+                    >
+                        {pageNumbers.length}
+                    </button>
+                </button>
+            ) : null;
         return (
             <nav>
                 <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(currentPage - 1)}>
@@ -33,23 +50,31 @@ const Pagination = ({users, usersPerPage, setCurrentPage, currentPage}) => {
                 </button>
                 {firstPage}
                 {startPage > 0 && pageNumbers.length > visiblePages ? (
-                    <button key={`ellipsis-start`} className={`pageItem ${isDarkMode ? 'pageItemDark' : ''}`}>
-                        <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(startPage - 1)}>&hellip;</button>
+                    <button key="ellipsis-start" className={`pageItem ${isDarkMode ? 'pageItemDark' : ''}`}>
+                        <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(startPage - 1)}>
+                            &hellip;
+                        </button>
                     </button>
                 ) : null}
                 {pageNumbers.slice(startPage, endPage).map((number) => (
                     <button
                         key={number}
-                        className={`pageItem${number === currentPage ? ' active' : ''} ${isDarkMode ? 'pageItemDark' : ''}`}
+                        className={`pageItem ${number === currentPage ? 'active' : ''} ${isDarkMode ? 'pageItemDark' : ''}`}
+                        onClick={() => {
+                            setCurrentPage(number);
+                            setShowCurrentPage(true);
+                            setTimeout(() => setShowCurrentPage(false), 3000);
+                        }}
+                        className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`}
                     >
-                        <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(number)}>
-                            {number}
-                        </button>
+                        {number === currentPage ? 'Текущая страница' : number}
                     </button>
                 ))}
                 {endPage < pageNumbers.length && pageNumbers.length > visiblePages ? (
-                    <button key={`ellipsis-end`} className={`pageItem ${isDarkMode ? 'pageItemDark' : ''}`}>
-                        <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(endPage + 1)}>&hellip;</button>
+                    <button key="ellipsis-end" className={`pageItem ${isDarkMode ? 'pageItemDark' : ''}`}>
+                        <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(endPage + 1)}>
+                            &hellip;
+                        </button>
                     </button>
                 ) : null}
                 {lastPage}
@@ -60,7 +85,12 @@ const Pagination = ({users, usersPerPage, setCurrentPage, currentPage}) => {
         );
     };
 
-    return <div className="pagination">{renderPagination()}</div>;
+    return (
+        <div className="pagination">
+            {renderPagination()}
+            {showCurrentPage && <div className="currentPage">Текущая страница: {currentPage}</div>}
+        </div>
+    );
 };
 
 export default Pagination;
