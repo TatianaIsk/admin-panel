@@ -7,10 +7,10 @@ export const getUsers = async () => {
     return response.data
 }
 
-export const getUserById = async (id) => {
-    const response = await axios.get(`${BASE_URL}/users/${id}`)
-    return response.data
-}
+export const getUserById = async (username) => {
+    const response = await axios.get(`${BASE_URL}/users?username=${username}`);
+    return response.data[0];
+};
 
 export const createUser = async (userData) => {
     const response = await axios.post(`${BASE_URL}/users`, userData)
@@ -62,8 +62,8 @@ export const getAlbums = async () => {
     return response.data
 }
 
-export const getAlbumById = async (id) => {
-    const response = await axios.get(`${BASE_URL}/albums/${id}`)
+export const getAlbumById = async (title) => {
+    const response = await axios.get(`${BASE_URL}/albums?title=${title}`)
     return response.data
 }
 

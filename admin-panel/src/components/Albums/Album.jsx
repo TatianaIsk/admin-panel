@@ -11,7 +11,7 @@ const Album = ({ album, username }) => {
             <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>{username}</td>
             <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>{album.title}</td>
             <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
-                <Link to={`/albums/view/${album.id}`} className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>Просмотр</Link>
+                <Link to={`/albums/view/${album.title}`} className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>Просмотр</Link>
             </td>
         </tr>
     )

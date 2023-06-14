@@ -9,13 +9,13 @@ import {useTheme} from "../../../ThemeContext.jsx";
 
 function EditUser() {
     const {isDarkMode} = useTheme();
-    const {userId} = useParams();
+    const { username } = useParams();
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
     const [name, setName] = useState('')
-    const [username, setUsername] = useState('')
+    const [usernames, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [website, setWebsite] = useState('')
     const [phone, setPhone] = useState('')
@@ -27,7 +27,7 @@ function EditUser() {
 
     useEffect(() => {
         async function fetchData() {
-            await store.fetchUser(userId)
+            await store.fetchUser(username)
             setUser(store.state.selectedUser)
             setName(store.state.selectedUser.name)
             setUsername(store.state.selectedUser.username)
@@ -43,7 +43,7 @@ function EditUser() {
         }
 
         fetchData();
-    }, [userId]);
+    }, [username]);
 
     if (!user) {
         return <div>Пользователь не найден</div>;
@@ -111,7 +111,7 @@ function EditUser() {
                                         name="nameComp"
                                         type="text"
                                         placeholder="Введите данные"
-                                        value={username}
+                                        value={usernames}
                                         onChange={(event) => setUsername(event.target.value)}
                                     />
                                 </div>

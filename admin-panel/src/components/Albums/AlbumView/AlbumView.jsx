@@ -10,15 +10,15 @@ import {a} from "react-spring";
 
 function AlbumView() {
     const { isDarkMode } = useTheme();
-    const {albumId} = useParams();
+    const {title} = useParams();
 
-    const [album, setAlbum] = useState(store.state.selectedAlbums);
+    const [album, setAlbum] = useState(null);
     const [loading, setLoading] = useState(true);
     const [users, setUsers] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
-            await store.fetchAlbum(albumId);
+            await store.fetchAlbum(title);
             setAlbum(store.state.selectedAlbums);
             setLoading(false);
             await store.fetchUsers();
@@ -26,7 +26,7 @@ function AlbumView() {
         }
 
         fetchData();
-    }, [albumId]);
+    }, [title]);
 
     const findUsername = (userId) => {
         const user = users && users.find((user) => user.id === userId);

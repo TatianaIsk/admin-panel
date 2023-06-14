@@ -9,20 +9,20 @@ import {useTheme} from "../../../ThemeContext.jsx";
 
 function UserView() {
     const {isDarkMode} = useTheme();
-    const {userId} = useParams();
+    const { username } = useParams();
 
     const [user, setUser] = useState(store.state.selectedUser);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function fetchData() {
-            await store.fetchUser(userId);
+            await store.fetchUser(username);
             setUser(store.state.selectedUser);
             setLoading(false);
         }
 
         fetchData();
-    }, [userId]);
+    }, [username]);
 
     if (!user) {
         return <div>Пользователь не найден</div>;
