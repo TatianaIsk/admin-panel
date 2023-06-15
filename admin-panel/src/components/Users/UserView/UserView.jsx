@@ -12,6 +12,8 @@ function UserView() {
     const { username } = useParams();
 
     const [user, setUser] = useState(store.state.selectedUser);
+    const [posts, setPosts] = useState(null)
+    const [albums, setAlbums] = useState(null)
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -19,10 +21,26 @@ function UserView() {
             await store.fetchUser(username);
             setUser(store.state.selectedUser);
             setLoading(false);
+
+            await store.fetchPosts()
+            setPosts(store.state.posts)
+
+            await store.fetchAlbums()
+            setAlbums(store.state.albums)
         }
 
         fetchData();
     }, [username]);
+
+    const findPostTitle = (postId) => {
+        const post = posts && posts.find((post) => post.id === postId)
+        return post ? post.title : ""
+    }
+
+    const findAlbumTitle = (albumId) => {
+        const album = albums && albums.find((album) => album.id === albumId)
+        return album ? album.title : ""
+    }
 
     if (!user) {
         return <div>Пользователь не найден</div>;
@@ -57,11 +75,11 @@ function UserView() {
                         <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Просмотр
                             пользователя</h2>
                         <div className={styles.btns}>
-                            <Link to={`/posts/view/${user.id}`}
+                            <Link to={`/posts/view/${findPostTitle(user.id)}`}
                                   className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
                                 посты
                             </Link>
-                            <Link to={`/albums/view/${user.id}`}
+                            <Link to={`/albums/view/${findAlbumTitle(user.id)}`}
                                   className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
                                 альбомы
                             </Link>

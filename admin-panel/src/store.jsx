@@ -140,9 +140,9 @@ const store = {
         }
     },
 
-    async fetchAlbum(title) {
+    async fetchAlbum(albumTitle) {
         try {
-            const album = await getAlbumById(title)
+            const album = await getAlbumById(albumTitle)
             this.state.selectedAlbums = album
         } catch (error) {
             console.error(error)

@@ -9,28 +9,43 @@ import {useTheme} from "../../../ThemeContext.jsx";
 
 function PostView() {
     const {isDarkMode} = useTheme();
-    const {postId} = useParams();
+    const {postTitle} = useParams();
 
-    const [post, setPost] = useState(store.state.selectedUser);
+    const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(true);
     const [users, setUsers] = useState(null);
+    const [albums, setAlbums] = useState(null)
 
     useEffect(() => {
         async function fetchData() {
-            await store.fetchPost(postId);
+            await store.fetchPost(postTitle);
             setPost(store.state.selectedPost);
             setLoading(false);
+
             await store.fetchUsers();
             setUsers(store.state.users);
+
+            await store.fetchAlbums()
+            setAlbums(store.state.albums)
         }
 
         fetchData();
-    }, [postId]);
+    }, [postTitle]);
 
     const findUsername = (userId) => {
-        const user = users && users.find((user) => user.id === userId);
-        return user ? user.name : "";
-    };
+        const user = users && users.find((user) => user.id === userId)
+        return user ? user.name : ""
+    }
+
+    const findUserUsername = (userId) => {
+        const user = users && users.find((user) => user.id === userId)
+        return user ? user.username : ""
+    }
+
+    const findAlbumTitle = (albumId) => {
+        const album = albums && albums.find((album) => album.id === albumId)
+        return album ? album.title : ""
+    }
 
     if (!post) {
         return <div>Пользователь не найден</div>;
@@ -53,11 +68,10 @@ function PostView() {
                         </div>
                         <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Просмотр поста</h2>
                         <div>
-                            <Link to={`/users/view/${post.id}`}
-                                  className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
+                            <Link to={`/users/view/${findUserUsername(post?.userId)}`} className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
                                 пользователи
                             </Link>
-                            <Link to={`/albums/view/${post.id}`}
+                            <Link to={`/albums/view/${findAlbumTitle(post?.id)}`}
                                   className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
                                 альбомы
                             </Link>

@@ -11,7 +11,7 @@ const Post = ({ post, findUsername }) => {
             <h5 className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>{post.title}</h5>
             <p className={`${styles.text} ${isDarkMode ? styles.textDark : ''}`}>{post.body}</p>
             <div className={styles.btns}>
-                <Link to={`/posts/view/${post.id}`} className={`${styles.btnView} ${isDarkMode ? styles.btnViewDark : ''}`}/>
+                <Link to={`/posts/view/${post.title}`} className={`${styles.btnView} ${isDarkMode ? styles.btnViewDark : ''}`}/>
                 <a href='/comments/create' className={`${styles.btnWrite} ${isDarkMode ? styles.btnWriteDark : ''}`}/>
             </div>
         </div>

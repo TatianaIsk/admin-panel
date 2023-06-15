@@ -42,10 +42,10 @@ export const getPosts = async () => {
     return response.data
 }
 
-export const getPostById = async (id) => {
-    const response = await axios.get(`${BASE_URL}/posts/${id}`)
-    return response.data
-}
+export const getPostById = async (postTitle) => {
+    const response = await axios.get(`${BASE_URL}/posts?title=${postTitle}`);
+    return response.data[0];
+};
 
 export const getComments = async () => {
     const response = await axios.get(`${BASE_URL}/comments`)
@@ -62,10 +62,10 @@ export const getAlbums = async () => {
     return response.data
 }
 
-export const getAlbumById = async (title) => {
-    const response = await axios.get(`${BASE_URL}/albums?title=${title}`)
-    return response.data
-}
+export const getAlbumById = async (albumTitle) => {
+    const response = await axios.get(`${BASE_URL}/albums?title=${albumTitle}`);
+    return response.data[0];
+};
 
 export const getPictures = async () => {
     const response = await axios.get(`${BASE_URL}/photos`)

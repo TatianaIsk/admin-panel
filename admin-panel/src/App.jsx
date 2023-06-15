@@ -33,11 +33,11 @@ function App() {
                     <Route path="/todos" element={<TaskList/>}/>
                     <Route path="/todos/create" element={<CreateTask/>}/>
                     <Route path="/albums" element={<AlbumList/>}/>
-                    <Route path="/albums/view/:title" element={<AlbumView/>}/>
+                    <Route path="/albums/view/:albumTitle" element={<AlbumView />} />
                     <Route path="/pictures" element={<PictureList/>}/>
                     <Route path="/pictures/edit/:pictureId" element={<EditPicture/>}/>
                     <Route path="/posts" element={<PostList/>}/>
-                    <Route path="/posts/view/:postId" element={<PostView/>}/>
+                    <Route path="/posts/view/:postTitle" element={<PostView/>}/>
                     <Route path="/comments" element={<CommentsList/>}/>
                     <Route path="/comments/create" element={<CreateComment/>}/>
                     <Route path="*" element={<Error/>}/>
