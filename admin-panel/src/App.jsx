@@ -1,23 +1,23 @@
 import {BrowserRouter as Router, Route, Routes, Link} from "react-router-dom"
 import { ThemeProvider } from "./ThemeContext.jsx";
 
-import UserList from "./components/Users/UserList/UserList.jsx"
-import MainPage from "./components/MainPage/MainPage.jsx"
-import Error from "./components/Error/Error.jsx"
-import Login from "./components/Login/Login.jsx"
-import CreateUser from "./components/Users/CreateUser/CreateUser.jsx"
-import UserView from "./components/Users/UserView/UserView.jsx"
-import EditUser from "./components/Users/EditUser/EditUser.jsx"
-import TaskList from "./components/Tasks/TaskList/TaskList.jsx";
-import CreateTask from "./components/Tasks/CreateTask/CreateTask.jsx";
-import PostList from "./components/Posts/PostList/PostList.jsx";
-import CommentsList from "./components/Comments/CommentsList/CommentsList.jsx";
-import CreateComment from "./components/Comments/CreateComment/CreateComment.jsx";
-import AlbumList from "./components/Albums/AlbumList/AlbumList.jsx";
-import PostView from "./components/Posts/PostView/PostView.jsx";
-import AlbumView from "./components/Albums/AlbumView/AlbumView.jsx";
-import EditPicture from "./components/Pictures/EditPicture/EditPicture.jsx";
-import PictureList from "./components/Pictures/PictureList/PictureList.jsx";
+import UserList from "./components/features/Users/UserList/UserList.jsx"
+import MainPage from "./components/features/MainPage/MainPage.jsx"
+import Error from "./components/ui/Error/Error.jsx"
+import Login from "./components/features/Login/Login.jsx"
+import CreateUser from "./components/features/Users/CreateUser/CreateUser.jsx"
+import UserView from "./components/features/Users/UserView/UserView.jsx"
+import EditUser from "./components/features/Users/EditUser/EditUser.jsx"
+import TaskList from "./components/features/Tasks/TaskList/TaskList.jsx";
+import CreateTask from "./components/features/Tasks/CreateTask/CreateTask.jsx";
+import PostList from "./components/features/Posts/PostList/PostList.jsx";
+import CommentsList from "./components/features/Comments/CommentsList/CommentsList.jsx";
+import CreateComment from "./components/features/Comments/CreateComment/CreateComment.jsx";
+import AlbumList from "./components/features/Albums/AlbumList/AlbumList.jsx";
+import PostView from "./components/features/Posts/PostView/PostView.jsx";
+import AlbumView from "./components/features/Albums/AlbumView/AlbumView.jsx";
+import EditPicture from "./components/features/Pictures/EditPicture/EditPicture.jsx";
+import PictureList from "./components/features/Pictures/PictureList/PictureList.jsx";
 
 function App() {
     return (
