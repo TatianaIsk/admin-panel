@@ -12,7 +12,7 @@ const Picture = ({picture, album}) => {
             <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>{picture.title}</td>
             <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
                 <img className={`${styles.img} ${isDarkMode ? styles.imgDark : ''}`}
-                     src={picture.url} alt=''/>
+                     src={picture.thumbnailUrl} alt=''/>
             </td>
             <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
                 <Link to={`/pictures/edit/${picture.id}`}

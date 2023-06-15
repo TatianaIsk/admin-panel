@@ -11,6 +11,9 @@
   padding: 50px 40px;
 }
 
+.active {
+  border-bottom: 1px solid black;
+}
 
 .menuDark {
   display: flex;
@@ -195,6 +198,9 @@ button {
   align-items: center;
 }
 
+.activeDark {
+  border-bottom: 1px solid #d2d0d0;
+}
 
 
 @media screen and (max-width: 425px) {
@@ -251,6 +257,10 @@ button {
 
   .menu a {
     padding: 10px;
+  }
+
+  .menu .active {
+    color: #d2d0d0;
   }
 
   .miniMenu li {

@@ -76,7 +76,6 @@ function TaskList() {
         return filteredTodos;
     };
 
-
     const renderTodos = () => {
         const filteredTodos = filterTodos();
         if (filteredTodos.length === 0) {
