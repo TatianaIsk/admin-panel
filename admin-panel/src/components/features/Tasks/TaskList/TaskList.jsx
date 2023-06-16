@@ -167,9 +167,9 @@ function TaskList() {
                             </table>
                         </div>
                         <div className={styles.paginateBlock}>
-                            <a href="/todos/create"
+                            <Link to="/todos/create"
                                className={`${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`}>Создать
-                                >>></a>
+                                >>></Link>
                             <div className={styles.pagination}>
                                 <Pagination
                                     users={todos}

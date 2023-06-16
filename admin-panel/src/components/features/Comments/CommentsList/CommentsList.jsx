@@ -6,6 +6,7 @@ import styles from "./CommentsList.module.scss";
 import store from "../../../../store.jsx";
 import Comment from "../Comment.jsx";
 import Pagination from "../../../ui/Pagination/Pagination.jsx";
+import {Link} from "react-router-dom";
 
 const CommentsList = () => {
     const { isDarkMode } = useTheme();
@@ -106,11 +107,11 @@ const CommentsList = () => {
                                 </option>
                             ))}
                     </select>
-                    <a href='/comments/create' className={`${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`}>
+                    <Link to='/comments/create' className={`${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`}>
                         создать комментарий >>>
-                    </a>
+                    </Link>
                 </div>
-                <div  className="tableWrapper" style={{height: '700px', overflow: 'auto'}}>
+                <div className="tableWrapper" style={{height: '700px', overflow: 'auto'}}>
                     {renderComments()}
                 </div>
                 <div className="paginationCount">

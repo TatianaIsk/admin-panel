@@ -12,7 +12,7 @@ const Post = ({ post, findUsername }) => {
             <p className={`${styles.text} ${isDarkMode ? styles.textDark : ''}`}>{post.body}</p>
             <div className={styles.btns}>
                 <Link to={`/posts/view/${post.title}`} className={`${styles.btnView} ${isDarkMode ? styles.btnViewDark : ''}`}/>
-                <a href='/comments/create' className={`${styles.btnWrite} ${isDarkMode ? styles.btnWriteDark : ''}`}/>
+                <Link to='/comments/create' className={`${styles.btnWrite} ${isDarkMode ? styles.btnWriteDark : ''}`}/>
             </div>
         </div>
     );

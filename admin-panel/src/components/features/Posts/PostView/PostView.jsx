@@ -61,9 +61,9 @@ function PostView() {
                     <Menu/>
                     <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
                         <div className={styles.panel}>
-                            <a className={styles.panelLink} href="/posts"> назад</a>
+                            <Link className={styles.panelLink} to="/posts"> назад</Link>
                             <div className={styles.panelRight}>
-                                <a className={styles.panelLink} href="/posts">список</a>
+                                <Link className={styles.panelLink} to="/posts">список</Link>
                             </div>
                         </div>
                         <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Просмотр поста</h2>

@@ -4,7 +4,7 @@ import Menu from "../../../ui/Menu/Menu.jsx";
 
 import {useState} from "react";
 import {useTheme} from "../../../../ThemeContext.jsx";
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import store from "../../../../store.jsx";
 import axios from "axios";
 
@@ -57,11 +57,11 @@ const CreateUser = () => {
             <Menu/>
             <form className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`} onSubmit={handleSubmit}>
                 <div className={styles.panel}>
-                    <a className={styles.panelBack} href="/users"> назад</a>
+                    <Link className={styles.panelBack} to="/users"> назад</Link>
                     <div className={styles.panelRight}>
-                        <a className={styles.panelLink} href="">просмотр</a>
-                        <a className={styles.panelLink} href="">список</a>
-                        <a className={styles.panelLink} href="">удалить пользователя</a>
+                        <Link className={styles.panelLink} to="">просмотр</Link>
+                        <Link className={styles.panelLink} to="/users">список</Link>
+                        <Link className={styles.panelLink} to="">удалить пользователя</Link>
                     </div>
                 </div>
                 <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Создать пользователя</h2>

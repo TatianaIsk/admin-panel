@@ -73,11 +73,11 @@ function EditUser() {
                     <Menu/>
                     <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`} onSubmit={handleSubmit}>
                         <div className={styles.panel}>
-                            <a className={styles.panelBack} href="/users"> назад</a>
+                            <Link className={styles.panelBack} to="/users"> назад</Link>
                             <div className={styles.panelRight}>
                                 <Link className={styles.panelLink} to={`/users/view/${user.id}`}>просмотр</Link>
-                                <a className={styles.panelLink} href="">список</a>
-                                <a className={styles.panelLink} href="">удалить пользователя</a>
+                                <Link className={styles.panelLink} to="/users">список</Link>
+                                <Link className={styles.panelLink} to="">удалить пользователя</Link>
                             </div>
                         </div>
                         <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Редактировать

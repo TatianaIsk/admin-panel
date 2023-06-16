@@ -4,7 +4,7 @@ import Header from "../../../ui/Header/Header.jsx";
 import Menu from "../../../ui/Menu/Menu.jsx";
 import React, {useEffect, useState} from "react";
 import store from "../../../../store.jsx";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 const CreateComment = () => {
     const { isDarkMode } = useTheme();
@@ -65,12 +65,7 @@ const CreateComment = () => {
             <Menu/>
             <div className={`wrapper ${isDarkMode ? "wrapperDark" : ""}`} onSubmit={handleSubmit}>
                 <div className={styles.panel}>
-                    <a className={styles.panelLink} href="/users"> назад</a>
-                    <div className={styles.panelRight}>
-                        <a className={styles.panelLink} href="">просмотр</a>
-                        <a className={styles.panelLink} href="">список</a>
-                        <a className={styles.panelLink} href="">удалить пользователя</a>
-                    </div>
+                    <Link className={styles.panelLink} to="/comments"> назад</Link>
                 </div>
                 <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>создание комментария</h2>
                 <section className={styles.inpContainer}>

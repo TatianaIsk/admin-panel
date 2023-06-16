@@ -2,6 +2,7 @@ import style from './Login.module.scss'
 import Header from "../../ui/Header/Header.jsx";
 import {useTheme} from "../../../ThemeContext.jsx";
 import React, {useState} from "react";
+import {Link} from "react-router-dom";
 
 const Login = () => {
     const {isDarkMode} = useTheme();
@@ -64,9 +65,9 @@ const Login = () => {
                         />
                     </div>
 
-                    <button className={`${style.btnSub} ${isDarkMode ? style.btnSubDark : ''}`} onClick={handleLogin}>
+                    <Link className={`${style.btnSub} ${isDarkMode ? style.btnSubDark : ''}`} onClick={handleLogin} to="/">
                         Войти
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

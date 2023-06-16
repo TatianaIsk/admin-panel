@@ -56,7 +56,7 @@ function UserView() {
                     <Menu/>
                     <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
                         <div className={styles.panel}>
-                            <a className={styles.panelBack} href="/users"> назад</a>
+                            <Link className={styles.panelBack} to="/users"> назад</Link>
                             <div className={styles.panelRight}>
                                 <Link to={`/users/edit/${user.id}`}
                                       className={styles.panelLink} href="">

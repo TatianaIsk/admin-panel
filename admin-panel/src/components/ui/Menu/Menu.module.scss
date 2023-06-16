@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   background-color: #F3F2F2;
-  top: 120px;
-  width: 330px;
+  top: 100px;
+  width: 310px;
   height: 100%;
   border: 1px solid #D2D0D0;
   position: absolute;
@@ -75,8 +75,8 @@ button {
 }
 
 .btn {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   margin: 0;
   background-image: url("../../../assets/navigation-button-open.png");
   background-size: cover;
@@ -86,8 +86,8 @@ button {
 }
 
 .btnDark {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   margin: 0;
   background-image: url("../../../assets/darkAssets/navigation-button-open-dark.png");
   background-size: cover;
@@ -97,8 +97,8 @@ button {
 }
 
 .btnClose {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   margin: 0;
   background-image: url("../../../assets/navigation-button-close.png");
   background-size: cover;
@@ -106,8 +106,8 @@ button {
 }
 
 .btnCloseDark {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   margin: 0;
   background-image: url("../../../assets/darkAssets/navigation-button-close-dark.png");
   background-size: cover;
@@ -116,8 +116,8 @@ button {
 
 .column {
   position: absolute;
-  top: 120px;
-  width: 58px;
+  top: 100px;
+  width: 38px;
   height: 100%;
   border: 1px solid #D2D0D0;
   z-index: 0;

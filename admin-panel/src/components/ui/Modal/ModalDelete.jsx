@@ -15,7 +15,7 @@ const ModalDelete = ({ isOpen, onClose, onDelete }) => {
         },
         content: {
             width: '300px',
-            height: '180px',
+            maxHeight: '200px',
             textAlign: 'center',
             backgroundColor: isDarkMode ? '#191919' : '#f3f2f2',
             color: isDarkMode ? '#f3f2f2' : '#191919',

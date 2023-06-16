@@ -13,6 +13,7 @@ import Pagination from "../../../ui/Pagination/Pagination.jsx";
 import Loader from "../../../ui/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import ModalDelete from "../../../ui/Modal/ModalDelete.jsx";
+import {Link} from "react-router-dom";
 
 
 const UserList = () => {
@@ -58,10 +59,6 @@ const UserList = () => {
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
-
-    const formatAddress = (address) => {
-        return `${address.street}, ${address.city}, ${address.zipcode}`;
-    }
 
     const [selectedUserId, setSelectedUserId] = useState(null);
 
@@ -130,8 +127,8 @@ const UserList = () => {
                                    htmlFor="searchUser">
                                 пользователи
                             </label>
-                            <a href="/users/create" className={`btnCreate ${isDarkMode ? 'btnCreateDark' : ''}`}>Создать
-                                нового пользователя</a>
+                            <Link to="/users/create" className={`btnCreate ${isDarkMode ? 'btnCreateDark' : ''}`}>Создать
+                                нового пользователя</Link>
                             <input type="text"
                                    className={`searchUser ${isDarkMode ? 'searchUserDark' : ''}`}
                                    id="searchUser"

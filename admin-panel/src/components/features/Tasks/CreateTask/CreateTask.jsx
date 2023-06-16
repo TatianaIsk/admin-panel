@@ -4,7 +4,7 @@ import Menu from "../../../ui/Menu/Menu.jsx";
 import React, {useEffect, useState} from "react";
 import store from "../../../../store.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 
 const CreateTask = () => {
@@ -83,9 +83,9 @@ const CreateTask = () => {
             <Menu/>
             <form className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`} onSubmit={handleSubmit}>
                 <div className={styles.panel}>
-                    <a className={styles.panelLink} href="/todos"> назад</a>
+                    <Link className={styles.panelLink} to="/todos"> назад</Link>
                     <div className={styles.panelRight}>
-                        <a className={styles.panelLink} href="/todos">список</a>
+                        <Link className={styles.panelLink} to="/todos">список</Link>
                     </div>
                 </div>
                 <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Создать задачу</h2>
