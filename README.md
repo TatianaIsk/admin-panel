@@ -1,6 +1,7 @@
 Запуск приолжения в режиме отладки:
 1. cd admin-panel
-2. npm run dev
+2. npm i -D @types/node
+3. npm run dev
 
 Как собрать приложение:
 vite build

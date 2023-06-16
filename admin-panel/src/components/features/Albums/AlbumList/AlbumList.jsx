@@ -109,9 +109,6 @@ const AlbumList = () => {
                             </table>
                         </div>
                         <div className="paginationCount">
-                            <a href="/todos/create"
-                               className={`${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`}>Создать
-                                >>></a>
                             <Pagination users={albums} usersPerPage={albumsPerPage} setCurrentPage={setCurrentPage}
                                         currentPage={currentPage}/>
                             <p className="countRows">Строк на странице: {currentAlbums.length}</p>

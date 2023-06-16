@@ -115,9 +115,6 @@ const PictureList = () => {
                             </table>
                         </div>
                         <div className="paginationCount">
-                            <a href="/todos/create"
-                               className={`${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`}>Создать
-                                >>></a>
                             <Pagination users={pictures} usersPerPage={picturesPerPage} setCurrentPage={setCurrentPage}
                                         currentPage={currentPage}/>
                             <p className="countRows">Строк на странице: {currentPictures.length}</p>
