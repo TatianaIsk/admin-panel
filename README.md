@@ -1,9 +1,8 @@
 Запуск приолжения в режиме отладки:
 1. cd admin-panel
-2. npm install
-3. npm run dev
+2. npm run dev
 
-Как собрать приложение для Production:
+Как собрать приложение:
 vite build
 
 Используемые пакеты и их установка:
@@ -11,3 +10,4 @@ vite build
 2. scss (npm i --save-dev sass)
 3. axios (npm i axios)
 4. npm install eslint-plugin-react --save-dev
+5. npm i classnames 
