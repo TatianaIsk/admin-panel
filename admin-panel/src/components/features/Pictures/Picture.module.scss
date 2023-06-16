@@ -1,0 +1,36 @@
+.td {
+  font-size: 18px;
+  padding: 20px 0;
+  text-align: center;
+  font-family: 'Jost', sans-serif;
+  border-bottom: 1px solid #D2D0D0;
+  color: #3C3A39;
+  margin-top: 10px;
+  &.tdDark {
+    color: #D2D0D0;
+  }
+}
+
+.btn {
+  font-size: 14px;
+  font-family: 'Furore', sans-serif;
+  background: #F3F2F2;
+  color: #BCB8B8;
+  border: 1px solid #BCB8B8;
+  padding: 6px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  &.btnDark {
+    background-color: #191919;
+  }
+}
+
+.img {
+  width: 80px;
+  height: 80px;
+}
+
+.picture {
+  display: flex;
+  flex-direction: row;
+}
