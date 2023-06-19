@@ -9,6 +9,21 @@
   position: absolute;
   z-index: 100;
   padding: 50px 40px;
+
+  @media screen and (max-width: 425px) {
+    display: flex;
+    flex-direction: column;
+    background-color: #F3F2F2;
+    top: 70px;
+    width: 80px;
+    height: 400px;
+    border: 1px solid #D2D0D0;
+    position: absolute;
+    z-index: 100;
+    padding: 50px 40px;
+    left: 400px;
+    text-decoration: none;
+  }
 }
 
 .active {
@@ -26,6 +41,21 @@
   position: absolute;
   z-index: 100;
   padding: 50px 40px;
+
+  @media screen and (max-width: 425px) {
+    display: flex;
+    flex-direction: column;
+    background-color: #191919;
+    top: 70px;
+    width: 80px;
+    height: 400px;
+    border: 1px solid #D2D0D0;
+    position: absolute;
+    z-index: 100;
+    padding: 50px 40px;
+    left: 400px;
+    text-decoration: none;
+  }
 }
 
 button {
@@ -51,6 +81,19 @@ button {
     text-decoration: none;
     color: black;
   }
+
+  @media screen and (max-width: 425px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+
+    .menu a {
+      padding: 10px;
+    }
+  }
+
 }
 
 .menuDark {
@@ -83,6 +126,18 @@ button {
   border: none;
   position: absolute;
   left: 352px;
+
+  @media screen and (max-width: 425px) {
+    left: 400px;
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    margin: 0;
+    background-image: url("../../../assets/navigation-menu.png");
+    background-size: cover;
+    border: none;
+    top: 20px;
+  }
 }
 
 .btnDark {
@@ -94,6 +149,18 @@ button {
   border: none;
   position: absolute;
   left: 352px;
+
+  @media screen and (max-width: 425px) {
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    margin: 0;
+    background-image: url("../../../assets/darkAssets/navigation-menu-dark.png");
+    background-size: cover;
+    border: none;
+    top: 20px;
+    left: 400px;
+  }
 }
 
 .btnClose {
@@ -103,6 +170,18 @@ button {
   background-image: url("../../../assets/navigation-button-close.png");
   background-size: cover;
   border: none;
+
+  @media screen and (max-width: 425px) {
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    margin: 0;
+    background-image: url("../../../assets/navigation-menu.png");
+    background-size: cover;
+    border: none;
+    top: 20px;
+    left: 400px;
+  }
 }
 
 .btnCloseDark {
@@ -112,6 +191,18 @@ button {
   background-image: url("../../../assets/darkAssets/navigation-button-close-dark.png");
   background-size: cover;
   border: none;
+
+  @media screen and (max-width: 425px) {
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    margin: 0;
+    background-image: url("../../../assets/darkAssets/navigation-menu-dark.png");
+    background-size: cover;
+    border: none;
+    top: 20px;
+    left: 400px;
+  }
 }
 
 .column {
@@ -121,6 +212,11 @@ button {
   height: 100%;
   border: 1px solid #D2D0D0;
   z-index: 0;
+
+  @media screen and (max-width: 425px) {
+    display: none;
+  }
+
 }
 
 .columnDark {
@@ -131,6 +227,16 @@ button {
   border: 1px solid #FFFFFF;
   background: #191919;
   z-index: 0;
+
+  @media screen and (max-width: 425px) {
+    position: absolute;
+    top: 120px;
+    width: 58px;
+    height: 100%;
+    border: 1px solid #FFFFFF;
+    background: #191919;
+    z-index: 0;
+  }
 }
 
 .iconOpen {
@@ -186,6 +292,11 @@ button {
     letter-spacing: -0.01em;
     color: #2D2B2A;
   }
+
+  @media screen and (max-width: 425px) {
+    padding: 10px;
+  }
+
 }
 
 .comment {
@@ -206,128 +317,7 @@ button {
 @media screen and (max-width: 425px) {
 
   .wrapper {
-    margin: 0!important;
-  }
-
-  .menu {
-    display: flex;
-    flex-direction: column;
-    background-color: #F3F2F2;
-    top: 70px;
-    width: 80px;
-    height: 400px;
-    border: 1px solid #D2D0D0;
-    position: absolute;
-    z-index: 100;
-    padding: 50px 40px;
-    left: 400px;
-    text-decoration: none;
-  }
-
-  .menuDark {
-    display: flex;
-    flex-direction: column;
-    background-color: #191919;
-    top: 70px;
-    width: 80px;
-    height: 400px;
-    border: 1px solid #D2D0D0;
-    position: absolute;
-    z-index: 100;
-    padding: 50px 40px;
-    left: 400px;
-    text-decoration: none;
-  }
-
-  .btn {
-    left: 290px;
-  }
-
-  .column {
-    display: none;
-  }
-
-  .menu ul {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-  }
-
-  .menu a {
-    padding: 10px;
-  }
-
-  .miniMenu li {
-    padding: 10px;
-  }
-
-  .btn {
-    position: absolute;
-    width: 160px;
-    height: 50px;
-    margin: 0;
-    background-image: url("../../../assets/navigation-menu.png");
-    background-size: cover;
-    border: none;
-    top: 20px;
-    left: 400px;
-  }
-
-  .btnDark {
-    position: absolute;
-    width: 160px;
-    height: 50px;
-    margin: 0;
-    background-image: url("../../../assets/darkAssets/navigation-menu-dark.png");
-    background-size: cover;
-    border: none;
-    top: 20px;
-    left: 400px;
-  }
-
-  .btnClose {
-    position: absolute;
-    width: 160px;
-    height: 50px;
-    margin: 0;
-    background-image: url("../../../assets/navigation-menu.png");
-    background-size: cover;
-    border: none;
-    top: 20px;
-    left: 400px;
-  }
-
-  .btnCloseDark {
-    position: absolute;
-    width: 160px;
-    height: 50px;
-    margin: 0;
-    background-image: url("../../../assets/darkAssets/navigation-menu-dark.png");
-    background-size: cover;
-    border: none;
-    top: 20px;
-    left: 400px;
-  }
-
-  .column {
-    position: absolute;
-    top: 120px;
-    width: 58px;
-    height: 100%;
-    border: 1px solid #D2D0D0;
-    z-index: 0;
-  }
-
-  .columnDark {
-    position: absolute;
-    top: 120px;
-    width: 58px;
-    height: 100%;
-    border: 1px solid #FFFFFF;
-    background: #191919;
-    z-index: 0;
+    margin: 0 !important;
   }
 
 }

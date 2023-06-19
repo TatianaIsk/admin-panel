@@ -27,10 +27,45 @@
   color: #BCB8B8;
   margin-right: 40px;
 
+  @media (max-width: 425px) {
+    text-decoration: none;
+    font-family: 'Furore', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 16px;
+    letter-spacing: -0.01em;
+    color: #BCB8B8;
+    margin-right: 40px;
+    position: absolute;
+    top: 120px;
+    left: 70px;
+  }
 }
 
 .panelRight {
   margin-right: 110px;
+
+  @media (max-width: 1024px) {
+    position: absolute;
+    left: 260px;
+    top: 124px;
+  }
+
+  @media (max-width: 768px) {
+    position: absolute;
+    width: 600px;
+    left: 200px;
+    top: 124px;
+  }
+
+  @media (max-width: 425px) {
+    position: absolute;
+    left: 290px;
+    top: 120px;
+    width: 400px;
+    font-size: 16px;
+  }
 }
 
 .title {
@@ -45,11 +80,35 @@
   &.titleDark {
     color: #6DE8CE;
   }
+
+  @media (max-width: 768px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 40px;
+    position: absolute;
+    top: 140px;
+    left: 70px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 325px) {
+    font-size: 20px;
+  }
 }
 
 .inpContainer {
   display: flex;
   align-items: center;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .subtitle {
@@ -63,6 +122,22 @@
 
   &.subtitleDark {
     color: #D2D0D0;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 325px) {
+    font-size: 14px;
   }
 }
 
@@ -105,6 +180,18 @@
     color: #D2D0D0;
     background-color: #2D2B2A;
   }
+
+  @media (max-width: 425px) {
+    font-size: 25px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 325px) {
+    font-size: 14px;
+  }
 }
 
 .error {
@@ -136,132 +223,34 @@
     border: 1px solid #2D2B2A;
     color: #D2D0D0;
   }
+
+  @media (max-width: 425px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 325px) {
+    font-size: 14px;
+  }
 }
 
 .inputBox {
   margin-top: 35px;
   margin-right: 60px;
   width: 458px;
-}
 
-@media (max-width: 1024px) {
-  .panelRight {
-    position: absolute;
-    left: 260px;
-    top: 124px;
-  }
-  .inpContainer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .inputBox {
+  @media (max-width: 1024px) {
     margin-right: 0;
-  }
-
-}
-
-@media (max-width: 768px) {
-  .panelRight {
-    position: absolute;
-    width: 600px;
-    left: 200px;
-    top: 124px;
-  }
-  .title {
-    font-size: 30px;
-  }
-  .subtitle {
-    font-size: 20px;
-  }
-  .inputCreate {
-  }
-  .inputBox {
   }
 }
 
 @media (max-width: 425px) {
-  .panelRight {
-    position: absolute;
-    left: 290px;
-    top: 120px;
-    width: 400px;
-    font-size: 16px;
-  }
-  .panelBack {
-    text-decoration: none;
-    font-family: 'Furore', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 16px;
-    letter-spacing: -0.01em;
-    color: #BCB8B8;
-    margin-right: 40px;
-    position: absolute;
-    top: 120px;
-    left: 70px;
-  }
-  .title {
-    font-size: 45px;
-  }
-  .subtitle {
-    font-size: 30px;
-  }
-  .inputCreate {
-    font-size: 20px;
-  }
-  .labelCreate {
-    font-size: 25px;
-  }
-  .title {
-    margin-top: 30px;
-    font-family: 'Furore', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 116%;
-    letter-spacing: -0.01em;
-    position: absolute;
-    top: 140px;
-    left: 70px;
-
-    &.titleDark {
-      color: #6DE8CE;
-    }
-  }
   .blocks {
     position: absolute;
     top: 250px;
     left: 70px;
-  }
-}
-
-@media (max-width: 375px) {
-  .title {
-    font-size: 22px;
-  }
-  .subtitle {
-    font-size: 16px;
-  }
-  .inputCreate {
-    font-size: 15px;
-  }
-  .labelCreate {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 325px) {
-  .title {
-    font-size: 20px;
-  }
-  .subtitle {
-    font-size: 14px;
-  }
-  .inputCreate {
-    font-size: 14px;
-  }
-  .labelCreate {
-    font-size: 14px;
   }
 }

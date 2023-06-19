@@ -2,6 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 425px) {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .panelLink {
@@ -14,10 +21,35 @@
   letter-spacing: -0.01em;
   color: #BCB8B8;
   margin-right: 40px;
+
+  @media (max-width: 425px) {
+    margin-top: 20px;
+    text-decoration: none;
+    font-family: 'Furore', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 16px;
+    letter-spacing: -0.01em;
+    color: #BCB8B8;
+    margin-right: 40px;
+  }
 }
 
 .panelRight {
   margin-right: 110px;
+
+  @media (max-width: 768px) {
+    position: absolute;
+    right: -210px;
+    top: 124px;
+  }
+
+  @media (max-width: 425px) {
+    position: absolute;
+    top: 120px;
+    left: 200px;
+  }
 }
 
 .title {
@@ -31,6 +63,20 @@
   color: #191919;
   &.titleDark {
     color: #6DE8CE;
+  }
+
+  @media (max-width: 425px) {
+    margin-top: 30px;
+    font-family: 'Furore', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 116%;
+    letter-spacing: -0.01em;
+    color: #191919;
+    position: absolute;
+    top: 150px;
+    left: 70px;
   }
 }
 
@@ -51,6 +97,21 @@
   &.btnDark {
     color: #D2D0D0;
     background-color: #191919;
+  }
+
+  @media (max-width: 768px) {
+    text-decoration: none;
+    padding: 8px 12px;
+    font-family: 'Furore', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 16px;
+    letter-spacing: -0.01em;
+    border: 1px solid #BCB8B8;
+    color: #2D2B2A;
+    margin-right: 20px;
+    background-color: #F3F2F2;
   }
 }
 
@@ -77,6 +138,12 @@
   margin-top: 30px;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 425px) {
+    position: absolute;
+    top: 400px;
+    left: 70px;
+  }
 }
 
 .tr {
@@ -108,6 +175,22 @@
   letter-spacing: -0.01em;
   color: #BCB8B8;
   margin-right: 40px;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 16px;
+    margin-right: 40px;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 20px;
+    line-height: 16px;
+    margin-right: 40px;
+    position: absolute;
+    top: 100px;
+    left: 70px;
+  }
 }
 
 .td {
@@ -125,103 +208,14 @@
 
 
 @media (max-width: 768px) {
-  .panelRight {
-    position: absolute;
-    right: -210px;
-    top: 124px;
-  }
-  .btn {
-    text-decoration: none;
-    padding: 8px 12px;
-    font-family: 'Furore', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 16px;
-    letter-spacing: -0.01em;
-    border: 1px solid #BCB8B8;
-    color: #2D2B2A;
-    margin-right: 20px;
-    background-color: #F3F2F2;
-    &.btnDark {
-      color: #D2D0D0;
-      background-color: #191919;
-    }
-  }
+
   .btns {
     margin-top: 30px;
   }
-  .panelBack {
-    text-decoration: none;
-    font-family: 'Furore', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 16px;
-    letter-spacing: -0.01em;
-    color: #BCB8B8;
-    margin-right: 40px;
-  }
+
 }
 
 @media (max-width: 425px) {
-  .panel {
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .panelLink {
-    margin-top: 20px;
-    text-decoration: none;
-    font-family: 'Furore', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 16px;
-    letter-spacing: -0.01em;
-    color: #BCB8B8;
-    margin-right: 40px;
-  }
-
-  .panelRight {
-    position: absolute;
-    top: 120px;
-    left: 200px;
-  }
-
-  .panelBack {
-    text-decoration: none;
-    font-family: 'Furore', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 16px;
-    letter-spacing: -0.01em;
-    color: #BCB8B8;
-    margin-right: 40px;
-    position: absolute;
-    top: 120px;
-    left: 70px;
-  }
-
-  .title {
-    margin-top: 30px;
-    font-family: 'Furore', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 45px;
-    line-height: 116%;
-    letter-spacing: -0.01em;
-    color: #191919;
-    position: absolute;
-    top: 150px;
-    left: 70px;
-    &.titleDark {
-      color: #6DE8CE;
-    }
-  }
 
   .btns {
     position: absolute;
@@ -229,9 +223,4 @@
     left: 70px;
   }
 
-  .table {
-    position: absolute;
-    top: 400px;
-    left: 70px;
-  }
 }

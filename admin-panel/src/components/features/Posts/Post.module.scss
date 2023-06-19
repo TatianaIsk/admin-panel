@@ -55,27 +55,27 @@ h4, h5, p {
 
 .btnView {
   margin-right: 10px;
-  background-image: url("../../assets/view-post-icon.png");
+  background-image: url("../../../assets/view-post-icon.png");
   background-color: #F3F2F2;
   width: 23px;
   height: 23px;
   background-size: cover;
   border: none;
   &.btnViewDark {
-    background-image: url("../../assets/darkAssets/view-post-icon-dark.png");
+    background-image: url("../../../assets/darkAssets/view-post-icon-dark.png");
     background-color: #191919;
   }
 }
 
 .btnWrite {
-  background-image: url("../../assets/icon-write-comment.png");
+  background-image: url("../../../assets/icon-write-comment.png");
   background-color: #F3F2F2;
   width: 23px;
   height: 23px;
   background-size: cover;
   border: none;
   &.btnWriteDark {
-    background-image: url("../../assets/darkAssets/icon-write-comment-dark.png");
+    background-image: url("../../../assets/darkAssets/icon-write-comment-dark.png");
     background-color: #191919;
   }
 }
