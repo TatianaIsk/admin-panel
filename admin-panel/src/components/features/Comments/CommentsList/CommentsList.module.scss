@@ -1,28 +1,30 @@
+@import "../../../../variables";
+
 .select {
   padding: 8px 15px;
   margin-right: 10px;
   font-size: 14px;
-  font-family: 'Furore', sans-serif;
-  background-color: #F3F2F2;
-  border: 1px solid #D2D0D0;
+  font-family: $font-furore;
+  background-color: $color-bg;
+  border: 1px solid $color-grey;
   margin-left: 70px;
   &.selectDark {
-    background-color: #191919;
-    color: #D2D0D0;
+    background-color: $color-bg-dark;
+    color: $color-grey;
   }
 }
 
 .btnCreate {
   text-decoration: none;
   color: black;
-  background-color: #F3F2F2;
-  border: 1px solid #D2D0D0;
+  background-color: $color-bg;
+  border: 1px solid $color-grey;
   font-size: 15px;
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   padding: 8px 10px;
   margin-left: 40px;
   &.btnCreateDark {
-    color: #D2D0D0;
-    background-color: #191919;
+    color: $color-grey;
+    background-color: $color-bg-dark;
   }
 }

@@ -1,3 +1,5 @@
+@import "../../../../variables";
+
 .panel {
   display: flex;
   align-items: center;
@@ -6,13 +8,13 @@
 
 .panelLink {
   text-decoration: none;
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 16px;
   letter-spacing: -0.01em;
-  color: #BCB8B8;
+  color: $color-grey-light;
   margin-right: 40px;
 }
 
@@ -24,10 +26,10 @@
   font-size: 20px;
   line-height: 16px;
   letter-spacing: -0.01em;
-  color: #BCB8B8;
+  color: $color-grey-light;
   margin-right: 40px;
 
-  @media (max-width: 425px) {
+  @media (max-width: $mobile-l) {
     position: absolute;
     top: 120px;
     left: 70px;
@@ -37,20 +39,20 @@
 .panelRight {
   margin-right: 110px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: $tablet) {
     position: absolute;
     left: 260px;
     top: 124px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $mobile) {
     position: absolute;
     width: 600px;
     left: 200px;
     top: 124px;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: $mobile-l) {
     position: absolute;
     left: 290px;
     top: 120px;
@@ -61,32 +63,32 @@
 
 .title {
   margin-top: 30px;
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   font-style: normal;
   font-weight: 400;
   font-size: 40px;
   line-height: 116%;
   letter-spacing: -0.01em;
   &.titleDark {
-    color: #6DE8CE;
+    color: $color-blue;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $mobile) {
     font-size: 30px;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: $mobile-l) {
     font-size: 40px;
     position: absolute;
     top: 140px;
     left: 70px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: $mobile-m) {
     font-size: 22px;
   }
 
-  @media (max-width: 325px) {
+  @media (max-width: $mobile-s) {
     font-size: 20px;
   }
 }
@@ -95,7 +97,7 @@
   display: flex;
   align-items: center;
 
-  @media (max-width: 1024px) {
+  @media (max-width: $tablet) {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -103,29 +105,29 @@
 
 .subtitle {
   margin-top: 30px;
-  font-family: 'Jost', sans-serif;
+  font-family: $font-jost;
   font-style: normal;
   font-weight: 700;
   font-size: 22px;
   line-height: 124%;
-  color: #353231;
+  color: $color-grey-dark;
   &.subtitleDark {
-    color: #D2D0D0;
+    color: $color-grey;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $mobile) {
     font-size: 20px;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: $mobile-l) {
     font-size: 30px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: $mobile-m) {
     font-size: 16px;
   }
 
-  @media (max-width: 325px) {
+  @media (max-width: $mobile-s) {
     font-size: 14px;
   }
 }
@@ -133,21 +135,21 @@
 .btnSub {
   margin-top: 40px;
   width: 350px;
-  background-color: #BCB8B8;
+  background-color: $color-grey-light;
   color: #FFF;
   font-size: 16px;
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   padding: 15px 30px;
   border: none;
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 10px, 100% 100%, 0 100%);
   cursor: pointer;
   &.btnSubDark {
-    background-color: #2D2B2A;
+    background-color: $color-dark-grey;
   }
 }
 
 .inputCreate {
-  font-family: 'Jost', sans-serif;
+  font-family: $font-jost;
   font-style: normal;
   font-weight: 400;
   font-size: 17px;
@@ -161,20 +163,20 @@
     outline: none;
   }
   &.inputCreateDark {
-    background-color: #191919;
-    border: 1px solid #2D2B2A;
-    color: #D2D0D0;
+    background-color: $color-bg-dark;
+    border: 1px solid $color-dark-grey;
+    color: $color-grey;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: $mobile-l) {
     font-size: 20px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: $mobile-m) {
     font-size: 15px;
   }
 
-  @media (max-width: 325px) {
+  @media (max-width: $mobile-s) {
     font-size: 14px;
   }
 }
@@ -184,13 +186,13 @@
   margin-right: 60px;
   width: 458px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: $tablet) {
     margin-right: 0;
   }
 }
 
 .labelCreate {
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   font-style: normal;
   font-weight: 400;
   font-size: 17px;
@@ -198,32 +200,32 @@
   letter-spacing: -0.01em;
 
   display: block;
-  color: #2D2B2A;
-  background-color: #dcdcdc;
+  color: $color-dark-grey;
+  background-color: $color-light-grey;
   padding: 8px;
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 10px, 100% 100%, 0 100%);
   &:focus {
-    color: #6159FC;
+    color: $color-purple;
   }
   &.labelCreateDark {
-    color: #D2D0D0;
-    background-color: #2D2B2A;
+    color: $color-grey;
+    background-color: $color-dark-grey;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: $mobile-l) {
     font-size: 25px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: $mobile-m) {
     font-size: 15px;
   }
 
-  @media (max-width: 325px) {
+  @media (max-width: $mobile-s) {
     font-size: 14px;
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: $mobile-l) {
   .blocks {
     position: absolute;
     top: 250px;

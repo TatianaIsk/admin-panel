@@ -1,27 +1,29 @@
+@import "../../../variables";
+
 .td {
   font-size: 18px;
   padding: 20px 0;
   text-align: center;
-  font-family: 'Jost', sans-serif;
-  border-bottom: 1px solid #D2D0D0;
-  color: #3C3A39;
+  font-family: $font-jost;
+  border-bottom: 1px solid $color-grey;
+  color: $color-grey-dark;
   margin-top: 10px;
   &.tdDark {
-    color: #D2D0D0;
+    color: $color-grey;
   }
 }
 
 .btn {
   font-size: 14px;
-  font-family: 'Furore', sans-serif;
-  background: #F3F2F2;
-  color: #BCB8B8;
-  border: 1px solid #BCB8B8;
+  font-family: $font-furore;
+  background: $color-bg;
+  color: $color-grey-light;
+  border: 1px solid $color-grey-light;
   padding: 6px 10px;
   cursor: pointer;
   text-decoration: none;
   &.btnDark {
-    background-color: #191919;
+    background-color: $color-bg-dark;
   }
 }
 

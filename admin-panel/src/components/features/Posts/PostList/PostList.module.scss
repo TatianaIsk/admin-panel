@@ -1,14 +1,16 @@
+@import "../../../../variables";
+
 .selectTask {
   padding: 8px 15px;
   margin-right: 10px;
   font-size: 14px;
-  font-family: 'Furore', sans-serif;
-  background-color: #F3F2F2;
-  border: 1px solid #D2D0D0;
+  font-family: $font-furore;
+  background-color: $color-bg;
+  border: 1px solid $color-grey;
   margin-left: 800px;
   &.selectTaskDark {
-    background-color: #191919;
-    color: #D2D0D0;
+    background-color: $color-bg-dark;
+    color: $color-grey;
   }
 }
 
@@ -27,6 +29,6 @@ select:focus {
   margin-right: 170px;
   font-family: 'Jost', sans-serif;
   &.countRowsDark {
-    color: #D2D0D0;
+    color: $color-grey;
   }
 }

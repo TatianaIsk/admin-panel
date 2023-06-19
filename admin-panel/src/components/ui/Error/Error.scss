@@ -1,3 +1,5 @@
+@import "../../../variables";
+
 .errorPage {
   display: flex;
   flex-direction: column;
@@ -7,13 +9,13 @@
 
 .errorText {
   margin-top: 120px;
-  font-family: 'Jost', sans-serif;
+  font-family: $font-jost;
   font-size: 80px;
 }
 
 .errorMessage {
   margin-top: 40px;
-  font-family: 'Jost', sans-serif;
+  font-family: $font-jost;
   font-size: 40px;
   color: gray;
 }

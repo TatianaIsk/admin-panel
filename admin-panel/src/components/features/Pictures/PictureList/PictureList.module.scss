@@ -1,41 +1,37 @@
+@import "../../../../variables";
+
 .tableTask {
   margin-top: 20px;
   width: 1700px;
   border-collapse: collapse;
 
-  @media (max-width: 1440px) {
+  @media (max-width: $laptop-l) {
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: $desktop) {
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: $tablet) {
     max-width: 100%;
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $mobile) {
     margin-top: 100px;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
 
-  @media (max-width: 480px) {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @media (max-width: 425px) {
+  @media (max-width: $mobile-l) {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -46,28 +42,23 @@
 
 .theadTask {
   height: 50px;
-  color: #BCB8B8;
-  border-bottom: 1px solid #D2D0D0;
+  color: $color-grey-light;
+  border-bottom: 1px solid $color-grey;
 }
 
 .trTask {
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   font-size: 20px;
   letter-spacing: -0.01em;
   font-weight: 200;
-  border-bottom: 1px solid #D2D0D0;
+  border-bottom: 1px solid $color-grey;
 
-  @media (max-width: 480px) {
+  @media (max-width: $mobile-l) {
     font-size: 14px;
     line-height: 1.4;
   }
 
-  @media (max-width: 425px) {
-    font-size: 14px;
-    line-height: 1.4;
-  }
-
-  @media (max-width: 375px) {
+  @media (max-width: $mobile-m) {
     font-size: 12px;
   }
 }
@@ -80,39 +71,39 @@
   position: absolute;
   width: 400px;
   height: 30px;
-  border: 1px solid #D2D0D0;
-  background: #F3F2F2;
+  border: 1px solid $color-grey;
+  background: $color-bg;
   padding: 8px 10px;
   margin-left: 1275px;
 
-  font-family: 'Jost', sans-serif;
+  font-family: $font-jost;
   font-size: 18px;
-  color: #3C3A39;
+  color: $color-grey-dark;
 
   &.searchTaskDark {
-    background-color: #191919;
-    color: #D2D0D0;
+    background-color: $color-bg-dark;
+    color: $color-grey;
   }
 
-  @media (max-width: 1440px) {
+  @media (max-width: $laptop-l) {
     width: 300px;
     margin-left: 500px;
     margin-top: 110px;
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: $desktop) {
     width: 250px;
     margin-top: 30px;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: $tablet) {
     width: 200px;
     margin-top: 30px;
     position: absolute;
     right: 0;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $mobile) {
     width: 150px;
     margin-top: 30px;
     position: absolute;
@@ -120,13 +111,7 @@
     top: 150px;
   }
 
-  @media (max-width: 480px) {
-    width: 100%;
-    position: static;
-    margin-top: 20px;
-  }
-
-  @media (max-width: 425px) {
+  @media (max-width: $mobile-l) {
     width: 250px;
     position: absolute;
     right: 95px;
@@ -138,35 +123,28 @@
   padding: 8px 15px;
   margin-right: 10px;
   font-size: 14px;
-  font-family: 'Furore', sans-serif;
-  background-color: #F3F2F2;
-  border: 1px solid #D2D0D0;
+  font-family: $font-furore;
+  background-color: $color-bg;
+  border: 1px solid $color-grey;
 
   &.selectTaskDark {
-    background-color: #191919;
-    color: #D2D0D0;
+    background-color: $color-bg-dark;
+    color: $color-grey;
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: $desktop) {
     font-size: 14px;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: $tablet) {
     font-size: 12px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $mobile) {
     font-size: 10px;
   }
 
-  @media (max-width: 480px) {
-    font-size: 14px;
-    line-height: 1.4;
-    padding: 8px;
-    margin-right: 5px;
-  }
-
-  @media (max-width: 425px) {
+  @media (max-width: $mobile-l) {
     font-size: 14px;
     line-height: 1.4;
     padding: 8px;
@@ -174,7 +152,7 @@
     margin-bottom: 5px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: $mobile-m) {
     font-size: 12px;
     padding: 6px;
     margin-right: 3px;
@@ -185,35 +163,28 @@
   padding: 8px 15px;
   margin-right: 10px;
   font-size: 14px;
-  font-family: 'Furore', sans-serif;
-  background-color: #F3F2F2;
-  border: 1px solid #D2D0D0;
+  font-family: $font-furore;
+  background-color: $color-bg;
+  border: 1px solid $color-grey;
 
   &.selectTodosDark {
-    background-color: #191919;
-    color: #D2D0D0;
+    background-color: $color-bg-dark;
+    color: $color-grey;
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: $desktop) {
     font-size: 14px;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: $tablet) {
     font-size: 12px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $mobile) {
     font-size: 10px;
   }
 
-  @media (max-width: 480px) {
-    font-size: 14px;
-    line-height: 1.4;
-    padding: 8px;
-    margin-right: 5px;
-  }
-
-  @media (max-width: 425px) {
+  @media (max-width: $mobile-l) {
     font-size: 14px;
     line-height: 1.4;
     padding: 8px;
@@ -221,7 +192,7 @@
     margin-bottom: 5px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: $mobile-m) {
     font-size: 12px;
     padding: 6px;
     margin-right: 3px;
@@ -233,27 +204,27 @@ select:focus {
 }
 
 .errorMess {
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   font-size: 20px;
 
-  @media (max-width: 1280px) {
+  @media (max-width: $desktop) {
     right: 300px;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: $tablet) {
     right: 150px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $mobile) {
     right: 100px;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: $mobile-l) {
     font-size: 12px;
     right: 10px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: $mobile-m) {
     font-size: 12px;
     right: 10px;
   }
@@ -265,41 +236,41 @@ select:focus {
   justify-content: space-between;
   margin-right: 150px;
   margin-top: 40px;
-  font-family: 'Jost', sans-serif;
+  font-family: $font-jost;
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
   line-height: 22px;
-  color: #BCB8B8;
+  color: $color-grey-light;
 
-  @media (max-width: 1440px) {
+  @media (max-width: $laptop-l) {
     margin-right: 100px;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: $tablet) {
     margin-top: 10px;
     margin-right: 100px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $mobile) {
     margin-right: 50px;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: $mobile-l) {
     position: absolute;
     top: 900px;
     width: 500px;
     right: -270px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: $mobile-m) {
     position: absolute;
     top: 870px;
     width: 400px;
     right: -280px;
   }
 
-  @media (max-width: 325px) {
+  @media (max-width: $mobile-s) {
     position: absolute;
     top: 870px;
     width: 400px;
@@ -313,23 +284,23 @@ select:focus {
   align-items: end;
   justify-content: space-between;
   margin-right: 150px;
-  font-family: 'Jost', sans-serif;
+  font-family: $font-jost;
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
   line-height: 22px;
-  color: #BCB8B8;
+  color: $color-grey-light;
 }
 
 .countRows {
   margin-top: 35px;
   margin-right: 0;
-  font-family: 'Jost', sans-serif;
+  font-family: $font-jost;
   &.countRowsDark {
-    color: #D2D0D0;
+    color: $color-grey;
   }
 
-  @media (max-width: 1440px) {
+  @media (max-width: $laptop-l) {
     display: none;
   }
 }

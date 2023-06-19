@@ -1,3 +1,5 @@
+@import "../../../../variables";
+
 .panel {
   display: flex;
   align-items: center;
@@ -6,13 +8,13 @@
 
 .panelLink {
   text-decoration: none;
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 16px;
   letter-spacing: -0.01em;
-  color: #BCB8B8;
+  color: $color-grey-light;
   margin-right: 40px;
 }
 
@@ -22,15 +24,15 @@
 
 .title {
   margin-top: 30px;
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   font-style: normal;
   font-weight: 400;
   font-size: 40px;
   line-height: 116%;
   letter-spacing: -0.01em;
-  color: #191919;
+  color: $color-bg-dark;
   &.titleDark {
-    color: #6DE8CE;
+    color: $color-blue;
   }
 }
 
@@ -38,38 +40,38 @@
   text-decoration: none;
   margin-top: 20px;
   padding: 8px 12px;
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 16px;
   letter-spacing: -0.01em;
-  border: 1px solid #BCB8B8;
-  color: #2D2B2A;
+  border: 1px solid $color-grey-light;
+  color: $color-dark-grey;
   margin-right: 20px;
-  background-color: #F3F2F2;
+  background-color: $color-bg;
   &.btnDark {
-    color: #D2D0D0;
-    background-color: #191919;
+    color: $color-grey;
+    background-color: $color-bg-dark;
   }
 }
 
 .btnCard {
   margin-top: 20px;
   padding: 8px 12px;
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 16px;
   letter-spacing: -0.01em;
-  border: 1px solid #BCB8B8;
-  color: #6159FC;
+  border: 1px solid $color-grey-light;
+  color: $color-purple;
   margin-right: 20px;
-  background-color: #F3F2F2;
+  background-color: $color-bg;
   &.btnCardDark {
-    color: #6DE8CE;
-    background-color: #191919;
+    color: $color-blue;
+    background-color: $color-bg-dark;
   }
 }
 
@@ -87,26 +89,26 @@
 
 .th {
   margin: 15px 200px 15px 0;
-  font-family: 'Jost', sans-serif;
+  font-family: $font-jost;
   font-style: normal;
   font-weight: 400;
   font-size: 19px;
   line-height: 130%;
   letter-spacing: -0.01em;
   &.thDark {
-    color: #D2D0D0;
+    color: $color-grey;
   }
 }
 
 .td {
   margin: 15px 0;
-  font-family: 'Jost', sans-serif;
+  font-family: $font-jost;
   font-style: normal;
   font-weight: 400;
   font-size: 19px;
   line-height: 130%;
   letter-spacing: -0.01em;
   &.tdDark {
-    color: #D2D0D0;
+    color: $color-grey;
   }
 }

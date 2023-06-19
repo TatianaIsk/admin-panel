@@ -1,5 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/circe');
 @import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import "../../../variables.scss";
 
 h1, h2, p {
   margin: 0;
@@ -11,10 +12,10 @@ h1, h2, p {
   justify-content: center;
   flex-direction: column;
   text-align: start;
-  background: #F3F2F2;
+  background: $color-bg;
   width: 100%;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobile) {
     margin: 0 0 0 100px;
     padding: 0;
   }
@@ -26,50 +27,50 @@ h1, h2, p {
   justify-content: center;
   flex-direction: column;
   text-align: start;
-  background: #191919;
+  background: $color-bg-dark;
   width: 100%;
 }
 
 .wrapperDark {
   .mainTitleDark {
     margin: 118px 0 0 0;
-    font-family: 'Circe', sans-serif;
+    font-family: $font-circe;
     font-size: 240px;
     font-weight: 800;
     height: 270px;
-    color: #6DE8CE;
+    color: $color-blue;
   }
 
   h3 {
     margin: 0;
-    font-family: 'Jost', sans-serif;
+    font-family: $font-jost;
     font-weight: 400;
     font-size: 40px;
-    color: #D2D0D0;
+    color: $color-grey;
   }
 
   .text {
     margin: 0;
-    font-family: 'Jost', sans-serif;
+    font-family: $font-jost;
     font-weight: 400;
     font-size: 18px;
-    color: #D2D0D0;
+    color: $color-grey;
   }
 }
 
 .mainTitle {
   margin: 118px 0 0 0;
-  font-family: 'Circe', sans-serif;
+  font-family: $font-circe;
   font-size: 240px;
   font-weight: 800;
   height: 270px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobile) {
     font-size: 160px;
     height: 190px;
   }
 
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: $mobile-l) {
     top: 100px;
     right: -30px;
     position: absolute;
@@ -79,7 +80,7 @@ h1, h2, p {
     height: 120px;
   }
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: $mobile-m) {
     position: absolute;
     right: -280px;
     width: 600px;
@@ -88,9 +89,7 @@ h1, h2, p {
     height: 140px;
   }
 
-  @media screen and (max-width: 320px) {
-    margin: 118px 0 0 0;
-    font-family: 'Circe', sans-serif;
+  @media screen and (max-width: $mobile-s) {
     font-size: 105px;
     width: 500px;
     font-weight: 1200;
@@ -100,16 +99,16 @@ h1, h2, p {
 
 h3 {
   margin: 0;
-  font-family: 'Jost', sans-serif;
+  font-family: $font-jost;
   font-weight: 400;
   font-size: 40px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobile) {
     width: 600px;
     font-size: 38px;
   }
 
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: $mobile-l) {
     position: absolute;
     right: -50px;
     top: 340px;
@@ -117,7 +116,7 @@ h3 {
     font-size: 40px;
   }
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: $mobile-m) {
     position: absolute;
     top: 360px;
     right: -280px;
@@ -125,31 +124,28 @@ h3 {
     font-size: 50px;
   }
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: $mobile-s) {
     position: absolute;
     right: -380px;
     width: 600px;
-    margin: 0;
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
     font-size: 50px;
   }
 }
 
 .text {
   margin: 0;
-  font-family: 'Jost', sans-serif;
+  font-family: $font-jost;
   font-weight: 400;
   font-size: 18px;
 
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: $mobile-l) {
     position: absolute;
     right: -30px;
     top: 470px;
     width: 400px;
   }
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: $mobile-m) {
     position: absolute;
     top: 510px;
     right: -280px;
@@ -157,9 +153,7 @@ h3 {
     font-size: 32px;
   }
 
-  @media screen and (max-width: 320px) {
-    margin: 0;
-    font-family: 'Jost', sans-serif;
+  @media screen and (max-width: $mobile-s) {
     font-weight: 400;
     font-size: 30px;
     width: 500px;

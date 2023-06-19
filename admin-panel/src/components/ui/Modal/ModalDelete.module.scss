@@ -1,3 +1,5 @@
+@import "../../../variables";
+
 .modalWrapper {
   display: flex;
   align-items: center;
@@ -11,13 +13,13 @@ body {
 }
 
 .title {
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   font-size: 21px;
   margin-bottom: 30px;
 }
 
 .subtitle {
-  font-family: 'Jost', sans-serif;
+  font-family: $font-jost;
   font-size: 18px;
   margin-bottom: 40px;
 }
@@ -27,10 +29,10 @@ body {
   height: 30px;
   margin-left: 10px;
   margin-right: 10px;
-  border: 3px solid #191919;
-  background-color: #f3f2f2;
+  border: 3px solid $color-bg-dark;
+  background-color: $color-bg;
   border-radius: 4px;
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   font-size: 15px;
-  color: #191919;
+  color: $color-bg-dark;
 }

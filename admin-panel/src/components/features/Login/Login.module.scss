@@ -1,3 +1,5 @@
+@import "../../../variables";
+
 .loginWrapper {
   position: absolute;
   top: 0;
@@ -7,7 +9,7 @@
   margin: 200px auto;
   width: 500px;
   height: 450px;
-  border: 1px solid #D2D0D0;
+  border: 1px solid $color-grey;
 }
 
 .title {
@@ -21,7 +23,7 @@
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
-    font-family: 'Furore', sans-serif;
+    font-family: $font-furore;
   }
   .input {
     margin-top: 20px;
@@ -38,7 +40,7 @@
 }
 
 .labelCreate {
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   font-style: normal;
   font-weight: 400;
   font-size: 17px;
@@ -46,21 +48,21 @@
   letter-spacing: -0.01em;
 
   display: block;
-  color: #2D2B2A;
-  background-color: #dcdcdc;
+  color: $color-dark-grey;
+  background-color: $color-light-grey;
   padding: 8px;
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 10px, 100% 100%, 0 100%);
   &:focus {
-    color: #6159FC;
+    color: $color-purple;
   }
   &.labelCreateDark {
-    color: #D2D0D0;
-    background-color: #2D2B2A;
+    color: $color-grey;
+    background-color: $color-dark-grey;
   }
 }
 
 .inputCreate {
-  font-family: 'Jost', sans-serif;
+  font-family: $font-jost;
   font-style: normal;
   font-weight: 400;
   font-size: 17px;
@@ -79,37 +81,37 @@
   text-decoration: none;
   margin-top: 40px;
   width: 300px;
-  background-color: #BCB8B8;
+  background-color: $color-grey-light;
   color: #FFF;
   font-size: 16px;
-  font-family: 'Furore', sans-serif;
+  font-family: $font-furore;
   padding: 15px 30px;
   border: none;
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 10px, 100% 100%, 0 100%);
   cursor: pointer;
   &.btnSubDark {
-    background-color: #2D2B2A;
+    background-color: $color-dark-grey;
   }
 }
 
 .loginWrapperDark {
   .title {
-    color: #6DE8CE;
+    color: $color-blue;
   }
 }
 
 .errorLogin {
   position: absolute;
   top: 110px;
-  color: red;
-  font-family: 'Jost', sans-serif;
+  color: $color-red;
+  font-family: $font-jost;
   font-size: 14px;
 }
 
 .errorPassword {
   position: absolute;
   top: 220px;
-  color: red;
-  font-family: 'Jost', sans-serif;
+  color: $color-red;
+  font-family: $font-jost;
   font-size: 14px;
 }

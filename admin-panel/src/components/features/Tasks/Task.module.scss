@@ -1,13 +1,15 @@
+@import "../../../variables";
+
 .tdTask {
   font-size: 18px;
   padding: 20px 0;
   text-align: center;
-  font-family: 'Jost', sans-serif;
-  border-bottom: 1px solid #D2D0D0;
-  color: #3C3A39;
+  font-family: $font-jost;
+  border-bottom: 1px solid $color-grey;
+  color: $color-grey-dark;
   margin-top: 10px;
   &.tdTaskDark {
-    color: #D2D0D0;
+    color: $color-grey;
   }
 }
 
