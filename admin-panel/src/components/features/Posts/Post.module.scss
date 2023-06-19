@@ -61,7 +61,7 @@ h4, h5, p {
   background-color: $color-bg;
   width: 23px;
   height: 23px;
-  background-size: cover;
+  @include background-style;
   border: none;
   &.btnViewDark {
     background-image: url("../../../assets/darkAssets/view-post-icon-dark.png");
@@ -74,7 +74,7 @@ h4, h5, p {
   background-color: $color-bg;
   width: 23px;
   height: 23px;
-  background-size: cover;
+  @include background-style;
   border: none;
   &.btnWriteDark {
     background-image: url("../../../assets/darkAssets/icon-write-comment-dark.png");

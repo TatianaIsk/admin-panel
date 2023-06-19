@@ -66,7 +66,7 @@
   margin-left: 8px;
   cursor: pointer;
   background-image: url('../../../assets/darkAssets/dark-btn.png');
-  background-size: cover;
+  @include background-style;
   border: 1px solid $color-grey-light;
 
   @media screen and (max-width: $mobile-l) {
@@ -75,7 +75,7 @@
     margin-left: 8px;
     cursor: pointer;
     background-image: url('../../../assets/darkAssets/dark-btn.png');
-    background-size: cover;
+    @include background-style;
     border: 1px solid $color-grey-light;
   }
 }
@@ -86,7 +86,7 @@
   margin-left: 8px;
   cursor: pointer;
   background-image: url('../../../assets/user-btn.png');
-  background-size: cover;
+  @include background-style;
   border: 1px solid $color-grey-light;
   color: white;
 
@@ -96,7 +96,7 @@
     margin-left: 8px;
     cursor: pointer;
     background-image: url('../../../assets/user-btn.png');
-    background-size: cover;
+    @include background-style;
     border: 1px solid $color-grey-light;
     color: white;
   }
@@ -108,7 +108,7 @@
   margin-left: 8px;
   cursor: pointer;
   background-image: url('../../../assets/darkAssets/dark-btn-dark.png');
-  background-size: cover;
+  @include background-style;
   border: 1px solid $color-grey-light;
 
   @media screen and (max-width: $mobile-l) {
@@ -117,7 +117,7 @@
     margin-left: 8px;
     cursor: pointer;
     background-image: url('../../../assets/darkAssets/dark-btn-dark.png');
-    background-size: cover;
+    @include background-style;
     border: 1px solid $color-grey-light;
   }
 }
@@ -128,7 +128,7 @@
   margin-left: 8px;
   cursor: pointer;
   background-image: url('../../../assets/darkAssets/user-btn-dark.png');
-  background-size: cover;
+  @include background-style;
   border: 1px solid $color-grey-light;
 
   @media screen and (max-width: $mobile-l) {
@@ -137,7 +137,7 @@
     margin-left: 8px;
     cursor: pointer;
     background-image: url('../../../assets/darkAssets/user-btn-dark.png');
-    background-size: cover;
+    @include background-style;
     border: 1px solid $color-grey-light;
   }
 }

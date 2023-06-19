@@ -230,13 +230,14 @@ input {
   width: 12px;
   height: 12px;
   background-image: url("../../../../assets/icon-table.png");
-  background-size: cover;
+  @include background-style;
   border: none;
   cursor: pointer;
 
   &.btnThDark {
     background-image: url("../../../../assets/darkAssets/icon-close-dark.png");
     background-color: $color-bg-dark;
+    @include background-style;
     width: 8px;
     height: 8px;
   }

@@ -21,3 +21,9 @@ $color-red: red;
 $font-jost: 'Jost', sans-serif;
 $font-circe: 'Circe', sans-serif;
 $font-furore: 'Furore', sans-serif;
+
+@mixin background-style {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}

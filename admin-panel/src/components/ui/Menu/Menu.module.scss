@@ -124,7 +124,7 @@ button {
   height: 40px;
   margin: 0;
   background-image: url("../../../assets/navigation-button-open.png");
-  background-size: cover;
+  @include background-style;
   border: none;
   position: absolute;
   left: 352px;
@@ -136,7 +136,7 @@ button {
     height: 50px;
     margin: 0;
     background-image: url("../../../assets/navigation-menu.png");
-    background-size: cover;
+    @include background-style;
     border: none;
     top: 20px;
   }
@@ -147,7 +147,7 @@ button {
   height: 40px;
   margin: 0;
   background-image: url("../../../assets/darkAssets/navigation-button-open-dark.png");
-  background-size: cover;
+  @include background-style;
   border: none;
   position: absolute;
   left: 352px;
@@ -158,7 +158,7 @@ button {
     height: 50px;
     margin: 0;
     background-image: url("../../../assets/darkAssets/navigation-menu-dark.png");
-    background-size: cover;
+    @include background-style;
     border: none;
     top: 20px;
     left: 400px;
@@ -170,7 +170,7 @@ button {
   height: 40px;
   margin: 0;
   background-image: url("../../../assets/navigation-button-close.png");
-  background-size: cover;
+  @include background-style;
   border: none;
 
   @media screen and (max-width: $mobile-l) {
@@ -179,7 +179,7 @@ button {
     height: 50px;
     margin: 0;
     background-image: url("../../../assets/navigation-menu.png");
-    background-size: cover;
+    @include background-style;
     border: none;
     top: 20px;
     left: 400px;
@@ -191,7 +191,7 @@ button {
   height: 40px;
   margin: 0;
   background-image: url("../../../assets/darkAssets/navigation-button-close-dark.png");
-  background-size: cover;
+  @include background-style;
   border: none;
 
   @media screen and (max-width: $mobile-l) {
@@ -200,7 +200,7 @@ button {
     height: 50px;
     margin: 0;
     background-image: url("../../../assets/darkAssets/navigation-menu-dark.png");
-    background-size: cover;
+    @include background-style;
     border: none;
     top: 20px;
     left: 400px;
@@ -246,7 +246,7 @@ button {
   height: 12px;
   margin: 0 10px;
   background-image: url("../../../assets/icon-open.png");
-  background-size: cover;
+  @include background-style;
   border: none;
 }
 
@@ -255,7 +255,7 @@ button {
   height: 8px;
   margin: 0 10px;
   background-image: url("../../../assets/darkAssets/icon-open-dark.png");
-  background-size: cover;
+  @include background-style;
   border: none;
   background-color: $color-bg-dark;
 }
@@ -265,7 +265,7 @@ button {
   height: 12px;
   margin: 0 10px;
   background-image: url("../../../assets/icon-close.png");
-  background-size: cover;
+  @include background-style;
   border: none;
 }
 
@@ -274,7 +274,7 @@ button {
   height: 8px;
   margin: 0 10px;
   background-image: url("../../../assets/darkAssets/icon-close-dark.png");
-  background-size: cover;
+  @include background-style;
   border: none;
   background-color: $color-bg-dark;
 }
