@@ -85,7 +85,7 @@ function Menu() {
                             Задания
                         </a>
                         <div className={styles.blog}>
-                            <a href="">Графика</a>
+                            <span>Графика</span>
                             <button className={`${graphic ? isDarkMode ? styles.iconOpenDark : styles.iconOpen : isDarkMode ? styles.iconCloseDark : styles.iconClose}`}
                                     onClick={graphMenu}>
                             </button>
@@ -113,7 +113,7 @@ function Menu() {
                             </div>
                         )}
                         <div className={styles.blog}>
-                            <a href="">Блог</a>
+                            <span>Блог</span>
                             <button className={`${isMiniOpen ? isDarkMode ? styles.iconOpenDark : styles.iconOpen : isDarkMode ? styles.iconCloseDark : styles.iconClose}`}
                                     onClick={miniMenu}>
                             </button>
