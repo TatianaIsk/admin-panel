@@ -36,8 +36,8 @@
   display: flex;
   flex-direction: column;
   background-color: $color-bg-dark;
-  top: 120px;
-  width: 330px;
+  top: 100px;
+  width: 310px;
   height: 100%;
   border: 1px solid $color-grey;
   position: absolute;
@@ -223,8 +223,8 @@ button {
 
 .columnDark {
   position: absolute;
-  top: 120px;
-  width: 58px;
+  top: 100px;
+  width: 38px;
   height: 100%;
   border: 1px solid #FFFFFF;
   background: $color-bg-dark;
@@ -232,8 +232,8 @@ button {
 
   @media screen and (max-width: $mobile-l) {
     position: absolute;
-    top: 120px;
-    width: 58px;
+    top: 100px;
+    width: 38px;
     height: 100%;
     border: 1px solid #FFFFFF;
     background: $color-bg-dark;
