@@ -7,6 +7,7 @@ import Loader from "../../../ui/Loading/Loading.jsx";
 import styles from "./PictureList.module.scss";
 import Pagination from "../../../ui/Pagination/Pagination.jsx";
 import Picture from "../Picture.jsx";
+import classnames from "classnames";
 
 const PictureList = () => {
     const {isDarkMode} = useTheme();
@@ -72,15 +73,23 @@ const PictureList = () => {
                 <div>
                     <Header/>
                     <Menu/>
-                    <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
+                    <div
+                        className={classnames(
+                            `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
+                        )}>
                         <div className="searhcing">
-                            <label className={`titleUser ${isDarkMode ? 'titleUserDark' : ''}`}
-                                   htmlFor="searchAlbums">
+                            <label
+                                className={classnames(
+                                    `titleUser ${isDarkMode ? 'titleUserDark' : ''}`
+                                )}
+                                htmlFor="searchAlbums">
                                 картинки
                             </label>
                             <input
                                 type="text"
-                                className={`searchUser ${isDarkMode ? 'searchUserDark' : ''}`}
+                                className={classnames(
+                                    `searchUser ${isDarkMode ? 'searchUserDark' : ''}`
+                                )}
                                 id="searchAlbums"
                                 placeholder="Поиск"
                                 value={searchQuery}
@@ -93,19 +102,27 @@ const PictureList = () => {
                                 <tr className={styles.trTask}>
                                     <th className="thTask">
                                         ID
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button className={classnames(
+                                            `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                        ></button>
                                     </th>
                                     <th className="thTask">
                                         Альбом
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button className={classnames(
+                                            `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                        ></button>
                                     </th>
                                     <th className="thTask">
                                         Заголовок
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button className={classnames(
+                                            `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                        ></button>
                                     </th>
                                     <th className="thTask">
                                         Картинка
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button className={classnames(
+                                            `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                        ></button>
                                     </th>
                                 </tr>
                                 </thead>
@@ -115,9 +132,15 @@ const PictureList = () => {
                             </table>
                         </div>
                         <div className="paginationCount">
-                            <Pagination users={pictures} usersPerPage={picturesPerPage} setCurrentPage={setCurrentPage}
-                                        currentPage={currentPage}/>
-                            <p className="countRows">Строк на странице: {currentPictures.length}</p>
+                            <Pagination
+                                users={pictures}
+                                usersPerPage={picturesPerPage}
+                                setCurrentPage={setCurrentPage}
+                                currentPage={currentPage}
+                            />
+                            <p className="countRows">
+                                Строк на странице: {currentPictures.length}
+                            </p>
                         </div>
                     </div>
                 </div>

@@ -14,6 +14,7 @@ import Loader from "../../../ui/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import ModalDelete from "../../../ui/Modal/ModalDelete.jsx";
 import {Link} from "react-router-dom";
+import classnames from "classnames";
 
 
 const UserList = () => {
@@ -121,16 +122,24 @@ const UserList = () => {
                 <div>
                     <Header/>
                     <Menu/>
-                    <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
+                    <div className={classnames(
+                        `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
+                    )}>
                         <div className="searhcing">
-                            <label className={`titleUser ${isDarkMode ? 'titleUserDark' : ''}`}
+                            <label className={classnames(
+                                `titleUser ${isDarkMode ? 'titleUserDark' : ''}`
+                            )}
                                    htmlFor="searchUser">
                                 пользователи
                             </label>
-                            <Link to="/users/create" className={`btnCreate ${isDarkMode ? 'btnCreateDark' : ''}`}>Создать
-                                нового пользователя</Link>
+                            <Link to="/users/create" className={classnames(`btnCreate ${isDarkMode ? 'btnCreateDark' : ''}`
+                            )}>
+                                Создать нового пользователя
+                            </Link>
                             <input type="text"
-                                   className={`searchUser ${isDarkMode ? 'searchUserDark' : ''}`}
+                                   className={classnames(
+                                       `searchUser ${isDarkMode ? 'searchUserDark' : ''}`
+                                   )}
                                    id="searchUser"
                                    placeholder="Поиск"
                                    value={searchName}
@@ -150,35 +159,51 @@ const UserList = () => {
                                     </th>
                                     <th className="thUser">
                                         ID
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button className={classnames(
+                                            `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                        ></button>
                                     </th>
                                     <th className="thUser">
                                         имя
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button className={classnames(
+                                            `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                        ></button>
                                     </th>
                                     <th className="thUser">
                                         никнейм (eng)
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button className={classnames(
+                                            `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                        ></button>
                                     </th>
                                     <th className="thUser">
                                         e-mail
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button className={classnames(
+                                            `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                        ></button>
                                     </th>
                                     <th className="thUser">
                                         адрес
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button className={classnames(
+                                            `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                        ></button>
                                     </th>
                                     <th className="thUser">
                                         телефон
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button className={classnames(
+                                            `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                        ></button>
                                     </th>
                                     <th className="thUser">
                                         сайт
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button className={classnames(
+                                            `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                        ></button>
                                     </th>
                                     <th className="thUser">
                                         компания
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button className={classnames(
+                                            `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                        ></button>
                                     </th>
                                 </tr>
                                 </thead>

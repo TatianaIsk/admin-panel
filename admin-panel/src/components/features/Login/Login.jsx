@@ -3,6 +3,7 @@ import Header from "../../ui/Header/Header.jsx";
 import {useTheme} from "../../../ThemeContext.jsx";
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
+import classnames from "classnames";
 
 const Login = () => {
     const {isDarkMode} = useTheme();
@@ -21,7 +22,9 @@ const Login = () => {
     return (
         <div>
             <Header/>
-            <div className={`${style.loginWrapper} ${isDarkMode ? style.loginWrapperDark : ''}`}>
+            <div className={classnames(
+                `${style.loginWrapper} ${isDarkMode ? style.loginWrapperDark : ''}`
+            )}>
                 <div className={style.title}>
                     <h2>авторизация</h2>
                 </div>
@@ -33,16 +36,21 @@ const Login = () => {
                         </div>
                     )}
                     <div className={style.inputBox}>
-                        <label className={`${style.labelCreate} ${isDarkMode ? style.labelCreateDark : ''}`}
-                               htmlFor="task"> логин
+                        <label
+                            className={classnames(
+                                `${style.labelCreate} ${isDarkMode ? style.labelCreateDark : ''}`
+                            )}
+                            htmlFor="task">
+                            логин
                         </label>
-                        <input className={style.inputCreate}
-                               id="task"
-                               name="task"
-                               type="text"
-                               value={username}
-                               onChange={(e) => setUsername(e.target.value)}
-                               placeholder="Введите данные"
+                        <input
+                            className={style.inputCreate}
+                            id="task"
+                            name="task"
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            placeholder="Введите данные"
                         />
                     </div>
 
@@ -52,20 +60,30 @@ const Login = () => {
                         </div>
                     )}
                     <div className={style.inputBox}>
-                        <label className={`${style.labelCreate} ${isDarkMode ? style.labelCreateDark : ''}`}
-                               htmlFor="task"> пароль
+                        <label
+                            className={classnames(
+                                `${style.labelCreate} ${isDarkMode ? style.labelCreateDark : ''}`
+                            )}
+                            htmlFor="task">
+                            пароль
                         </label>
-                        <input className={style.inputCreate}
-                               id="task"
-                               name="task"
-                               type="password"
-                               value={password}
-                               onChange={(e) => setPassword(e.target.value)}
-                               placeholder="Введите данные"
+                        <input
+                            className={style.inputCreate}
+                            id="task"
+                            name="task"
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Введите данные"
                         />
                     </div>
 
-                    <Link className={`${style.btnSub} ${isDarkMode ? style.btnSubDark : ''}`} onClick={handleLogin} to="/">
+                    <Link
+                        className={classnames(
+                            `${style.btnSub} ${isDarkMode ? style.btnSubDark : ''}`
+                        )}
+                        onClick={handleLogin}
+                        to="/">
                         Войти
                     </Link>
                 </div>

@@ -6,20 +6,40 @@ import completeIconDark from "../../../assets/darkAssets/complete-icon-dark.png"
 
 import styles from './Task.module.scss'
 import {useTheme} from "../../../ThemeContext.jsx";
+import classnames from "classnames";
 
 function Task({todo, username}) {
-    const { isDarkMode } = useTheme();
+    const {isDarkMode} = useTheme();
 
     return (
         <tr className={styles.trTask} key={todo.id}>
-            <td className={`${styles.tdTask} ${isDarkMode ? styles.tdTaskDark : ''}`}>{todo.id}</td>
-            <td className={`${styles.tdTask} ${isDarkMode ? styles.tdTaskDark : ''}`}>{username}</td>
-            <td className={`${styles.tdTask} ${isDarkMode ? styles.tdTaskDark : ''}`}>{todo.title}</td>
-            <td style={{cursor: "pointer"}} className={`${styles.tdTask} ${isDarkMode ? styles.tdTaskDark : ''}`}>
+            <td
+                className={classnames(
+                    `${styles.tdTask} ${isDarkMode ? styles.tdTaskDark : ''}`
+                )}>
+                {todo.id}
+            </td>
+            <td
+                className={classnames(
+                    `${styles.tdTask} ${isDarkMode ? styles.tdTaskDark : ''}`
+                )}>
+                {username}
+            </td>
+            <td
+                className={classnames(
+                    `${styles.tdTask} ${isDarkMode ? styles.tdTaskDark : ''}`
+                )}>
+                {todo.title}
+            </td>
+            <td
+                style={{cursor: "pointer"}}
+                className={classnames(
+                    `${styles.tdTask} ${isDarkMode ? styles.tdTaskDark : ''}`
+                )}>
                 {todo.completed ?
-                    <img src={`${isDarkMode ? completeIconDark : completeIcon}`} alt="Completed" />
+                    <img src={`${isDarkMode ? completeIconDark : completeIcon}`} alt="Completed"/>
                     :
-                    <img src={`${isDarkMode ? incompleteIconDark : incompleteIcon}`} alt="Incomplete" />
+                    <img src={`${isDarkMode ? incompleteIconDark : incompleteIcon}`} alt="Incomplete"/>
                 }
             </td>
         </tr>

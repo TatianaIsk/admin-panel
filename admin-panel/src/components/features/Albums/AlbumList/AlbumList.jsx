@@ -7,6 +7,7 @@ import Album from "../Album.jsx";
 import Loader from "../../../ui/Loading/Loading.jsx";
 import styles from "../../Tasks/TaskList/TaskList.module.scss";
 import Pagination from "../../../ui/Pagination/Pagination.jsx";
+import classnames from "classnames";
 
 const AlbumList = () => {
     const {isDarkMode} = useTheme();
@@ -70,36 +71,57 @@ const AlbumList = () => {
                 <div>
                     <Header/>
                     <Menu/>
-                    <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
+                    <div className={classnames(
+                        `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
+                    )}>
                         <div className="searhcing">
-                            <label className={`titleUser ${isDarkMode ? 'titleUserDark' : ''}`}
-                                   htmlFor="searchAlbums">
+                            <label
+                                className={classnames(
+                                    `titleUser ${isDarkMode ? 'titleUserDark' : ''}`
+                                )}
+                                htmlFor="searchAlbums">
                                 альбомы
                             </label>
                             <input
                                 type="text"
-                                className={`searchUser ${isDarkMode ? 'searchUserDark' : ''}`}
+                                className={classnames(
+                                    `searchUser ${isDarkMode ? 'searchUserDark' : ''}`
+                                )}
                                 id="searchAlbums"
                                 placeholder="Поиск"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                             />
                         </div>
-                        <div className="tableWrapper" style={{height: '700px', overflow: 'auto'}}>
+                        <div
+                            className="tableWrapper"
+                            style={{height: '700px', overflow: 'auto'}}>
                             <table className={styles.tableTask}>
                                 <thead className={styles.theadTask}>
                                 <tr className={styles.trTask}>
                                     <th className="thTask">
                                         ID
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button
+                                            className={classnames(
+                                                `btnTh ${isDarkMode ? 'btnThDark' : ''}`
+                                            )}>
+                                        </button>
                                     </th>
                                     <th className="thTask">
                                         пользователь
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button
+                                            className={classnames(
+                                                `btnTh ${isDarkMode ? 'btnThDark' : ''}`
+                                            )}>
+                                        </button>
                                     </th>
                                     <th className="thTask">
                                         заголовок
-                                        <button className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}></button>
+                                        <button
+                                            className={classnames(
+                                                `btnTh ${isDarkMode ? 'btnThDark' : ''}`
+                                            )}>
+                                        </button>
                                     </th>
                                 </tr>
                                 </thead>
@@ -109,9 +131,15 @@ const AlbumList = () => {
                             </table>
                         </div>
                         <div className="paginationCount">
-                            <Pagination users={albums} usersPerPage={albumsPerPage} setCurrentPage={setCurrentPage}
-                                        currentPage={currentPage}/>
-                            <p className="countRows">Строк на странице: {currentAlbums.length}</p>
+                            <Pagination
+                                users={albums}
+                                usersPerPage={albumsPerPage}
+                                setCurrentPage={setCurrentPage}
+                                currentPage={currentPage}
+                            />
+                            <p className="countRows">
+                                Строк на странице: {currentAlbums.length}
+                            </p>
                         </div>
                     </div>
                 </div>

@@ -7,6 +7,7 @@ import store from "../../../../store.jsx";
 import Comment from "../Comment.jsx";
 import Pagination from "../../../ui/Pagination/Pagination.jsx";
 import {Link} from "react-router-dom";
+import classnames from "classnames";
 
 const CommentsList = () => {
     const { isDarkMode } = useTheme();
@@ -81,16 +82,22 @@ const CommentsList = () => {
         <>
             <Header />
             <Menu />
-            <div className={`wrapper ${isDarkMode ? "wrapperDark" : ""}`}>
+            <div className={classnames(
+                `wrapper ${isDarkMode ? "wrapperDark" : ""}`
+            )}>
                 <div className="searching">
                     <label
-                        className={`titleUser ${isDarkMode ? "titleUserDark" : ""}`}
+                        className={classnames(
+                            `titleUser ${isDarkMode ? "titleUserDark" : ""}`
+                        )}
                         htmlFor="searchUser"
                     >
                         Комментарии
                     </label>
                     <select
-                        className={`${styles.select} ${isDarkMode ? styles.selectDark : ""}`}
+                        className={classnames(
+                            `${styles.select} ${isDarkMode ? styles.selectDark : ""}`
+                        )}
                         value={selectedPost}
                         onChange={(e) => setSelectedPost(e.target.value)}
                     >
@@ -107,17 +114,29 @@ const CommentsList = () => {
                                 </option>
                             ))}
                     </select>
-                    <Link to='/comments/create' className={`${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`}>
+                    <Link
+                        to='/comments/create'
+                        className={classnames(
+                            `${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`
+                        )}>
                         создать комментарий >>>
                     </Link>
                 </div>
-                <div className="tableWrapper" style={{height: '700px', overflow: 'auto'}}>
+                <div
+                    className="tableWrapper"
+                    style={{height: '700px', overflow: 'auto'}}>
                     {renderComments()}
                 </div>
                 <div className="paginationCount">
-                    <Pagination users={comments} usersPerPage={commentsPerPage} setCurrentPage={setCurrentPage}
-                                currentPage={currentPage}/>
-                    <p className="countRows">Строк на странице: {currentComments.length}</p>
+                    <Pagination
+                        users={comments}
+                        usersPerPage={commentsPerPage}
+                        setCurrentPage={setCurrentPage}
+                        currentPage={currentPage}
+                    />
+                    <p className="countRows">
+                        Строк на странице: {currentComments.length}
+                    </p>
                 </div>
             </div>
         </>

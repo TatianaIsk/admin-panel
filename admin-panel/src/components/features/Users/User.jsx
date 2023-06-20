@@ -3,6 +3,7 @@ import icon from './../../../assets/icon-users.png';
 import Dropdown from '..//Users/Dropdown/Dropdown.jsx';
 import {useTheme} from "../../../ThemeContext.jsx";
 import iconDark from './../../../assets/darkAssets/icon-close-dark-th.png'
+import classnames from "classnames";
 
 
 const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, currentPage, toggleDeleteModal}) => {
@@ -38,24 +39,59 @@ const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, curre
                 </tr>
             )}
             <tr key={user.id}>
-                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>
+                <td className={classnames(
+                    `tdUser ${isDarkMode ? 'tdUserDark' : ''}`
+                )}>
                     <img
-                        className={`imgTr ${isDarkMode ? 'imgTrDark' : ''}`}
+                        className={classnames(
+                            `imgTr ${isDarkMode ? 'imgTrDark' : ''}`
+                        )}
                         onClick={() => toggleMenu(user.id)}
                         src={`${isDarkMode ? iconDark : icon}`}
                         alt=""
                     />
                 </td>
-                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.id}</td>
-                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.name}</td>
-                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`} style={{width: 190 + 'px'}}>{user.username}</td>
-                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.email}</td>
-                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`} style={{width: 400 + 'px'}}>
+                <td className={classnames(
+                    `tdUser ${isDarkMode ? 'tdUserDark' : ''}`
+                )}>
+                    {user.id}
+                </td>
+                <td className={classnames(
+                    `tdUser ${isDarkMode ? 'tdUserDark' : ''}`
+                )}>
+                    {user.name}
+                </td>
+                <td className={classnames(
+                    `tdUser ${isDarkMode ? 'tdUserDark' : ''}`
+                )}
+                    style={{width: 190 + 'px'}}>
+                    {user.username}
+                </td>
+                <td className={classnames(
+                    `tdUser ${isDarkMode ? 'tdUserDark' : ''}`
+                )}>
+                    {user.email}
+                </td>
+                <td className={classnames(
+                    `tdUser ${isDarkMode ? 'tdUserDark' : ''}`
+                )}
+                    style={{width: 400 + 'px'}}>
                     {formatAddress(user.address)}
                 </td>
-                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.phone}</td>
-                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`}>{user.website}</td>
-                <td className={`tdUser ${isDarkMode ? 'tdUserDark' : ''}`} style={{width: 300 + 'px'}}>
+                <td className={classnames(
+                    `tdUser ${isDarkMode ? 'tdUserDark' : ''}`
+                )}>
+                    {user.phone}
+                </td>
+                <td className={classnames(
+                    `tdUser ${isDarkMode ? 'tdUserDark' : ''}`
+                )}>
+                    {user.website}
+                </td>
+                <td className={classnames(
+                    `tdUser ${isDarkMode ? 'tdUserDark' : ''}`
+                )}
+                    style={{width: 300 + 'px'}}>
                     {formatCompany(user.company)}
                 </td>
             </tr>

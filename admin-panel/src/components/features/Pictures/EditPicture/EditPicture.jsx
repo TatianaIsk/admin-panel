@@ -7,9 +7,10 @@ import store from "../../../../store.jsx";
 import Loader from "../../../ui/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import ImageUploader from "../ImageUploader/ImageUploader.jsx";
+import classnames from "classnames";
 
 function EditPicture() {
-    const { isDarkMode } = useTheme();
+    const {isDarkMode} = useTheme();
     const {pictureId} = useParams();
 
     const [picture, setPicture] = useState(null);
@@ -67,52 +68,100 @@ function EditPicture() {
                 <>
                     <Header/>
                     <Menu/>
-                    <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`} onSubmit={handleSubmit}>
+                    <div
+                        className={classnames(
+                            `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
+                        )}
+                        onSubmit={handleSubmit}>
                         <div className={styles.panel}>
-                            <Link className={styles.panelLink} to="/pictures"> назад</Link>
+                            <Link
+                                className={styles.panelLink}
+                                to="/pictures">
+                                назад
+                            </Link>
                             <div className={styles.panelRight}>
-                                <Link className={styles.panelLink} to="/pictures">список</Link>
+                                <Link
+                                    className={styles.panelLink}
+                                    to="/pictures">
+                                    список
+                                </Link>
                             </div>
                         </div>
-                        <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Редактировать изображение</h2>
+                        <h2
+                            className={classnames(
+                                `${styles.title} ${isDarkMode ? styles.titleDark : ''}`
+                            )}>
+                            Редактировать изображение
+                        </h2>
                         <section className={styles.inpContainer}>
                             <div className={styles.inputBox}>
-                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                       htmlFor="nameComp"> Название
+                                <label
+                                    className={classnames(
+                                        `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                                    )}
+                                    htmlFor="nameComp"> Название
                                 </label>
-                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
-                                       id="nameComp"
-                                       name="nameComp"
-                                       type="text"
-                                       placeholder="Введите данные"
-                                       value={name}
-                                       onChange={(event) => setName(event.target.value)}
+                                <input
+                                    className={classnames(
+                                        `${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`
+                                    )}
+                                    id="nameComp"
+                                    name="nameComp"
+                                    type="text"
+                                    placeholder="Введите данные"
+                                    value={name}
+                                    onChange={(event) => setName(event.target.value)}
                                 />
                             </div>
 
                             <div className={styles.inputBox}>
-                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                       htmlFor="nameComp"> альбом
+                                <label
+                                    className={classnames(
+                                        `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                                    )}
+                                    htmlFor="nameComp"> альбом
                                 </label>
-                                <select className={`${styles.selectCreate} ${isDarkMode ? styles.selectCreateDark : ''}`}
-                                        id="user"
-                                        name="user"
-                                        value={album}
-                                        onChange={(event) => setAlbum(event.target.value)}
+                                <select
+                                    className={classnames(
+                                        `${styles.selectCreate} ${isDarkMode ? styles.selectCreateDark : ''}`
+                                    )}
+                                    id="user"
+                                    name="user"
+                                    value={album}
+                                    onChange={(event) => setAlbum(event.target.value)}
                                 >
-                                    <option className={styles.optionFirst} value="">Выберите альбом</option>
+                                    <option
+                                        className={styles.optionFirst}
+                                        value="">
+                                        Выберите альбом
+                                    </option>
                                     {albums.map((album) => (
-                                        <option key={album.id} value={album.id}>{album.title}</option>
+                                        <option
+                                            key={album.id}
+                                            value={album.id}>
+                                            {album.title}
+                                        </option>
                                     ))}
                                 </select>
                             </div>
                         </section>
 
-                        <p className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>Изображение</p>
+                        <p
+                            className={classnames(
+                                `${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`
+                            )}>
+                            Изображение
+                        </p>
 
                         <ImageUploader/>
 
-                        <button onClick={handleSubmit} className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>сохранить изменения >>></button>
+                        <button
+                            onClick={handleSubmit}
+                            className={classnames(
+                                `${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`
+                            )}>
+                            сохранить изменения >>>
+                        </button>
 
                     </div>
                 </>

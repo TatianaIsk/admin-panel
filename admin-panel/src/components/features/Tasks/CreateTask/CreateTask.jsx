@@ -6,12 +6,13 @@ import store from "../../../../store.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
+import classnames from "classnames";
 
 const CreateTask = () => {
     const [todos, setTodos] = useState(store.state.todos)
     const [users, setUsers] = useState(store.state.users)
     const [statusList, setStatusList] = useState([]);
-    const { isDarkMode } = useTheme();
+    const {isDarkMode} = useTheme();
 
     useEffect(() => {
         async function fetchData() {
@@ -36,7 +37,7 @@ const CreateTask = () => {
     });
 
     const handleInputChange = (event) => {
-        const { name, value } = event.target;
+        const {name, value} = event.target;
         if (name === 'user') {
             const selectedUser = users.find((user) => user.name === value);
             setFormValues((prevState) => ({
@@ -81,20 +82,41 @@ const CreateTask = () => {
         <>
             <Header/>
             <Menu/>
-            <form className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`} onSubmit={handleSubmit}>
+            <form className={classnames(
+                `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
+            )}
+                  onSubmit={handleSubmit}>
                 <div className={styles.panel}>
-                    <Link className={styles.panelLink} to="/todos"> назад</Link>
+                    <Link
+                        className={styles.panelLink}
+                        to="/todos">
+                        назад
+                    </Link>
                     <div className={styles.panelRight}>
-                        <Link className={styles.panelLink} to="/todos">список</Link>
+                        <Link
+                            className={styles.panelLink}
+                            to="/todos">
+                            список
+                        </Link>
                     </div>
                 </div>
-                <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Создать задачу</h2>
+                <h2
+                    className={classnames(
+                        `${styles.title} ${isDarkMode ? styles.titleDark : ''}`
+                    )}>
+                    Создать задачу
+                </h2>
                 <div className={styles.selectBox}>
-                    <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                           htmlFor="user"> пользователь
+                    <label
+                        className={classnames(
+                            `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                        )}
+                        htmlFor="user"> пользователь
                     </label>
                     <select
-                        className={`${styles.selectCreate} ${isDarkMode ? styles.selectCreateDark : ''}`}
+                        className={classnames(
+                            `${styles.selectCreate} ${isDarkMode ? styles.selectCreateDark : ''}`
+                        )}
                         id="user"
                         name="user"
                         value={formValues.user}
@@ -110,25 +132,36 @@ const CreateTask = () => {
                 </div>
 
                 <div className={styles.inputBox}>
-                    <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                           htmlFor="task"> задача
+                    <label
+                        className={classnames(
+                            `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                        )}
+                        htmlFor="task"> задача
                     </label>
-                    <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
-                           id="task"
-                           name="task"
-                           type="text"
-                           value={formValues.task}
-                           onChange={handleInputChange}
-                           placeholder="Введите данные"
+                    <input
+                        className={classnames(
+                            `${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`
+                        )}
+                        id="task"
+                        name="task"
+                        type="text"
+                        value={formValues.task}
+                        onChange={handleInputChange}
+                        placeholder="Введите данные"
                     />
                 </div>
 
                 <div className={styles.selectBox}>
-                    <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                           htmlFor="status"> статус выполнения
+                    <label
+                        className={classnames(
+                            `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                        )}
+                        htmlFor="status"> статус выполнения
                     </label>
                     <select
-                        className={`${styles.selectCreate} ${isDarkMode ? styles.selectCreateDark : ''}`}
+                        className={classnames(
+                            `${styles.selectCreate} ${isDarkMode ? styles.selectCreateDark : ''}`
+                        )}
                         id="status"
                         name="status"
                         value={formValues.status}
@@ -143,7 +176,9 @@ const CreateTask = () => {
                     </select>
                 </div>
 
-                <button onClick={handleSubmit} className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>создать >>></button>
+                <button onClick={handleSubmit}
+                        className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>создать >>>
+                </button>
             </form>
         </>
     )

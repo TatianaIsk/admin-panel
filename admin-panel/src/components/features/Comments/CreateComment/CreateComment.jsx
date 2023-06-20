@@ -6,8 +6,10 @@ import React, {useEffect, useState} from "react";
 import store from "../../../../store.jsx";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
+import classnames from "classnames";
+
 const CreateComment = () => {
-    const { isDarkMode } = useTheme();
+    const {isDarkMode} = useTheme();
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
@@ -27,7 +29,7 @@ const CreateComment = () => {
     });
 
     const handleInputChange = (event) => {
-        const { name, value } = event.target;
+        const {name, value} = event.target;
         if (name === 'post') {
             const selectedPost = posts.find((post) => post.title === value);
             setFormValues((prevState) => ({
@@ -63,24 +65,46 @@ const CreateComment = () => {
         <>
             <Header/>
             <Menu/>
-            <div className={`wrapper ${isDarkMode ? "wrapperDark" : ""}`} onSubmit={handleSubmit}>
+            <div
+                className={classnames(
+                    `wrapper ${isDarkMode ? "wrapperDark" : ""}`
+                )}
+                onSubmit={handleSubmit}>
                 <div className={styles.panel}>
-                    <Link className={styles.panelLink} to="/comments"> назад</Link>
+                    <Link
+                        className={styles.panelLink}
+                        to="/comments">
+                        назад
+                    </Link>
                 </div>
-                <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>создание комментария</h2>
+                <h2
+                    className={classnames(
+                        `${styles.title} ${isDarkMode ? styles.titleDark : ''}`
+                    )}>
+                    создание комментария
+                </h2>
                 <section className={styles.inpContainer}>
                     <div className={styles.selectBox}>
-                        <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                               htmlFor="post"> пост
+                        <label
+                            className={classnames(
+                                `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                            )}
+                            htmlFor="post"> пост
                         </label>
                         <select
-                            className={`${styles.selectCreate} ${isDarkMode ? styles.selectCreateDark : ''}`}
+                            className={classnames(
+                                `${styles.selectCreate} ${isDarkMode ? styles.selectCreateDark : ''}`
+                            )}
                             id="post"
                             name="post"
                             value={formValues.post}
                             onChange={handleInputChange}
                         >
-                            <option className={styles.optionFirst} value="">Выберите пост</option>
+                            <option
+                                className={styles.optionFirst}
+                                value="">
+                                Выберите пост
+                            </option>
                             {posts
                                 .map((post) => post.title)
                                 .filter((value, index, self) =>
@@ -95,27 +119,47 @@ const CreateComment = () => {
                     </div>
 
                     <div className={styles.inputBox}>
-                        <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                               htmlFor="title"> заголовок
+                        <label
+                            className={classnames(
+                                `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                            )}
+                            htmlFor="title"> заголовок
                         </label>
-                        <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
-                               id="title"
-                               name="title"
-                               type="text"
-                               value={formValues.title}
-                               placeholder="Введите данные"
-                               onChange={handleInputChange}
+                        <input
+                            className={classnames(
+                                `${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`
+                            )}
+                            id="title"
+                            name="title"
+                            type="text"
+                            value={formValues.title}
+                            placeholder="Введите данные"
+                            onChange={handleInputChange}
                         />
                     </div>
                 </section>
-                <p className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>Текст комментария</p>
-                <textarea placeholder="Enter text here"
-                          className={`${styles.textArea} ${isDarkMode ? styles.textAreaDark : ''}`}
-                          name="textComment"
-                          value={formValues.textComment}
-                          onChange={handleInputChange}
+                <p
+                    className={classnames(
+                        `${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`
+                    )}>
+                    Текст комментария
+                </p>
+                <textarea
+                    placeholder="Enter text here"
+                    className={classnames(
+                        `${styles.textArea} ${isDarkMode ? styles.textAreaDark : ''}`
+                    )}
+                    name="textComment"
+                    value={formValues.textComment}
+                    onChange={handleInputChange}
                 />
-                <button className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`} onClick={handleSubmit}>создать >>></button>
+                <button
+                    className={classnames(
+                        `${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`
+                    )}
+                    onClick={handleSubmit}>
+                    создать >>>
+                </button>
             </div>
         </>
     )

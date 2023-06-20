@@ -9,6 +9,7 @@ import Pagination from "../../../ui/Pagination/Pagination.jsx";
 import Loader from "../../../ui/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import {Link} from "react-router-dom";
+import classnames from "classnames";
 
 function TaskList() {
     const [todos, setTodos] = useState(store.state.todos)
@@ -99,15 +100,22 @@ function TaskList() {
                 <div>
                     <Header/>
                     <Menu/>
-                    <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
+                    <div className={classnames(
+                        `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
+                    )}>
                         <div className="searhcing">
-                            <label className={`titleUser ${isDarkMode ? 'titleUserDark' : ''}`}
-                                   htmlFor="searchUser">
+                            <label
+                                className={classnames(
+                                    `titleUser ${isDarkMode ? 'titleUserDark' : ''}`
+                                )}
+                                htmlFor="searchUser">
                                 задания
                             </label>
                             <input
                                 type="text"
-                                className={`${styles.searchTask} ${isDarkMode ? styles.searchTaskDark : ''}`}
+                                className={classnames(
+                                    `${styles.searchTask} ${isDarkMode ? styles.searchTaskDark : ''}`
+                                )}
                                 id="searchUser"
                                 placeholder="Поиск"
                                 value={searchQuery}
@@ -115,20 +123,40 @@ function TaskList() {
                             />
                         </div>
                         <div className={styles.filters}>
-                            <select className={`${styles.selectTask} ${isDarkMode ? styles.selectTaskDark : ''}`}
-                                    onChange={(e) => setSelectedUser(e.target.value)}
+                            <select
+                                className={classnames(
+                                    `${styles.selectTask} ${isDarkMode ? styles.selectTaskDark : ''}`
+                                )}
+                                onChange={(e) => setSelectedUser(e.target.value)}
                             >
-                                <option className={styles.optionTask} value="" defaultValue>пользователь</option>
+                                <option
+                                    className={styles.optionTask}
+                                    value=""
+                                    defaultValue>
+                                    пользователь
+                                </option>
                                 {users.map((user) => (
                                     <option key={user.id}>{user.name}</option>
                                 ))}
                             </select>
-                            <select className={`${styles.selectTodos} ${isDarkMode ? styles.selectTodosDark : ''}`}
-                                    onChange={(e) => setSelectedStatus(e.target.value)}
+                            <select
+                                className={classnames(
+                                    `${styles.selectTodos} ${isDarkMode ? styles.selectTodosDark : ''}`
+                                )}
+                                onChange={(e) => setSelectedStatus(e.target.value)}
                             >
-                                <option className={styles.optionTask} value="" defaultValue>статус</option>
+                                <option
+                                    className={styles.optionTask}
+                                    value=""
+                                    defaultValue>
+                                    статус
+                                </option>
                                 {statusList.map((status, index) => (
-                                    <option key={index} value={status}>{status ? "Выполнено" : "Не выполнено"}</option>
+                                    <option
+                                        key={index}
+                                        value={status}>
+                                        {status ? "Выполнено" : "Не выполнено"}
+                                    </option>
                                 ))}
                             </select>
                         </div>
@@ -139,25 +167,33 @@ function TaskList() {
                                     <th className="thTask">
                                         ID
                                         <button
-                                            className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}>
+                                            className={classnames(
+                                                `btnTh ${isDarkMode ? 'btnThDark' : ''}`
+                                            )}>
                                         </button>
                                     </th>
                                     <th className="thTask">
                                         пользователь
                                         <button
-                                            className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}>
+                                            className={classnames(
+                                                `btnTh ${isDarkMode ? 'btnThDark' : ''}`
+                                            )}>
                                         </button>
                                     </th>
                                     <th className="thTask">
                                         заголовок
                                         <button
-                                            className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}>
+                                            className={classnames(
+                                                `btnTh ${isDarkMode ? 'btnThDark' : ''}`
+                                            )}>
                                         </button>
                                     </th>
                                     <th className="thTask">
                                         выполнена
                                         <button
-                                            className={`btnTh ${isDarkMode ? 'btnThDark' : ''}`}>
+                                            className={classnames(
+                                                `btnTh ${isDarkMode ? 'btnThDark' : ''}`
+                                            )}>
                                         </button>
                                     </th>
                                 </tr>
@@ -169,8 +205,11 @@ function TaskList() {
                         </div>
                         <div className={styles.paginateBlock}>
                             <Link to="/todos/create"
-                               className={`${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`}>Создать
-                                >>></Link>
+                                  className={classnames(
+                                      `${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`
+                                  )}>
+                                Создать >>>
+                            </Link>
                             <div className={styles.pagination}>
                                 <Pagination
                                     users={todos}
@@ -180,7 +219,9 @@ function TaskList() {
                                 />
                             </div>
                             <p
-                                className={`${styles.countRows} ${isDarkMode ? styles.countRowsDark : ''}`}>
+                                className={classnames(
+                                    `${styles.countRows} ${isDarkMode ? styles.countRowsDark : ''}`
+                                )}>
                                 Строк на странице: {currentTodos.length}
                             </p>
                         </div>

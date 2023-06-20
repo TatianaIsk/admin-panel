@@ -6,10 +6,11 @@ import styles from './EditUser.module.scss'
 import store from "../../../../store.jsx";
 import Loader from "../../../ui/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
+import classnames from "classnames";
 
 function EditUser() {
     const {isDarkMode} = useTheme();
-    const { username } = useParams();
+    const {username} = useParams();
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -71,26 +72,53 @@ function EditUser() {
                 <>
                     <Header/>
                     <Menu/>
-                    <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`} onSubmit={handleSubmit}>
+                    <div className={classnames(
+                        `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
+                    )}
+                         onSubmit={handleSubmit}>
                         <div className={styles.panel}>
-                            <Link className={styles.panelBack} to="/users"> назад</Link>
+                            <Link
+                                className={styles.panelBack}
+                                to="/users">
+                                назад
+                            </Link>
                             <div className={styles.panelRight}>
-                                <Link className={styles.panelLink} to={`/users/view/${user.id}`}>просмотр</Link>
-                                <Link className={styles.panelLink} to="/users">список</Link>
-                                <Link className={styles.panelLink} to="">удалить пользователя</Link>
+                                <Link
+                                    className={styles.panelLink}
+                                    to={`/users/view/${user.id}`}>
+                                    просмотр
+                                </Link>
+                                <Link
+                                    className={styles.panelLink}
+                                    to="/users">
+                                    список
+                                </Link>
+                                <Link
+                                    className={styles.panelLink}
+                                    to="">
+                                    удалить пользователя
+                                </Link>
                             </div>
                         </div>
-                        <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Редактировать
-                            пользователя</h2>
+                        <h2 className={classnames(
+                            `${styles.title} ${isDarkMode ? styles.titleDark : ''}`
+                        )}>
+                            Редактировать пользователя
+                        </h2>
                         <div className={styles.blocks}>
                             <section className={styles.inpContainer}>
                                 <div className={styles.inputBox}>
                                     <label
-                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                        htmlFor="nameComp"> фио
+                                        className={classnames(
+                                            `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                                        )}
+                                        htmlFor="nameComp">
+                                        фио
                                     </label>
                                     <input
-                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        className={classnames(
+                                            `${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`
+                                        )}
                                         id="nameComp"
                                         name="nameComp"
                                         type="text"
@@ -102,11 +130,16 @@ function EditUser() {
 
                                 <div className={styles.inputBox}>
                                     <label
-                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                        htmlFor="nameComp"> никнейм (eng)
+                                        className={classnames(
+                                            `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                                        )}
+                                        htmlFor="nameComp">
+                                        никнейм (eng)
                                     </label>
                                     <input
-                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        className={classnames(
+                                            `${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`
+                                        )}
                                         id="nameComp"
                                         name="nameComp"
                                         type="text"
@@ -120,11 +153,15 @@ function EditUser() {
                             <section className={styles.inpContainer}>
                                 <div className={styles.inputBox}>
                                     <label
-                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                        className={classnames(
+                                            `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                                        )}
                                         htmlFor="nameComp"> e-mail
                                     </label>
                                     <input
-                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        className={classnames(
+                                            `${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`
+                                        )}
                                         id="nameComp"
                                         name="nameComp"
                                         type="text"
@@ -136,11 +173,15 @@ function EditUser() {
 
                                 <div className={styles.inputBox}>
                                     <label
-                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                        className={classnames(
+                                            `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                                        )}
                                         htmlFor="nameComp"> веб-сайт
                                     </label>
                                     <input
-                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        className={classnames(
+                                            `${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`
+                                        )}
                                         id="nameComp"
                                         name="nameComp"
                                         type="text"
@@ -152,16 +193,22 @@ function EditUser() {
                             </section>
 
                             <div className={styles.inputBox}>
-                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                       htmlFor="nameComp"> телефон
+                                <label
+                                    className={classnames(
+                                        `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                                    )}
+                                    htmlFor="nameComp"> телефон
                                 </label>
-                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
-                                       id="nameComp"
-                                       name="nameComp"
-                                       type="text"
-                                       placeholder="Введите данные"
-                                       value={phone}
-                                       onChange={(event) => setPhone(event.target.value)}
+                                <input
+                                    className={classnames(
+                                        `${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`
+                                    )}
+                                    id="nameComp"
+                                    name="nameComp"
+                                    type="text"
+                                    placeholder="Введите данные"
+                                    value={phone}
+                                    onChange={(event) => setPhone(event.target.value)}
                                 />
                             </div>
 
@@ -170,11 +217,15 @@ function EditUser() {
                             <section className={styles.inpContainer}>
                                 <div className={styles.inputBox}>
                                     <label
-                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                        className={classnames(
+                                            `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                                        )}
                                         htmlFor="nameComp"> индекс
                                     </label>
                                     <input
-                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        className={classnames(
+                                            `${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`
+                                        )}
                                         id="nameComp"
                                         name="nameComp"
                                         type="text"
@@ -186,11 +237,15 @@ function EditUser() {
 
                                 <div className={styles.inputBox}>
                                     <label
-                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                        className={classnames(
+                                            `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                                        )}
                                         htmlFor="nameComp"> город
                                     </label>
                                     <input
-                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        className={classnames(
+                                            `${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`
+                                        )}
                                         id="nameComp"
                                         name="nameComp"
                                         type="text"
@@ -202,16 +257,22 @@ function EditUser() {
                             </section>
 
                             <div className={styles.inputBox}>
-                                <label className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
-                                       htmlFor="nameComp"> улица
+                                <label
+                                    className={classnames(
+                                        `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                                    )}
+                                    htmlFor="nameComp"> улица
                                 </label>
-                                <input className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
-                                       id="nameComp"
-                                       name="nameComp"
-                                       type="text"
-                                       placeholder="Введите данные"
-                                       value={street}
-                                       onChange={(event) => setStreet(event.target.value)}
+                                <input
+                                    className={classnames(
+                                        `${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`
+                                    )}
+                                    id="nameComp"
+                                    name="nameComp"
+                                    type="text"
+                                    placeholder="Введите данные"
+                                    value={street}
+                                    onChange={(event) => setStreet(event.target.value)}
                                 />
                             </div>
 
@@ -220,11 +281,15 @@ function EditUser() {
                             <section className={styles.inpContainer}>
                                 <div className={styles.inputBox}>
                                     <label
-                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                        className={classnames(
+                                            `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                                        )}
                                         htmlFor="nameComp"> название
                                     </label>
                                     <input
-                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        className={classnames(
+                                            `${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`
+                                        )}
                                         id="nameComp"
                                         name="nameComp"
                                         type="text"
@@ -236,11 +301,15 @@ function EditUser() {
 
                                 <div className={styles.inputBox}>
                                     <label
-                                        className={`${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`}
+                                        className={classnames(
+                                            `${styles.labelCreate} ${isDarkMode ? styles.labelCreateDark : ''}`
+                                        )}
                                         htmlFor="nameComp"> описание
                                     </label>
                                     <input
-                                        className={`${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`}
+                                        className={classnames(
+                                            `${styles.inputCreate} ${isDarkMode ? styles.inputCreateDark : ''}`
+                                        )}
                                         id="nameComp"
                                         name="nameComp"
                                         type="text"
@@ -252,8 +321,10 @@ function EditUser() {
                             </section>
 
                             <button onClick={handleSubmit}
-                                    className={`${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`}>сохранить
-                                изменения >>>
+                                    className={classnames(
+                                        `${styles.btnSub} ${isDarkMode ? styles.btnSubDark : ''}`)}
+                            >
+                                сохранить изменения >>>
                             </button>
                         </div>
                     </div>

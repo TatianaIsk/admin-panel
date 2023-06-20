@@ -6,6 +6,7 @@ import styles from './PostView.module.scss'
 import store from "../../../../store.jsx";
 import Loader from "../../../ui/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
+import classnames from "classnames";
 
 function PostView() {
     const {isDarkMode} = useTheme();
@@ -59,52 +60,97 @@ function PostView() {
                 <>
                     <Header/>
                     <Menu/>
-                    <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
+                    <div
+                        className={classnames(
+                            `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
+                        )}>
                         <div className={styles.panel}>
-                            <Link className={styles.panelLink} to="/posts"> назад</Link>
+                            <Link
+                                className={styles.panelLink}
+                                to="/posts">
+                                назад
+                            </Link>
                             <div className={styles.panelRight}>
-                                <Link className={styles.panelLink} to="/posts">список</Link>
+                                <Link
+                                    className={styles.panelLink}
+                                    to="/posts">
+                                    список
+                                </Link>
                             </div>
                         </div>
                         <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Просмотр поста</h2>
                         <div>
-                            <Link to={`/users/view/${findUserUsername(post?.userId)}`} className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
+                            <Link
+                                to={`/users/view/${findUserUsername(post?.userId)}`}
+                                className={classnames(
+                                    `${styles.btn} ${isDarkMode ? styles.btnDark : ''}`
+                                )}>
                                 пользователи
                             </Link>
-                            <Link to={`/albums/view/${findAlbumTitle(post?.id)}`}
-                                  className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
+                            <Link
+                                to={`/albums/view/${findAlbumTitle(post?.id)}`}
+                                className={classnames(
+                                    `${styles.btn} ${isDarkMode ? styles.btnDark : ''}`
+                                )}>
                                 альбомы
                             </Link>
-                            <button className={`${styles.btnCard} ${isDarkMode ? styles.btnCardDark : ''}`}>
+                            <button
+                                className={classnames(
+                                    `${styles.btnCard} ${isDarkMode ? styles.btnCardDark : ''}`
+                                )}>
                                 сгенерировать карту компетенций >>>
                             </button>
                         </div>
                         <table className={styles.table}>
                             <tr className={styles.tr}>
-                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                <th
+                                    className={classnames(
+                                        `${styles.th} ${isDarkMode ? styles.thDark : ''}`
+                                    )}>
                                     id:
                                 </th>
-                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                <th
+                                    className={classnames(
+                                        `${styles.th} ${isDarkMode ? styles.thDark : ''}`
+                                    )}>
                                     Пользователь:
                                 </th>
-                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                <th
+                                    className={classnames(
+                                        `${styles.th} ${isDarkMode ? styles.thDark : ''}`
+                                    )}>
                                     Заголовок:
                                 </th>
-                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                <th
+                                    className={classnames(
+                                        `${styles.th} ${isDarkMode ? styles.thDark : ''}`
+                                    )}>
                                     Текст:
                                 </th>
                             </tr>
                             <tr className={styles.tr}>
-                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                <td
+                                    className={classnames(
+                                        `${styles.td} ${isDarkMode ? styles.tdDark : ''}`
+                                    )}>
                                     {post.id}
                                 </td>
-                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                <td
+                                    className={classnames(
+                                        `${styles.td} ${isDarkMode ? styles.tdDark : ''}`
+                                    )}>
                                     {findUsername(post.userId)}
                                 </td>
-                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                <td
+                                    className={classnames(
+                                        `${styles.td} ${isDarkMode ? styles.tdDark : ''}`
+                                    )}>
                                     {post.title}
                                 </td>
-                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                <td
+                                    className={classnames(
+                                        `${styles.td} ${isDarkMode ? styles.tdDark : ''}`
+                                    )}>
                                     {post.body}
                                 </td>
                             </tr>

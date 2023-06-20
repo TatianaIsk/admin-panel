@@ -11,16 +11,22 @@ const MainPage = () => {
         <>
             <Header/>
             <Menu/>
-            <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
-                <h2 className={classnames(
-                    isDarkMode ? styles.mainTitleDark : styles.mainTitle
+            <div className={classnames(
+                `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
+            )}>
+                <h2
+                    className={classnames(
+                        isDarkMode ? styles.mainTitleDark : styles.mainTitle
                     )}>
                     M-Social
                 </h2>
                 <h3>Добро пожаловать в админ-панель M-Social!</h3>
-                <p className={classnames(
-                    isDarkMode ? styles.textDark : styles.text
-                )}>Используйте боковое меню, чтобы перейти к нужному разделу</p>
+                <p
+                    className={classnames(
+                        isDarkMode ? styles.textDark : styles.text
+                    )}>
+                    Используйте боковое меню, чтобы перейти к нужному разделу
+                </p>
             </div>
         </>
     )

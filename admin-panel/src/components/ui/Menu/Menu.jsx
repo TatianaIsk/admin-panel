@@ -62,13 +62,18 @@ function Menu() {
 
     return (
         <>
-            <button className={`${isOpen ? isDarkMode ? styles.btnDark : styles.btn : isDarkMode ? styles.btnCloseDark : styles.btnClose}`}
+            <button className={classnames(
+                `${isOpen ? isDarkMode ? styles.btnDark : styles.btn : isDarkMode ? styles.btnCloseDark : styles.btnClose}`
+            )}
                     onClick={toggleMenu}
             >
             </button>
             <div className={`${styles.column} ${isDarkMode ? styles.columnDark : ''}`}></div>
             {isOpen && (
-                <animated.div className={`${styles.menu} ${isDarkMode ? styles.menuDark : ''}`} style={menuAnimation}>
+                <animated.div className={classnames(
+                    `${styles.menu} ${isDarkMode ? styles.menuDark : ''}`
+                )}
+                              style={menuAnimation}>
                     <ul>
                         <a href="/users"
                            className={classnames(
@@ -114,7 +119,9 @@ function Menu() {
                         )}
                         <div className={styles.blog}>
                             <span>Блог</span>
-                            <button className={`${isMiniOpen ? isDarkMode ? styles.iconOpenDark : styles.iconOpen : isDarkMode ? styles.iconCloseDark : styles.iconClose}`}
+                            <button className={classnames(
+                                `${isMiniOpen ? isDarkMode ? styles.iconOpenDark : styles.iconOpen : isDarkMode ? styles.iconCloseDark : styles.iconClose}`
+                            )}
                                     onClick={miniMenu}>
                             </button>
                         </div>

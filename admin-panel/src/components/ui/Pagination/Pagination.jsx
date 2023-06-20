@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './Pagination.scss';
-import { useTheme } from '../../../ThemeContext.jsx';
+import {useTheme} from '../../../ThemeContext.jsx';
+import classnames from "classnames";
+import styles from "../Menu/Menu.module.scss";
 
-const Pagination = ({ users, usersPerPage, setCurrentPage, currentPage }) => {
-    const { isDarkMode } = useTheme();
+const Pagination = ({users, usersPerPage, setCurrentPage, currentPage}) => {
+    const {isDarkMode} = useTheme();
     const [showCurrentPage, setShowCurrentPage] = useState(false);
 
     const renderPagination = () => {
@@ -22,9 +24,13 @@ const Pagination = ({ users, usersPerPage, setCurrentPage, currentPage }) => {
             currentPage > Math.floor(visiblePages / 2) && pageNumbers.length > visiblePages ? (
                 <button
                     key={1}
-                    className={`pageItem ${currentPage === 1 ? 'active' : ''} ${isDarkMode ? 'pageItemDark' : ''}`}
+                    className={classnames(
+                        `pageItem ${currentPage === 1 ? 'active' : ''} ${isDarkMode ? 'pageItemDark' : ''}`
+                    )}
                 >
-                    <span className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(1)}>
+                    <span className={classnames(
+                        `pageLink ${isDarkMode ? 'pageLinkDark' : ''}`
+                    )} onClick={() => setCurrentPage(1)}>
                         1
                     </span>
                 </button>
@@ -33,10 +39,14 @@ const Pagination = ({ users, usersPerPage, setCurrentPage, currentPage }) => {
             currentPage < pageNumbers.length - Math.floor(visiblePages / 2) && pageNumbers.length > visiblePages ? (
                 <button
                     key={pageNumbers.length}
-                    className={`pageItem ${currentPage === pageNumbers.length ? 'active' : ''} ${isDarkMode ? 'pageItemDark' : ''}`}
+                    className={classnames(
+                        `pageItem ${currentPage === pageNumbers.length ? 'active' : ''} ${isDarkMode ? 'pageItemDark' : ''}`
+                    )}
                 >
                     <span
-                        className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`}
+                        className={classnames(
+                            `pageLink ${isDarkMode ? 'pageLinkDark' : ''}`
+                        )}
                         onClick={() => setCurrentPage(pageNumbers.length)}
                     >
                         {pageNumbers.length}
@@ -45,13 +55,21 @@ const Pagination = ({ users, usersPerPage, setCurrentPage, currentPage }) => {
             ) : null;
         return (
             <nav>
-                <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(currentPage - 1)}>
+                <button className={classnames(
+                    `pageLink ${isDarkMode ? 'pageLinkDark' : ''}`
+                )}
+                        onClick={() => setCurrentPage(currentPage - 1)}>
                     назад
                 </button>
                 {firstPage}
                 {startPage > 0 && pageNumbers.length > visiblePages ? (
-                    <button key="ellipsis-start" className={`pageItem ${isDarkMode ? 'pageItemDark' : ''}`}>
-                        <span className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(startPage - 1)}>
+                    <button key="ellipsis-start" className={classnames(
+                        `pageItem ${isDarkMode ? 'pageItemDark' : ''}`
+                    )}>
+                        <span className={classnames(
+                            `pageLink ${isDarkMode ? 'pageLinkDark' : ''}`
+                        )}
+                              onClick={() => setCurrentPage(startPage - 1)}>
                             &hellip;
                         </span>
                     </button>
@@ -64,20 +82,29 @@ const Pagination = ({ users, usersPerPage, setCurrentPage, currentPage }) => {
                             setShowCurrentPage(true);
                             setTimeout(() => setShowCurrentPage(false), 3000);
                         }}
-                        className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`}
+                        className={classnames(
+                            `pageLink ${isDarkMode ? 'pageLinkDark' : ''}`
+                        )}
                     >
                         {number === currentPage ? 'Текущая страница' : number}
                     </button>
                 ))}
                 {endPage < pageNumbers.length && pageNumbers.length > visiblePages ? (
-                    <button key="ellipsis-end" className={`pageItem ${isDarkMode ? 'pageItemDark' : ''}`}>
-                        <span className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(endPage + 1)}>
+                    <button key="ellipsis-end" className={classnames(
+                        `pageItem ${isDarkMode ? 'pageItemDark' : ''}`
+                    )}>
+                        <span className={classnames(
+                            `pageLink ${isDarkMode ? 'pageLinkDark' : ''}`
+                        )} onClick={() => setCurrentPage(endPage + 1)}>
                             &hellip;
                         </span>
                     </button>
                 ) : null}
                 {lastPage}
-                <button className={`pageLink ${isDarkMode ? 'pageLinkDark' : ''}`} onClick={() => setCurrentPage(currentPage + 1)}>
+                <button className={classnames(
+                    `pageLink ${isDarkMode ? 'pageLinkDark' : ''}`
+                )}
+                        onClick={() => setCurrentPage(currentPage + 1)}>
                     вперед
                 </button>
             </nav>

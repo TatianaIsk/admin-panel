@@ -7,10 +7,11 @@ import store from "../../../../store.jsx";
 import Loader from "../../../ui/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import {a} from "react-spring";
+import classnames from "classnames";
 
 function AlbumView() {
-    const { isDarkMode } = useTheme();
-    const { albumTitle } = useParams();
+    const {isDarkMode} = useTheme();
+    const {albumTitle} = useParams();
 
     const [posts, setPosts] = useState(null)
     const [album, setAlbum] = useState(null);
@@ -60,47 +61,89 @@ function AlbumView() {
                 <>
                     <Header/>
                     <Menu/>
-                    <div className={`wrapper ${isDarkMode ? 'wrapperDark' : ''}`}>
+                    <div className={classnames(
+                        `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
+                    )}>
                         <div className={styles.panel}>
-                            <Link className={styles.panelLink} to="/albums">назад</Link>
+                            <Link
+                                className={styles.panelLink}
+                                to="/albums">
+                                назад
+                            </Link>
                             <div className={styles.panelRight}>
-                                <Link className={styles.panelLink} to="/albums">список</Link>
+                                <Link
+                                    className={styles.panelLink}
+                                    to="/albums">
+                                    список
+                                </Link>
                             </div>
                         </div>
-                        <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Просмотр альбома</h2>
+                        <h2
+                            className={classnames(
+                                `${styles.title} ${isDarkMode ? styles.titleDark : ''}`
+                            )}>
+                            Просмотр альбома
+                        </h2>
                         <div>
-                            <Link to={`/users/view/${findUserUsername(album.userId)}`}
-                                  className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
+                            <Link
+                                to={`/users/view/${findUserUsername(album.userId)}`}
+                                className={classnames(
+                                    `${styles.btn} ${isDarkMode ? styles.btnDark : ''}`
+                                )}>
                                 пользователи
                             </Link>
-                            <Link to={`/posts/view/${findPostTitle(album.id)}`}
-                                  className={`${styles.btn} ${isDarkMode ? styles.btnDark : ''}`}>
+                            <Link
+                                to={`/posts/view/${findPostTitle(album.id)}`}
+                                className={classnames(
+                                    `${styles.btn} ${isDarkMode ? styles.btnDark : ''}`
+                                )}>
                                 посты
                             </Link>
-                            <button className={`${styles.btnCard} ${isDarkMode ? styles.btnCardDark : ''}`}>
+                            <button
+                                className={classnames(
+                                    `${styles.btnCard} ${isDarkMode ? styles.btnCardDark : ''}`
+                                )}>
                                 сгенерировать карту компетенций >>>
                             </button>
                         </div>
                         <table className={styles.table}>
                             <tr className={styles.tr}>
-                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                <th
+                                    className={classnames(
+                                        `${styles.th} ${isDarkMode ? styles.thDark : ''}`
+                                    )}>
                                     id:
                                 </th>
-                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                <th
+                                    className={classnames(
+                                        `${styles.th} ${isDarkMode ? styles.thDark : ''}`
+                                    )}>
                                     Пользователь:
                                 </th>
-                                <th className={`${styles.th} ${isDarkMode ? styles.thDark : ''}`}>
+                                <th
+                                    className={classnames(
+                                        `${styles.th} ${isDarkMode ? styles.thDark : ''}`
+                                    )}>
                                     Заголовок:
                                 </th>
                             </tr>
                             <tr className={styles.tr}>
-                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                <td
+                                    className={classnames(
+                                        `${styles.td} ${isDarkMode ? styles.tdDark : ''}`
+                                    )}>
                                     {album.id}
                                 </td>
-                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                <td
+                                    className={classnames(
+                                        `${styles.td} ${isDarkMode ? styles.tdDark : ''}`
+                                    )}>
                                     {findUsername(album.userId)}
                                 </td>
-                                <td className={`${styles.td} ${isDarkMode ? styles.tdDark : ''}`}>
+                                <td
+                                    className={classnames(
+                                        `${styles.td} ${isDarkMode ? styles.tdDark : ''}`
+                                    )}>
                                     {album.title}
                                 </td>
                             </tr>
