@@ -1,11 +1,8 @@
-import React, {useReducer} from "react";
 import './UserList.scss'
 
 import thIcon from '../../../../assets/icon-mainUsers.png'
 import thIconDark from '../../../../assets/darkAssets/icon-close-dark-th.png'
 
-import Header from "../../../ui/Header/Header.jsx";
-import Menu from "../../../ui/Menu/Menu.jsx";
 import User from "../User.jsx";
 import {useState, useEffect} from "react";
 import store from "../../../../store.jsx";
@@ -120,8 +117,6 @@ const UserList = () => {
                 <Loader/>
             ) : (
                 <div>
-                    <Header/>
-                    <Menu/>
                     <div className={classnames(
                         `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
                     )}>
@@ -146,7 +141,7 @@ const UserList = () => {
                                    onChange={handleSearch}
                             />
                         </div>
-                        <div className="tableWrapper" style={{height: '700px', overflow: 'auto'}}>
+                        <div className="tableWrapper">
                             <table className="tableUser">
                                 <thead className="theadUser">
                                 <tr className="trUser">

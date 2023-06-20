@@ -224,11 +224,20 @@
 
 .error {
   position: absolute;
-  top: 403px;
+  top: 385px;
   left: 365px;
   font-family: $font-jost;
   color: $color-red;
 }
+
+.errorPhone {
+  position: absolute;
+  top: 490px;
+  left: 345px;
+  font-family: $font-jost;
+  color: $color-red;
+}
+
 
 .inputCreate {
   font-family: $font-jost;

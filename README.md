@@ -12,3 +12,5 @@ vite build
 3. axios (npm i axios)
 4. npm install eslint-plugin-react --save-dev
 5. npm i classnames 
+6. npm i react-modal
+7. npm install -D vite-plugin-svgr

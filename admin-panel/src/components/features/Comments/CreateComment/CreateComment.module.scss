@@ -25,6 +25,14 @@
   width: 100%;
 }
 
+.error {
+  position: absolute;
+  top: 272px;
+  left: 430px;
+  color: $color-red;
+  font-family: $font-jost;
+  font-size: 14px;
+}
 
 .panel {
   display: flex;

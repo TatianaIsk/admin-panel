@@ -1,10 +1,10 @@
-import { useState, useRef } from "react";
+import {useState, useRef} from "react";
 import styles from "./ImageUploader.module.scss";
 import photo from "./../../../../assets/photo-image-uploader.png";
-import { useTheme } from "../../../../ThemeContext.jsx";
+import {useTheme} from "../../../../ThemeContext.jsx";
 
-const ImageUploader = () => {
-    const { isDarkMode } = useTheme();
+const ImageUploader = ({url, onImageUrlSelected}) => {
+    const {isDarkMode} = useTheme();
     const [selectedImage, setSelectedImage] = useState(null);
     const [containerClassName, setContainerClassName] = useState(
         styles.container
@@ -14,7 +14,8 @@ const ImageUploader = () => {
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         const imageUrl = URL.createObjectURL(file);
-        setSelectedImage({ file, imageUrl });
+        setSelectedImage({file, imageUrl});
+        onImageUrlSelected(imageUrl);
     };
 
     const handleRemoveImage = () => {
@@ -48,7 +49,7 @@ const ImageUploader = () => {
         setContainerClassName(styles.container);
         const file = event.dataTransfer.files[0];
         const imageUrl = URL.createObjectURL(file);
-        setSelectedImage({ file, imageUrl });
+        setSelectedImage({file, imageUrl});
     };
 
     return (
@@ -80,7 +81,7 @@ const ImageUploader = () => {
                             ref={inputRef}
                         />
                     </label>
-                    <img src={photo} alt="cat" className={styles.photo} />
+                    <img src={photo} alt="cat" className={styles.photo}/>
                 </div>
             )}
             {selectedImage && (

@@ -1,1 +1,46 @@
+@import "../../../variables";
 
+.tdUserUsername {
+  width: 190px;
+  font-size: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Jost', sans-serif;
+  border-bottom: 1px solid $color-grey;
+  color: $color-grey-dark;
+  margin-top: 10px;
+
+  &.tdUserUsernameDark {
+    color: $color-grey;
+  }
+}
+
+.tdUserAddress {
+  width: 400px;
+  font-size: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Jost', sans-serif;
+  border-bottom: 1px solid $color-grey;
+  color: $color-grey-dark;
+  margin-top: 10px;
+
+  &.tdUserAddressDark {
+    color: $color-grey;
+  }
+}
+
+.tdUserCompany {
+  width: 300px;
+  font-size: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Jost', sans-serif;
+  border-bottom: 1px solid $color-grey;
+  color: $color-grey-dark;
+  margin-top: 10px;
+
+  &.tdUserCompanyDark {
+    color: $color-grey;
+  }
+}

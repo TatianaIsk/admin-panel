@@ -1,6 +1,4 @@
 import styles from './CreateUser.module.scss'
-import Header from "../../../ui/Header/Header.jsx";
-import Menu from "../../../ui/Menu/Menu.jsx";
 
 import {useState} from "react";
 import {useTheme} from "../../../../ThemeContext.jsx";
@@ -13,6 +11,7 @@ const CreateUser = () => {
     const {isDarkMode} = useTheme();
     const navigate = useNavigate();
     const [emailError, setEmailError] = useState(false);
+    const [phoneError, setPhoneError] = useState(false)
     const [formValues, setFormValues] = useState({
         name: '',
         username: '',
@@ -32,6 +31,11 @@ const CreateUser = () => {
         if (name === 'email') {
             const isValidEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value);
             setEmailError(!isValidEmail);
+        }
+
+        if (name === 'phone') {
+            const isValidPhone = /^^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7}$/gm.test(value);
+            setPhoneError(!isValidPhone);
         }
 
         setFormValues((prevState) => ({
@@ -54,8 +58,6 @@ const CreateUser = () => {
 
     return (
         <>
-            <Header/>
-            <Menu/>
             <form className={classnames(
                 `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
             )}
@@ -199,6 +201,7 @@ const CreateUser = () => {
                             placeholder="Введите данные"
                         />
                     </div>
+                    {phoneError && <div className={styles.errorPhone}>Введите корректный телефон</div>}
 
                     <p className={`${styles.subtitle} ${isDarkMode ? styles.subtitleDark : ''}`}>Адрес</p>
 

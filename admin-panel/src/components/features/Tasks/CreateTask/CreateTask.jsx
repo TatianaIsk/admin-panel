@@ -80,8 +80,6 @@ const CreateTask = () => {
 
     return (
         <>
-            <Header/>
-            <Menu/>
             <form className={classnames(
                 `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
             )}

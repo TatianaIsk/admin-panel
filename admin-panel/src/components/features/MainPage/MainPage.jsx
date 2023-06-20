@@ -9,8 +9,6 @@ const MainPage = () => {
 
     return (
         <>
-            <Header/>
-            <Menu/>
             <div className={classnames(
                 `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
             )}>

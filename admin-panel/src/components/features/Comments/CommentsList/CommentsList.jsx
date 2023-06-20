@@ -1,6 +1,4 @@
 import { useTheme } from "../../../../ThemeContext.jsx";
-import Header from "../../../ui/Header/Header.jsx";
-import Menu from "../../../ui/Menu/Menu.jsx";
 import React, { useEffect, useState } from "react";
 import styles from "./CommentsList.module.scss";
 import store from "../../../../store.jsx";
@@ -80,8 +78,6 @@ const CommentsList = () => {
 
     return (
         <>
-            <Header />
-            <Menu />
             <div className={classnames(
                 `wrapper ${isDarkMode ? "wrapperDark" : ""}`
             )}>
@@ -123,8 +119,7 @@ const CommentsList = () => {
                     </Link>
                 </div>
                 <div
-                    className="tableWrapper"
-                    style={{height: '700px', overflow: 'auto'}}>
+                    className={styles.tableWrapper}>
                     {renderComments()}
                 </div>
                 <div className="paginationCount">

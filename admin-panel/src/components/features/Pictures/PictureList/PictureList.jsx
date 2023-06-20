@@ -1,5 +1,3 @@
-import Header from "../../../ui/Header/Header.jsx";
-import Menu from "../../../ui/Menu/Menu.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import React, {useEffect, useState} from "react";
 import store from "../../../../store.jsx";
@@ -71,8 +69,6 @@ const PictureList = () => {
                 <Loader/>
             ) : (
                 <div>
-                    <Header/>
-                    <Menu/>
                     <div
                         className={classnames(
                             `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
@@ -96,7 +92,7 @@ const PictureList = () => {
                                 onChange={(e) => setSearchQuery(e.target.value)}
                             />
                         </div>
-                        <div className="tableWrapper" style={{height: '700px', overflow: 'auto'}}>
+                        <div className={styles.tableWrapper}>
                             <table className={styles.tableTask}>
                                 <thead className={styles.theadTask}>
                                 <tr className={styles.trTask}>

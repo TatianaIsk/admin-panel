@@ -44,8 +44,6 @@ function PostView() {
                 <Loader/>
             ) : (
                 <>
-                    <Header/>
-                    <Menu/>
                     <div
                         className={classnames(
                             `wrapper ${isDarkMode ? 'wrapperDark' : ''}`

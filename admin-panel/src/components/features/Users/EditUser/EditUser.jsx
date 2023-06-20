@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from "react";
 import {Link, useParams} from "react-router-dom";
-import Header from "../../../ui/Header/Header.jsx";
-import Menu from "../../../ui/Menu/Menu.jsx";
 import styles from './EditUser.module.scss'
 import store from "../../../../store.jsx";
 import Loader from "../../../ui/Loading/Loading.jsx";
@@ -69,8 +67,6 @@ function EditUser() {
                 <Loader/>
             ) : (
                 <>
-                    <Header/>
-                    <Menu/>
                     <div className={classnames(
                         `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
                     )}

@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from "react";
 
 import styles from './TaskList.module.scss'
-import Header from "../../../ui/Header/Header.jsx";
-import Menu from "../../../ui/Menu/Menu.jsx";
 import store from "../../../../store.jsx";
 import Task from "../Task.jsx";
 import Pagination from "../../../ui/Pagination/Pagination.jsx";
@@ -98,8 +96,6 @@ function TaskList() {
                 <Loader/>
             ) : (
                 <div>
-                    <Header/>
-                    <Menu/>
                     <div className={classnames(
                         `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
                     )}>
@@ -160,7 +156,7 @@ function TaskList() {
                                 ))}
                             </select>
                         </div>
-                        <div className="tableWrapper" style={{height: '700px', overflow: 'auto'}}>
+                        <div className={styles.tableWrapper}>
                             <table className={styles.tableTask}>
                                 <thead className={styles.theadTask}>
                                 <tr className={styles.trTask}>

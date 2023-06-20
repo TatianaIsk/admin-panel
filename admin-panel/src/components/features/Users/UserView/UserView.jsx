@@ -54,8 +54,6 @@ function UserView() {
                 <Loader/>
             ) : (
                 <>
-                    <Header/>
-                    <Menu/>
                     <div className={classnames(
                         `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
                     )}>

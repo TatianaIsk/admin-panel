@@ -1,13 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
-import Header from "../../../ui/Header/Header.jsx";
-import Menu from "../../../ui/Menu/Menu.jsx";
 import styles from './ALbumView.module.scss'
 import store from "../../../../store.jsx";
 import Loader from "../../../ui/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import classnames from "classnames";
-import Loading from "../../../ui/Loading/Loading.jsx";
 
 function AlbumView() {
     const { isDarkMode } = useTheme();
@@ -45,8 +42,6 @@ function AlbumView() {
                 <Loader/>
             ) : (
                 <>
-                    <Header/>
-                    <Menu/>
                     <div className={classnames(
                         `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
                     )}>

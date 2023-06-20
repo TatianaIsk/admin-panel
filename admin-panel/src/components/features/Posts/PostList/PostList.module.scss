@@ -58,3 +58,8 @@ select:focus {
     color: $color-grey;
   }
 }
+
+.tableWrapper {
+  height: 700px;
+  overflow: auto;
+}

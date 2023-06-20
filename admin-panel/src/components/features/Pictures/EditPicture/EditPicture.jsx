@@ -10,27 +10,27 @@ import ImageUploader from "../ImageUploader/ImageUploader.jsx";
 import classnames from "classnames";
 
 function EditPicture() {
-    const {isDarkMode} = useTheme();
-    const {pictureId} = useParams();
+    const { isDarkMode } = useTheme();
+    const { pictureId } = useParams();
 
     const [picture, setPicture] = useState(null);
-    const [albums, setAlbums] = useState(null)
+    const [albums, setAlbums] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const [name, setName] = useState('')
-    const [album, setAlbum] = useState('')
-    const [img, setImg] = useState('')
+    const [name, setName] = useState("");
+    const [album, setAlbum] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
 
     useEffect(() => {
         async function fetchData() {
-            await store.fetchAlbums()
-            setAlbums(store.state.albums)
+            await store.fetchAlbums();
+            setAlbums(store.state.albums);
 
             await store.fetchPicture(pictureId);
             setPicture(store.state.selectedPictures);
             setName(store.state.selectedPictures.title);
             setAlbum(store.state.selectedPictures.albumId);
-            setImg(store.state.selectedPictures.url);
+            setImageUrl(store.state.selectedPictures.url);
 
             setLoading(false);
         }
@@ -39,7 +39,7 @@ function EditPicture() {
     }, [pictureId]);
 
     if (!picture) {
-        return <div>Пользователь не найден</div>;
+        return <Loader/>;
     }
 
     async function handleSubmit(event) {
@@ -48,7 +48,7 @@ function EditPicture() {
         const pictureData = {
             title: name,
             albumId: album,
-            url: img,
+            url: imageUrl,
         };
 
         try {
@@ -60,14 +60,16 @@ function EditPicture() {
         }
     }
 
+    function handleImageUrlSelected(url) {
+        setImageUrl(url);
+    }
+
     return (
         <div>
             {loading ? (
                 <Loader/>
             ) : (
                 <>
-                    <Header/>
-                    <Menu/>
                     <div
                         className={classnames(
                             `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
@@ -153,7 +155,10 @@ function EditPicture() {
                             Изображение
                         </p>
 
-                        <ImageUploader/>
+                        <ImageUploader
+                            url={imageUrl}
+                            onImageUrlSelected={handleImageUrlSelected}
+                        />
 
                         <button
                             onClick={handleSubmit}

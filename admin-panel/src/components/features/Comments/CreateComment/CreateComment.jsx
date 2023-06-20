@@ -1,7 +1,5 @@
 import styles from "./CreateComment.module.scss"
 import {useTheme} from "../../../../ThemeContext.jsx";
-import Header from "../../../ui/Header/Header.jsx";
-import Menu from "../../../ui/Menu/Menu.jsx";
 import React, {useEffect, useState} from "react";
 import store from "../../../../store.jsx";
 import {Link, useNavigate} from "react-router-dom";
@@ -11,6 +9,7 @@ import classnames from "classnames";
 const CreateComment = () => {
     const {isDarkMode} = useTheme();
     const [posts, setPosts] = useState([])
+    const [error, setError] = useState('');
 
     useEffect(() => {
         async function fetchData() {
@@ -47,6 +46,10 @@ const CreateComment = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        if (!formValues.post) {
+            setError('Выберите пост');
+            return;
+        }
         try {
             const selectedPost = posts.find((post) => post.title === formValues.post);
             const response = await axios.post('https://jsonplaceholder.typicode.com/comments', {
@@ -61,10 +64,9 @@ const CreateComment = () => {
         }
     };
 
+
     return (
         <>
-            <Header/>
-            <Menu/>
             <div
                 className={classnames(
                     `wrapper ${isDarkMode ? "wrapperDark" : ""}`
@@ -116,6 +118,7 @@ const CreateComment = () => {
                                     </option>
                                 ))}
                         </select>
+                        {error && <span className={styles.error}>{error}</span>}
                     </div>
 
                     <div className={styles.inputBox}>

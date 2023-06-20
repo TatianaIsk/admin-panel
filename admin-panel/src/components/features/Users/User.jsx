@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import icon from './../../../assets/icon-users.png';
 import Dropdown from '..//Users/Dropdown/Dropdown.jsx';
 import {useTheme} from "../../../ThemeContext.jsx";
 import iconDark from './../../../assets/darkAssets/icon-close-dark-th.png'
 import classnames from "classnames";
-
+import './User.scss'
 
 const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, currentPage, toggleDeleteModal}) => {
     const { isDarkMode } = useTheme();
@@ -62,9 +62,8 @@ const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, curre
                     {user.name}
                 </td>
                 <td className={classnames(
-                    `tdUser ${isDarkMode ? 'tdUserDark' : ''}`
-                )}
-                    style={{width: 190 + 'px'}}>
+                    `tdUserUsername ${isDarkMode ? 'tdUserUsernameDark' : ''}`
+                )}>
                     {user.username}
                 </td>
                 <td className={classnames(
@@ -73,9 +72,8 @@ const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, curre
                     {user.email}
                 </td>
                 <td className={classnames(
-                    `tdUser ${isDarkMode ? 'tdUserDark' : ''}`
-                )}
-                    style={{width: 400 + 'px'}}>
+                    `tdUserAddress ${isDarkMode ? 'tdUserAddressDark' : ''}`
+                )}>
                     {formatAddress(user.address)}
                 </td>
                 <td className={classnames(
@@ -89,9 +87,8 @@ const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, curre
                     {user.website}
                 </td>
                 <td className={classnames(
-                    `tdUser ${isDarkMode ? 'tdUserDark' : ''}`
-                )}
-                    style={{width: 300 + 'px'}}>
+                    `tdUserCompany ${isDarkMode ? 'tdUserCompanyDark' : ''}`
+                )}>
                     {formatCompany(user.company)}
                 </td>
             </tr>

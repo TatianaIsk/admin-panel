@@ -1,5 +1,3 @@
-import Header from "../../../ui/Header/Header.jsx";
-import Menu from "../../../ui/Menu/Menu.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import React, {useEffect, useState} from "react";
 import store from "../../../../store.jsx";
@@ -8,6 +6,7 @@ import Loader from "../../../ui/Loading/Loading.jsx";
 import styles from "../../Tasks/TaskList/TaskList.module.scss";
 import Pagination from "../../../ui/Pagination/Pagination.jsx";
 import classnames from "classnames";
+import style from './AlbumList.module.scss'
 
 const AlbumList = () => {
     const {isDarkMode} = useTheme();
@@ -69,8 +68,6 @@ const AlbumList = () => {
                 <Loader/>
             ) : (
                 <div>
-                    <Header/>
-                    <Menu/>
                     <div className={classnames(
                         `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
                     )}>
@@ -94,8 +91,7 @@ const AlbumList = () => {
                             />
                         </div>
                         <div
-                            className="tableWrapper"
-                            style={{height: '700px', overflow: 'auto'}}>
+                            className={style.tableWrapper}>
                             <table className={styles.tableTask}>
                                 <thead className={styles.theadTask}>
                                 <tr className={styles.trTask}>

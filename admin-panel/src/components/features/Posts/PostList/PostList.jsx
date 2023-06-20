@@ -1,5 +1,3 @@
-import Header from "../../../ui/Header/Header.jsx";
-import Menu from "../../../ui/Menu/Menu.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import React, {useEffect, useState} from "react";
 import store from "../../../../store.jsx";
@@ -81,8 +79,6 @@ const PostList = () => {
 
     return (
         <>
-            <Header/>
-            <Menu/>
             <div
                 className={classnames(
                     `wrapper ${isDarkMode ? "wrapperDark" : ""}`
@@ -126,7 +122,7 @@ const PostList = () => {
                 {loading ? (
                     <Loading/>
                 ) : (
-                    <div className="tableWrapper" style={{height: '700px', overflow: 'auto'}}>
+                    <div className={styles.tableWrapper}>
                         {renderPosts()}
                     </div>
                 )}
