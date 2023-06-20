@@ -37,9 +37,9 @@ const store = {
         }
     },
 
-    async fetchUser(username) {
+    async fetchUser(userId) {
         try {
-            const user = await getUserById(username)
+            const user = await getUserById(userId)
             this.state.selectedUser = user
         } catch (error) {
             console.error(error)
@@ -140,9 +140,9 @@ const store = {
         }
     },
 
-    async fetchAlbum(albumTitle) {
+    async fetchAlbum(albumId) {
         try {
-            const album = await getAlbumById(albumTitle)
+            const album = await getAlbumById(albumId)
             this.state.selectedAlbums = album
         } catch (error) {
             console.error(error)

@@ -29,8 +29,8 @@ const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, curre
                     <td className="tdDrop" colSpan="3">
                         <Dropdown
                             onClose={() => toggleMenu(user.id)}
-                            toView={`/users/view/${user.username}`}
-                            toEdit={`/users/edit/${user.username}`}
+                            toView={`/users/view/${user.id}`}
+                            toEdit={`/users/edit/${user.id}`}
                             selectedUserId={selectedUserId}
                             isMenuOpen={isMenuOpen}
                             toggleDeleteModal={() => toggleDeleteModal(user.id)}

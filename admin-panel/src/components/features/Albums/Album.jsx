@@ -31,7 +31,7 @@ const Album = ({ album, username }) => {
                     `${styles.td} ${isDarkMode ? styles.tdDark : ''}`
                 )}>
                 <Link
-                    to={`/albums/view/${album.title}`}
+                    to={`/albums/view/${album.id}`}
                     className={classnames(
                         `${styles.btn} ${isDarkMode ? styles.btnDark : ''}`
                     )}>

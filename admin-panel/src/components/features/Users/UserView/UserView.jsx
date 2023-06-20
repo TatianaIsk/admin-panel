@@ -7,10 +7,11 @@ import store from "../../../../store.jsx";
 import Loader from "../../../ui/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import classnames from "classnames";
+import Loading from "../../../ui/Loading/Loading.jsx";
 
 function UserView() {
     const {isDarkMode} = useTheme();
-    const {username} = useParams();
+    const {userId} = useParams();
 
     const [user, setUser] = useState(store.state.selectedUser);
     const [posts, setPosts] = useState(null)
@@ -19,7 +20,7 @@ function UserView() {
 
     useEffect(() => {
         async function fetchData() {
-            await store.fetchUser(username);
+            await store.fetchUser(userId);
             setUser(store.state.selectedUser);
             setLoading(false);
 
@@ -31,7 +32,7 @@ function UserView() {
         }
 
         fetchData();
-    }, [username]);
+    }, [userId]);
 
     const findPostTitle = (postId) => {
         const post = posts && posts.find((post) => post.id === postId)
@@ -44,7 +45,7 @@ function UserView() {
     }
 
     if (!user) {
-        return <div>Пользователь не найден</div>;
+        return <Loader/>;
     }
 
     return (
@@ -80,13 +81,13 @@ function UserView() {
                         >Просмотр пользователя
                         </h2>
                         <div className={styles.btns}>
-                            <Link to={`/posts/view/${findPostTitle(user.id)}`}
+                            <Link to={`/posts/view/${user.id}`}
                                   className={classnames(
                                       `${styles.btn} ${isDarkMode ? styles.btnDark : ''}`
                                   )}>
                                 посты
                             </Link>
-                            <Link to={`/albums/view/${findAlbumTitle(user.id)}`}
+                            <Link to={`/albums/view/${user.id}`}
                                   className={classnames(
                                       `${styles.btn} ${isDarkMode ? styles.btnDark : ''}`
                                   )}>

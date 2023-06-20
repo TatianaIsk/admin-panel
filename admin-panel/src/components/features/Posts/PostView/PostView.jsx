@@ -7,49 +7,35 @@ import store from "../../../../store.jsx";
 import Loader from "../../../ui/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import classnames from "classnames";
+import Loading from "../../../ui/Loading/Loading.jsx";
 
 function PostView() {
     const {isDarkMode} = useTheme();
-    const {postTitle} = useParams();
+    const {postId} = useParams();
 
-    const [post, setPost] = useState(null);
+    const [post, setPost] = useState(store.state.selectedUser);
     const [loading, setLoading] = useState(true);
     const [users, setUsers] = useState(null);
-    const [albums, setAlbums] = useState(null)
 
     useEffect(() => {
         async function fetchData() {
-            await store.fetchPost(postTitle);
+            await store.fetchPost(postId);
             setPost(store.state.selectedPost);
             setLoading(false);
-
             await store.fetchUsers();
             setUsers(store.state.users);
-
-            await store.fetchAlbums()
-            setAlbums(store.state.albums)
         }
 
         fetchData();
-    }, [postTitle]);
+    }, [postId]);
 
     const findUsername = (userId) => {
-        const user = users && users.find((user) => user.id === userId)
-        return user ? user.name : ""
-    }
-
-    const findUserUsername = (userId) => {
-        const user = users && users.find((user) => user.id === userId)
-        return user ? user.username : ""
-    }
-
-    const findAlbumTitle = (albumId) => {
-        const album = albums && albums.find((album) => album.id === albumId)
-        return album ? album.title : ""
-    }
+        const user = users && users.find((user) => user.id === userId);
+        return user ? user.name : "";
+    };
 
     if (!post) {
-        return <div>Пользователь не найден</div>;
+        return <Loader/>;
     }
 
     return (
@@ -81,14 +67,14 @@ function PostView() {
                         <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : ''}`}>Просмотр поста</h2>
                         <div>
                             <Link
-                                to={`/users/view/${findUserUsername(post?.userId)}`}
+                                to={`/users/view/${post.userId}`}
                                 className={classnames(
                                     `${styles.btn} ${isDarkMode ? styles.btnDark : ''}`
                                 )}>
                                 пользователи
                             </Link>
                             <Link
-                                to={`/albums/view/${findAlbumTitle(post?.id)}`}
+                                to={`/albums/view/${post.id}`}
                                 className={classnames(
                                     `${styles.btn} ${isDarkMode ? styles.btnDark : ''}`
                                 )}>

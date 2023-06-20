@@ -27,7 +27,7 @@ const Post = ({post, findUsername}) => {
                 {post.body}
             </p>
             <div className={styles.btns}>
-                <Link to={`/posts/view/${post.title}`}
+                <Link to={`/posts/view/${post.id}`}
                       className={classnames(
                           `${styles.btnView} ${isDarkMode ? styles.btnViewDark : ''}`
                       )}/>

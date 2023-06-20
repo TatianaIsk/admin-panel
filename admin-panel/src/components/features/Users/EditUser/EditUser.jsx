@@ -47,9 +47,8 @@ function EditUser() {
     }, [username]);
 
     if (!user) {
-        return <div>Пользователь не найден</div>;
+        return <Loader/>
     }
-
 
     async function handleSubmit(event) {
         event.preventDefault();
