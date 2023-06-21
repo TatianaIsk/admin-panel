@@ -21,7 +21,6 @@ const Login = () => {
 
     return (
         <div>
-            <Header/>
             <div className={classnames(
                 `${style.loginWrapper} ${isDarkMode ? style.loginWrapperDark : ''}`
             )}>

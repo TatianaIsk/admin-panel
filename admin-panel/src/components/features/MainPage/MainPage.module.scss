@@ -31,31 +31,31 @@ h1, h2, p {
   width: 100%;
 }
 
-.wrapperDark {
-  .mainTitleDark {
-    margin: 118px 0 0 0;
-    font-family: $font-circe;
-    font-size: 240px;
-    font-weight: 800;
-    height: 270px;
-    color: $color-blue;
-  }
+.mainTitleDark {
+  margin: 118px 0 0 0;
+  font-family: $font-circe;
+  font-size: 240px;
+  font-weight: 800;
+  height: 270px;
+  color: $color-blue;
+}
 
-  h3 {
-    margin: 0;
-    font-family: $font-jost;
-    font-weight: 400;
-    font-size: 40px;
+.subtitle {
+  margin: 0;
+  font-family: $font-jost;
+  font-weight: 400;
+  font-size: 40px;
+  &.subtitleDark {
     color: $color-grey;
   }
+}
 
-  .textDark {
-    margin: 0;
-    font-family: $font-jost;
-    font-weight: 400;
-    font-size: 18px;
-    color: $color-grey;
-  }
+.textDark {
+  margin: 0;
+  font-family: $font-jost;
+  font-weight: 400;
+  font-size: 18px;
+  color: $color-grey;
 }
 
 .mainTitle {

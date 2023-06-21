@@ -20,6 +20,18 @@ function TaskList() {
     const [loading, setLoading] = useState(true)
     const [searchQuery, setSearchQuery] = useState("")
 
+    const [sortBy, setSortBy] = useState('name');
+    const [sortOrder, setSortOrder] = useState('asc');
+
+    const toggleSortOrder = (field) => {
+        if (field === sortBy) {
+            setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+        } else {
+            setSortBy(field);
+            setSortOrder('asc');
+        }
+    };
+
     const {isDarkMode} = useTheme();
 
     useEffect(() => {
@@ -86,7 +98,22 @@ function TaskList() {
             </tr>
         }
 
-        return filteredTodos.slice(indexOfFirstUser, indexOfLastUser).map((todo) => {
+        const sortedTodos = [...filteredTodos].sort((a, b) => {
+            if (sortBy === 'name') {
+                const aName = a.name || '';
+                const bName = b.name || '';
+                return sortOrder === 'asc' ? aName.localeCompare(bName) : bName.localeCompare(aName);
+            } else if (sortBy === 'id') {
+                return sortOrder === 'asc' ? a.id - b.id : b.id - a.id;
+            } else if (sortBy === 'title') {
+                const aTitle = a.title || '';
+                const bTitle = b.title || '';
+                return sortOrder === 'asc' ? aTitle.localeCompare(bTitle) : bTitle.localeCompare(aTitle);
+            }
+        });
+
+
+        return sortedTodos.slice(indexOfFirstUser, indexOfLastUser).map((todo) => {
             const username = findUsername(todo.userId);
             return <Task key={todo.id} todo={todo} username={username}/>;
         })
@@ -161,7 +188,9 @@ function TaskList() {
                                         <button
                                             className={classnames(
                                                 `btnTh ${isDarkMode ? 'btnThDark' : ''}`
-                                            )}>
+                                            )}
+                                            onClick={() => toggleSortOrder('id')}
+                                        >
                                         </button>
                                     </th>
                                     <th className="thTask">
@@ -169,7 +198,9 @@ function TaskList() {
                                         <button
                                             className={classnames(
                                                 `btnTh ${isDarkMode ? 'btnThDark' : ''}`
-                                            )}>
+                                            )}
+                                            onClick={() => toggleSortOrder('name')}
+                                        >
                                         </button>
                                     </th>
                                     <th className="thTask">
@@ -177,7 +208,9 @@ function TaskList() {
                                         <button
                                             className={classnames(
                                                 `btnTh ${isDarkMode ? 'btnThDark' : ''}`
-                                            )}>
+                                            )}
+                                            onClick={() => toggleSortOrder('title')}
+                                        >
                                         </button>
                                     </th>
                                     <th className="thTask">

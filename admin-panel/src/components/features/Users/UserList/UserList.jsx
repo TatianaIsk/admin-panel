@@ -22,6 +22,18 @@ const UserList = () => {
     const {isDarkMode} = useTheme();
     const [searchName, setSearchName] = useState('');
 
+    const [sortBy, setSortBy] = useState('name');
+    const [sortOrder, setSortOrder] = useState('asc');
+
+    const toggleSortOrder = (field) => {
+        if (field === sortBy) {
+            setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+        } else {
+            setSortBy(field);
+            setSortOrder('asc');
+        }
+    };
+
     const filteredUsers = users.filter(user =>
         user.name.toLowerCase().includes(searchName.toLowerCase()));
 
@@ -96,12 +108,28 @@ const UserList = () => {
 
     const renderUsers = () => {
         if (filteredUsers.length === 0) {
-            return <tr>
-                <td className={`errorMess ${isDarkMode ? 'errorMessDark' : ''}`} colSpan="3">Записи не найдены</td>
-            </tr>
+            return (
+                <tr>
+                    <td className={` ${isDarkMode ? 'errorMessDark' : ''}`} colSpan="3">
+                        Записи не найдены
+                    </td>
+                </tr>
+            );
         }
 
-        return filteredUsers.map(user => (
+        const sortedUsers = [...filteredUsers].sort((a, b) => {
+            if (sortBy === 'name') {
+                return sortOrder === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
+            } else if (sortBy === 'id') {
+                return sortOrder === 'asc' ? a.id - b.id : b.id - a.id;
+            } else if (sortBy === 'username') {
+                return sortOrder === 'asc' ? a.username.localeCompare(b.username) : b.username.localeCompare(a.username);
+            } else if (sortBy === 'email') {
+                return sortOrder === 'asc' ? a.email.localeCompare(b.email) : b.email.localeCompare(a.email);
+            }
+        });
+
+        return sortedUsers.map((user) => (
             <User
                 key={user.id}
                 user={user}
@@ -151,30 +179,35 @@ const UserList = () => {
                                             className={`imgTh ${isDarkMode ? 'imgThDark' : ''}`}
                                             src={`${isDarkMode ? thIconDark : thIcon}`}
                                             alt=""
+                                            onClick={() => toggleSortOrder('id')}
                                         />
                                     </th>
                                     <th className="thUser">
                                         ID
                                         <button className={classnames(
                                             `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                                onClick={() => toggleSortOrder('id')}
                                         ></button>
                                     </th>
                                     <th className="thUser">
                                         имя
                                         <button className={classnames(
                                             `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                                onClick={() => toggleSortOrder('name')}
                                         ></button>
                                     </th>
                                     <th className="thUser">
                                         никнейм (eng)
                                         <button className={classnames(
                                             `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                                onClick={() => toggleSortOrder('username')}
                                         ></button>
                                     </th>
                                     <th className="thUser">
                                         e-mail
                                         <button className={classnames(
                                             `btnTh ${isDarkMode ? 'btnThDark' : ''}`)}
+                                                onClick={() => toggleSortOrder('email')}
                                         ></button>
                                     </th>
                                     <th className="thUser">
