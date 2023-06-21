@@ -3,9 +3,19 @@ import styles from "./Menu.module.scss";
 import {useSpring, animated} from "react-spring";
 import {useTheme} from "../../../ThemeContext.jsx";
 import classnames from 'classnames';
+import {Link} from "react-router-dom";
+import GraphicsMenu from "./MenuLinks/GraphicsMenu/GraphicsMenu.jsx";
+import TodosLink from "./MenuLinks/TodosLink/TodosLink.jsx";
+import UsersLink from "./MenuLinks/UsersLink/UsersLink.jsx";
+import PicturesLink from "./MenuLinks/PicturesLink/PicturesLink.jsx";
+import AlbumsLink from "./MenuLinks/AlbumsLink/AlbumsLink.jsx";
+import BlogsMenu from "./MenuLinks/BlogsMenu/BlogsMenu.jsx";
+import Post from "../../features/Posts/Post.jsx";
+import PostsLink from "./MenuLinks/PostsLink/PostsLink.jsx";
+import CommentsLink from "./MenuLinks/CommnetsLink/CommentsLink.jsx";
 
 function Menu() {
-    const { isDarkMode } = useTheme();
+    const {isDarkMode} = useTheme();
 
     const [isOpen, setIsOpen] = useState(false);
     const [isMiniOpen, setIsMiniOpen] = useState(false)
@@ -20,13 +30,13 @@ function Menu() {
     const miniMenuAnimation = useSpring({
         height: isMiniOpen ? "100%" : "0%",
         opacity: isMiniOpen ? 1 : 0,
-        config: { duration: 300 },
+        config: {duration: 300},
     });
 
     const graphMenuAnimation = useSpring({
         height: isMiniOpen ? "100%" : "0%",
         opacity: isMiniOpen ? 1 : 0,
-        config: { duration: 300 },
+        config: {duration: 300},
     });
 
     function toggleMenu() {
@@ -75,75 +85,55 @@ function Menu() {
                 )}
                               style={menuAnimation}>
                     <ul>
-                        <a href="/users"
-                           className={classnames(
-                               selectedLink === 'users' ? isDarkMode ? styles.activeDark : styles.active : ''
-                           )}
-                           onClick={() => handleClick('users')}>
-                            Пользователи
-                        </a>
-                        <a href="/todos"
-                           className={classnames(
-                               selectedLink === 'todos' ? isDarkMode ? styles.activeDark : styles.active : ''
-                           )}
-                           onClick={() => handleClick('todos')}>
-                            Задания
-                        </a>
-                        <div className={styles.blog}>
-                            <span>Графика</span>
-                            <button className={`${graphic ? isDarkMode ? styles.iconOpenDark : styles.iconOpen : isDarkMode ? styles.iconCloseDark : styles.iconClose}`}
-                                    onClick={graphMenu}>
-                            </button>
-                        </div>
+                        <UsersLink
+                            isSelected={selectedLink === 'users'}
+                            isDarkMode={isDarkMode}
+                            onClick={handleClick}
+                        />
+                        <TodosLink
+                            isSelected={selectedLink === 'todos'}
+                            isDarkMode={isDarkMode}
+                            onClick={handleClick}
+                        />
+                        <GraphicsMenu
+                            isOpen={graphic}
+                            isDarkMode={isDarkMode}
+                            onClick={graphMenu}
+                        />
                         {graphic && (
                             <div className={styles.miniMenu}>
                                 <ul>
-                                    <a href="/pictures"
-                                       className={classnames(
-                                           selectedLink === 'pictures' ? isDarkMode ? styles.activeDark : styles.active : '',
-                                           styles.comment
-                                       )}
-                                       onClick={() => handleClick('pictures')}>
-                                        Картинки
-                                    </a>
-                                    <a href="/albums"
-                                       className={classnames(
-                                           selectedLink === 'albums' ? isDarkMode ? styles.activeDark : styles.active : '',
-                                           styles.comment
-                                       )}
-                                       onClick={() => handleClick('albums')}>
-                                        Альбомы
-                                    </a>
+                                    <PicturesLink
+                                        isSelected={selectedLink === 'pictures'}
+                                        isDarkMode={isDarkMode}
+                                        onClick={handleClick}
+                                    />
+                                    <AlbumsLink
+                                        isSelected={selectedLink === 'album'}
+                                        isDarkMode={isDarkMode}
+                                        onClick={handleClick}
+                                    />
                                 </ul>
                             </div>
                         )}
-                        <div className={styles.blog}>
-                            <span>Блог</span>
-                            <button className={classnames(
-                                `${isMiniOpen ? isDarkMode ? styles.iconOpenDark : styles.iconOpen : isDarkMode ? styles.iconCloseDark : styles.iconClose}`
-                            )}
-                                    onClick={miniMenu}>
-                            </button>
-                        </div>
+                        <BlogsMenu
+                            isOpen={isMiniOpen}
+                            isDarkMode={isDarkMode}
+                            onClick={miniMenu}
+                        />
                         {isMiniOpen && (
                             <div className={styles.miniMenu}>
                                 <ul>
-                                    <a href="/posts"
-                                       className={classnames(
-                                           selectedLink === 'posts' ? isDarkMode ? styles.activeDark : styles.active : '',
-                                           styles.comment
-                                       )}
-                                       onClick={() => handleClick('posts')}>
-                                        Посты
-                                    </a>
-                                    <a href="/comments"
-                                       className={classnames(
-                                           selectedLink === 'comments' ? isDarkMode ? styles.activeDark : styles.active : '',
-                                           styles.comment
-                                       )}
-                                       onClick={() => handleClick('comments')}>
-                                        Комментарии
-                                    </a>
+                                    <PostsLink
+                                        isSelected={selectedLink === 'posts'}
+                                        isDarkMode={isDarkMode}
+                                        onClick={handleClick}
+                                    />
+                                    <CommentsLink
+                                        isSelected={selectedLink === 'comments'}
+                                        isDarkMode={isDarkMode}
+                                        onClick={handleClick}
+                                    />
                                 </ul>
                             </div>
                         )}

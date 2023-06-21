@@ -1,0 +1,9 @@
+@import "../../../../../variables";
+
+.active {
+  border-bottom: 1px solid black;
+}
+
+.activeDark {
+  border-bottom: 1px solid $color-grey;
+}

@@ -1,0 +1,44 @@
+@import "../../../../../variables";
+
+.iconOpen {
+  width: 12px;
+  height: 12px;
+  margin: 0 10px;
+  background-image: url("../../../../../assets/icon-open.png");
+  @include background-style;
+  border: none;
+}
+
+.iconOpenDark {
+  width: 8px;
+  height: 8px;
+  margin: 0 10px;
+  background-image: url("../../../../../assets/darkAssets/icon-open-dark.png");
+  @include background-style;
+  border: none;
+  background-color: $color-bg-dark;
+}
+
+.iconClose {
+  width: 12px;
+  height: 12px;
+  margin: 0 10px;
+  background-image: url("../../../../../assets/icon-close.png");
+  @include background-style;
+  border: none;
+}
+
+.iconCloseDark {
+  width: 8px;
+  height: 8px;
+  margin: 0 10px;
+  background-image: url("../../../../../assets/darkAssets/icon-close-dark.png");
+  @include background-style;
+  border: none;
+  background-color: $color-bg-dark;
+}
+
+.blog {
+  display: flex;
+  align-items: center;
+}

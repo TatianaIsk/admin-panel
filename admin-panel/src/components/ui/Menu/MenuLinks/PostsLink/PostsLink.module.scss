@@ -1,0 +1,14 @@
+@import "../../../../../variables";
+
+.active {
+  border-bottom: 1px solid black;
+}
+
+.activeDark {
+  border-bottom: 1px solid $color-grey;
+}
+
+.comment {
+  font-size: 14px;
+  margin: 0 5px;
+}
