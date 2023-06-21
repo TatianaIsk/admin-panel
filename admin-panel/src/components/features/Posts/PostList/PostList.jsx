@@ -6,6 +6,8 @@ import Post from "../Post.jsx";
 import styles from "./PostList.module.scss";
 import Pagination from "../../../ui/Pagination/Pagination.jsx";
 import classnames from "classnames";
+import Title from "../../../ui/Title/Title.jsx";
+import Searching from "../../../ui/Searching/Searching.jsx";
 
 const PostList = () => {
     const {isDarkMode} = useTheme();
@@ -84,14 +86,11 @@ const PostList = () => {
                     `wrapper ${isDarkMode ? "wrapperDark" : ""}`
                 )}>
                 <div className="searhcing">
-                    <label
-                        className={classnames(
-                            `titleUser ${isDarkMode ? "titleUserDark" : ""}`
-                        )}
-                        htmlFor="searchUser"
-                    >
-                        посты
-                    </label>
+                    <Title
+                        isDarkMode={isDarkMode}
+                        title="Посты"
+                        htmlFor="searchPost"
+                    />
                     <select
                         className={classnames(
                             `${styles.selectTask} ${isDarkMode ? styles.selectTaskDark : ''}`
@@ -108,15 +107,11 @@ const PostList = () => {
                             <option key={user.id}>{user.name}</option>
                         ))}
                     </select>
-                    <input
-                        type="text"
-                        className={classnames(
-                            `searchUser ${isDarkMode ? "searchUserDark" : ""}`
-                        )}
-                        id="searchUser"
-                        placeholder="Поиск"
+                    <Searching
+                        isDarkMode={isDarkMode}
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
+                        id="searchPost"
                     />
                 </div>
                 {loading ? (

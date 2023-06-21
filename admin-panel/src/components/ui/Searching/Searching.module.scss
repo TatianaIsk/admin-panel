@@ -1,0 +1,54 @@
+@import "../../../variables";
+
+.search {
+  position: absolute;
+  width: 400px;
+  height: 30px;
+  border: 1px solid $color-grey;
+  background: $color-bg;
+  padding: 8px 10px;
+  margin-left: 1275px;
+
+  font-family: $font-jost;
+  font-size: 18px;
+  color: $color-grey-dark;
+
+  &.searchDark {
+    background-color: $color-bg-dark;
+    color: $color-grey;
+  }
+
+  @media (max-width: $laptop-l) {
+    width: 300px;
+    margin-left: 945px;
+  }
+
+  @media (max-width: $tablet) {
+    position: absolute;
+    top: 180px;
+    right: 500px;
+    width: 400px;
+    margin-left: 795px;
+  }
+
+  @media (max-width: $mobile) {
+    position: absolute;
+    right: 245px;
+  }
+
+  @media (max-width: $mobile-l) {
+    width: 250px;
+    position: absolute;
+    right: 95px;
+  }
+
+  @media (max-width: $mobile-m) {
+    width: 130px;
+    margin-left: 300px;
+  }
+
+  @media (max-width: $mobile-s) {
+    width: 110px;
+    margin-left: 270px;
+  }
+}

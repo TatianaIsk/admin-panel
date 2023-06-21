@@ -12,6 +12,8 @@ import {useTheme} from "../../../../ThemeContext.jsx";
 import ModalDelete from "../../../ui/Modal/ModalDelete.jsx";
 import {Link} from "react-router-dom";
 import classnames from "classnames";
+import Title from "../../../ui/Title/Title.jsx";
+import Searching from "../../../ui/Searching/Searching.jsx";
 
 
 const UserList = () => {
@@ -121,24 +123,23 @@ const UserList = () => {
                         `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
                     )}>
                         <div className="searhcing">
-                            <label className={classnames(
-                                `titleUser ${isDarkMode ? 'titleUserDark' : ''}`
-                            )}
-                                   htmlFor="searchUser">
-                                пользователи
-                            </label>
-                            <Link to="/users/create" className={classnames(`btnCreate ${isDarkMode ? 'btnCreateDark' : ''}`
-                            )}>
+                            <Title
+                                isDarkMode={isDarkMode}
+                                title="Пользователи"
+                                htmlFor="searchUser"
+                            />
+                            <Link
+                                to="/users/create"
+                                className={classnames(
+                                    `btnCreate ${isDarkMode ? 'btnCreateDark' : ''}`
+                                )}>
                                 Создать нового пользователя
                             </Link>
-                            <input type="text"
-                                   className={classnames(
-                                       `searchUser ${isDarkMode ? 'searchUserDark' : ''}`
-                                   )}
-                                   id="searchUser"
-                                   placeholder="Поиск"
-                                   value={searchName}
-                                   onChange={handleSearch}
+                            <Searching
+                                isDarkMode={isDarkMode}
+                                value={searchName}
+                                onChange={handleSearch}
+                                id="searchUser"
                             />
                         </div>
                         <div className="tableWrapper">
@@ -212,7 +213,7 @@ const UserList = () => {
                                     onClose={handleCloseDeleteModal}
                                     onDelete={handleDeleteUser}
                                 />)}
-                    </div>
+                        </div>
                         <div className="paginationCount">
                             <Pagination users={users} usersPerPage={usersPerPage} setCurrentPage={setCurrentPage}
                                         currentPage={currentPage}/>

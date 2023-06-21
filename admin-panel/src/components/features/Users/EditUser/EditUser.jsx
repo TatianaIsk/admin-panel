@@ -95,9 +95,10 @@ function EditUser() {
                                 </Link>
                             </div>
                         </div>
-                        <h2 className={classnames(
-                            `${styles.title} ${isDarkMode ? styles.titleDark : ''}`
-                        )}>
+                        <h2
+                            className={classnames(
+                                `${styles.title} ${isDarkMode ? styles.titleDark : ''}`
+                            )}>
                             Редактировать пользователя
                         </h2>
                         <div className={styles.blocks}>

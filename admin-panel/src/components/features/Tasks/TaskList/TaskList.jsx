@@ -8,6 +8,8 @@ import Loader from "../../../ui/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import {Link} from "react-router-dom";
 import classnames from "classnames";
+import Title from "../../../ui/Title/Title.jsx";
+import Searching from "../../../ui/Searching/Searching.jsx";
 
 function TaskList() {
     const [todos, setTodos] = useState(store.state.todos)
@@ -100,22 +102,16 @@ function TaskList() {
                         `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
                     )}>
                         <div className="searhcing">
-                            <label
-                                className={classnames(
-                                    `titleUser ${isDarkMode ? 'titleUserDark' : ''}`
-                                )}
-                                htmlFor="searchUser">
-                                задания
-                            </label>
-                            <input
-                                type="text"
-                                className={classnames(
-                                    `${styles.searchTask} ${isDarkMode ? styles.searchTaskDark : ''}`
-                                )}
-                                id="searchUser"
-                                placeholder="Поиск"
+                            <Title
+                                isDarkMode={isDarkMode}
+                                title="Задания"
+                                htmlFor="searchTask"
+                            />
+                            <Searching
+                                isDarkMode={isDarkMode}
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
+                                id="searchTask"
                             />
                         </div>
                         <div className={styles.filters}>

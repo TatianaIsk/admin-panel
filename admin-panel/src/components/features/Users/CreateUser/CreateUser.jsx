@@ -86,9 +86,10 @@ const CreateUser = () => {
                         </Link>
                     </div>
                 </div>
-                <h2 className={classnames(
-                    `${styles.title} ${isDarkMode ? styles.titleDark : ''}`
-                )}>
+                <h2
+                    className={classnames(
+                        `${styles.title} ${isDarkMode ? styles.titleDark : ''}`
+                    )}>
                     Создать пользователя
                 </h2>
                 <div className={styles.blocks}>

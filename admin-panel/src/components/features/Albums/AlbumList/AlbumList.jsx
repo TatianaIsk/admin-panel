@@ -7,6 +7,8 @@ import styles from "../../Tasks/TaskList/TaskList.module.scss";
 import Pagination from "../../../ui/Pagination/Pagination.jsx";
 import classnames from "classnames";
 import style from './AlbumList.module.scss'
+import Title from "../../../ui/Title/Title.jsx";
+import Searching from "../../../ui/Searching/Searching.jsx";
 
 const AlbumList = () => {
     const {isDarkMode} = useTheme();
@@ -72,22 +74,16 @@ const AlbumList = () => {
                         `wrapper ${isDarkMode ? 'wrapperDark' : ''}`
                     )}>
                         <div className="searhcing">
-                            <label
-                                className={classnames(
-                                    `titleUser ${isDarkMode ? 'titleUserDark' : ''}`
-                                )}
-                                htmlFor="searchAlbums">
-                                альбомы
-                            </label>
-                            <input
-                                type="text"
-                                className={classnames(
-                                    `searchUser ${isDarkMode ? 'searchUserDark' : ''}`
-                                )}
-                                id="searchAlbums"
-                                placeholder="Поиск"
+                            <Title
+                                isDarkMode={isDarkMode}
+                                title="Альбомы"
+                                htmlFor="searchAlbums"
+                            />
+                            <Searching
+                                isDarkMode={isDarkMode}
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
+                                id="searchAlbums"
                             />
                         </div>
                         <div

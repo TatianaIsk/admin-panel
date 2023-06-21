@@ -6,6 +6,7 @@ import Comment from "../Comment.jsx";
 import Pagination from "../../../ui/Pagination/Pagination.jsx";
 import {Link} from "react-router-dom";
 import classnames from "classnames";
+import Title from "../../../ui/Title/Title.jsx";
 
 const CommentsList = () => {
     const { isDarkMode } = useTheme();
@@ -82,14 +83,11 @@ const CommentsList = () => {
                 `wrapper ${isDarkMode ? "wrapperDark" : ""}`
             )}>
                 <div className="searching">
-                    <label
-                        className={classnames(
-                            `titleUser ${isDarkMode ? "titleUserDark" : ""}`
-                        )}
-                        htmlFor="searchUser"
-                    >
-                        Комментарии
-                    </label>
+                    <Title
+                        isDarkMode={isDarkMode}
+                        title="Комментарии"
+                        htmlFor=""
+                    />
                     <select
                         className={classnames(
                             `${styles.select} ${isDarkMode ? styles.selectDark : ""}`

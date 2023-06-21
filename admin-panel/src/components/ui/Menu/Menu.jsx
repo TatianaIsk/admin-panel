@@ -109,7 +109,7 @@ function Menu() {
                                         onClick={handleClick}
                                     />
                                     <AlbumsLink
-                                        isSelected={selectedLink === 'album'}
+                                        isSelected={selectedLink === 'albums'}
                                         isDarkMode={isDarkMode}
                                         onClick={handleClick}
                                     />

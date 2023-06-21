@@ -1,0 +1,24 @@
+@import "../../../variables";
+
+.titleUser {
+  font-style: normal;
+  font-weight: 400;
+  font-family: $font-furore;
+  font-size: 40px;
+  letter-spacing: -0.01em;
+
+  &.titleUserDark {
+    color: $color-blue;
+  }
+
+  @media (max-width: 425px) {
+    font-style: normal;
+    font-weight: 400;
+    font-family: $font-furore;
+    font-size: 50px;
+    letter-spacing: -0.01em;
+    position: absolute;
+    top: 100px;
+    left: 60px;
+  }
+}
