@@ -8,13 +8,13 @@ import classnames from "classnames";
 
 function EditUser() {
     const {isDarkMode} = useTheme();
-    const {username} = useParams();
+    const {userId} = useParams();
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
     const [name, setName] = useState('')
-    const [usernames, setUsername] = useState('')
+    const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [website, setWebsite] = useState('')
     const [phone, setPhone] = useState('')
@@ -26,7 +26,7 @@ function EditUser() {
 
     useEffect(() => {
         async function fetchData() {
-            await store.fetchUser(username)
+            await store.fetchUser(userId)
             setUser(store.state.selectedUser)
             setName(store.state.selectedUser.name)
             setUsername(store.state.selectedUser.username)
@@ -42,7 +42,7 @@ function EditUser() {
         }
 
         fetchData();
-    }, [username]);
+    }, [userId]);
 
     if (!user) {
         return <Loader/>
@@ -140,7 +140,7 @@ function EditUser() {
                                         name="nameComp"
                                         type="text"
                                         placeholder="Введите данные"
-                                        value={usernames}
+                                        value={username}
                                         onChange={(event) => setUsername(event.target.value)}
                                     />
                                 </div>
