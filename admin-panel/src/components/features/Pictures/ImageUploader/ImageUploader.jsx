@@ -68,7 +68,7 @@ const ImageUploader = ({ url, onImageUrlSelected }) => {
             className={`${styles.label} ${isDarkMode ? styles.labelDark : ""}`}
           >
             <label className={styles.subLabel}>
-              Перетащите сюда или нажмите для выбора {">>>"}
+              Перетащите сюда или нажмите для выбора {"{" >>> "}"}
             </label>
             <input
               type="file"

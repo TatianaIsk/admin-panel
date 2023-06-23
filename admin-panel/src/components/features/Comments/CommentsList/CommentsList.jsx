@@ -4,136 +4,133 @@ import styles from "./CommentsList.module.scss";
 import store from "../../../../store.jsx";
 import Comment from "../Comment.jsx";
 import Pagination from "@/Pagination/Pagination.jsx";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import classnames from "classnames";
 import Title from "@/Title/Title.jsx";
 
 const CommentsList = () => {
-    const { isDarkMode } = useTheme();
+  const { isDarkMode } = useTheme();
 
-    const [posts, setPosts] = useState([]);
-    const [comments, setComments] = useState([]);
-    const [selectedPost, setSelectedPost] = useState("");
-    const [currentPage, setCurrentPage] = useState(1);
-    const [searchQuery, setSearchQuery] = useState("");
+  const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState([]);
+  const [selectedPost, setSelectedPost] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
 
-    useEffect(() => {
-        async function fetchData() {
-            await store.fetchComments();
-            await store.fetchPosts();
-            setComments(store.state.comments);
-            setPosts(store.state.posts);
-        }
-
-        fetchData();
-    }, []);
-
-    const findPostName = (postId) => {
-        const post = posts.find((post) => post.id === postId);
-        return post ? post.title : "";
+  useEffect(() => {
+    async function fetchData() {
+      await store.fetchComments();
+      await store.fetchPosts();
+      setComments(store.state.comments);
+      setPosts(store.state.posts);
     }
 
-    const [commentsPerPage] = useState(24)
+    fetchData();
+  }, []);
 
-    const indexOfLastComment = currentPage * commentsPerPage;
-    const indexOfFirstComment = indexOfLastComment - commentsPerPage;
-    const currentComments = comments.slice(indexOfFirstComment, indexOfLastComment)
+  const findPostName = (postId) => {
+    const post = posts.find((post) => post.id === postId);
+    return post ? post.title : "";
+  };
 
-    useEffect(() => {
-        setCurrentPage(1);
-    }, [selectedPost]);
+  const [commentsPerPage] = useState(24);
 
-    const filterComments = () => {
-        let filteredComments = comments;
+  const indexOfLastComment = currentPage * commentsPerPage;
+  const indexOfFirstComment = indexOfLastComment - commentsPerPage;
+  const currentComments = comments.slice(
+    indexOfFirstComment,
+    indexOfLastComment
+  );
 
-        if (selectedPost) {
-            const postId = posts.find((post) => post.title === selectedPost)?.id;
-            filteredComments = comments.filter(
-                (comment) => comment.postId === postId
-            );
-        }
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedPost]);
 
-        return filteredComments;
-    };
+  const filterComments = () => {
+    let filteredComments = comments;
 
-    const renderComments = () => {
-        const filteredComments = filterComments();
+    if (selectedPost) {
+      const postId = posts.find((post) => post.title === selectedPost)?.id;
+      filteredComments = comments.filter(
+        (comment) => comment.postId === postId
+      );
+    }
 
-        if (filteredComments.length === 0) {
-            return (
-                <tr>
-                    <td className="errorMess" colSpan="3">
-                        Записи не найдены
-                    </td>
-                </tr>
-            );
-        }
+    return filteredComments;
+  };
 
-        return filteredComments
-            .slice(indexOfFirstComment, indexOfLastComment)
-            .map((comment) => {
-                const postTitle = findPostName(comment.postId);
-                return <Comment key={comment.id} comments={comment} postTitle={postTitle}/>;
-            });
-    };
+  const renderComments = () => {
+    const filteredComments = filterComments();
 
-    return (
-        <>
-            <div className={classnames(
-                `wrapper ${isDarkMode ? "wrapperDark" : ""}`
-            )}>
-                <div className="searching">
-                    <Title
-                        isDarkMode={isDarkMode}
-                        title="Комментарии"
-                        htmlFor=""
-                    />
-                    <select
-                        className={classnames(
-                            `${styles.select} ${isDarkMode ? styles.selectDark : ""}`
-                        )}
-                        value={selectedPost}
-                        onChange={(e) => setSelectedPost(e.target.value)}
-                    >
-                        <option value="">Пост</option>
-                        {posts
-                            .map((post) => post.title)
-                            .filter(
-                                (value, index, self) =>
-                                    self.indexOf(value) === index && value !== ""
-                            )
-                            .map((title) => (
-                                <option key={title} value={title}>
-                                    {title}
-                                </option>
-                            ))}
-                    </select>
-                    <Link
-                        to='/comments/create'
-                        className={classnames(
-                            `${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ''}`
-                        )}>
-                        создать комментарий >>>
-                    </Link>
-                </div>
-                <div
-                    className={styles.tableWrapper}>
-                    {renderComments()}
-                </div>
-                <div className="paginationCount">
-                    <Pagination
-                        users={comments}
-                        usersPerPage={commentsPerPage}
-                        setCurrentPage={setCurrentPage}
-                        currentPage={currentPage}
-                    />
-                    <p className="countRows">
-                        Строк на странице: {currentComments.length}
-                    </p>
-                </div>
-            </div>
-        </>
-    );
+    if (filteredComments.length === 0) {
+      return (
+        <tr>
+          <td className="errorMess" colSpan="3">
+            Записи не найдены
+          </td>
+        </tr>
+      );
+    }
+
+    return filteredComments
+      .slice(indexOfFirstComment, indexOfLastComment)
+      .map((comment) => {
+        const postTitle = findPostName(comment.postId);
+        return (
+          <Comment key={comment.id} comments={comment} postTitle={postTitle} />
+        );
+      });
+  };
+
+  return (
+    <>
+      <div className={classnames(`wrapper ${isDarkMode ? "wrapperDark" : ""}`)}>
+        <div className="searching">
+          <Title isDarkMode={isDarkMode} title="Комментарии" htmlFor="" />
+          <select
+            className={classnames(
+              `${styles.select} ${isDarkMode ? styles.selectDark : ""}`
+            )}
+            value={selectedPost}
+            onChange={(e) => setSelectedPost(e.target.value)}
+          >
+            <option value="">Пост</option>
+            {posts
+              .map((post) => post.title)
+              .filter(
+                (value, index, self) =>
+                  self.indexOf(value) === index && value !== ""
+              )
+              .map((title) => (
+                <option key={title} value={title}>
+                  {title}
+                </option>
+              ))}
+          </select>
+          <Link
+            to="/comments/create"
+            className={classnames(
+              `${styles.btnCreate} ${isDarkMode ? styles.btnCreateDark : ""}`
+            )}
+          >
+            создать комментарий {">>>"}
+          </Link>
+        </div>
+        <div className={styles.tableWrapper}>{renderComments()}</div>
+        <div className="paginationCount">
+          <Pagination
+            users={comments}
+            usersPerPage={commentsPerPage}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
+          <p className="countRows">
+            Строк на странице: {currentComments.length}
+          </p>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default CommentsList;
