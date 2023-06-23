@@ -3,14 +3,12 @@ import styles from "./Menu.module.scss";
 import {useSpring, animated} from "react-spring";
 import {useTheme} from "../../../ThemeContext.jsx";
 import classnames from 'classnames';
-import {Link} from "react-router-dom";
 import GraphicsMenu from "./MenuLinks/GraphicsMenu/GraphicsMenu.jsx";
 import TodosLink from "./MenuLinks/TodosLink/TodosLink.jsx";
 import UsersLink from "./MenuLinks/UsersLink/UsersLink.jsx";
 import PicturesLink from "./MenuLinks/PicturesLink/PicturesLink.jsx";
 import AlbumsLink from "./MenuLinks/AlbumsLink/AlbumsLink.jsx";
 import BlogsMenu from "./MenuLinks/BlogsMenu/BlogsMenu.jsx";
-import Post from "../../features/Posts/Post.jsx";
 import PostsLink from "./MenuLinks/PostsLink/PostsLink.jsx";
 import CommentsLink from "./MenuLinks/CommnetsLink/CommentsLink.jsx";
 

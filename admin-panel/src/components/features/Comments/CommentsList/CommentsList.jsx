@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import styles from "./CommentsList.module.scss";
 import store from "../../../../store.jsx";
 import Comment from "../Comment.jsx";
-import Pagination from "../../../ui/Pagination/Pagination.jsx";
+import Pagination from "@/Pagination/Pagination.jsx";
 import {Link} from "react-router-dom";
 import classnames from "classnames";
-import Title from "../../../ui/Title/Title.jsx";
+import Title from "@/Title/Title.jsx";
 
 const CommentsList = () => {
     const { isDarkMode } = useTheme();

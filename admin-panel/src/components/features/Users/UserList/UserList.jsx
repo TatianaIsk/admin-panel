@@ -6,14 +6,14 @@ import thIconDark from '../../../../assets/darkAssets/icon-close-dark-th.png'
 import User from "../User.jsx";
 import {useState, useEffect} from "react";
 import store from "../../../../store.jsx";
-import Pagination from "../../../ui/Pagination/Pagination.jsx";
-import Loader from "../../../ui/Loading/Loading.jsx";
+import Pagination from "@/Pagination/Pagination.jsx";
+import Loader from "@/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
-import ModalDelete from "../../../ui/Modal/ModalDelete.jsx";
+import ModalDelete from "@/Modal/ModalDelete.jsx";
 import {Link} from "react-router-dom";
 import classnames from "classnames";
-import Title from "../../../ui/Title/Title.jsx";
-import Searching from "../../../ui/Searching/Searching.jsx";
+import Title from "@/Title/Title.jsx";
+import Searching from "@/Searching/Searching.jsx";
 
 
 const UserList = () => {

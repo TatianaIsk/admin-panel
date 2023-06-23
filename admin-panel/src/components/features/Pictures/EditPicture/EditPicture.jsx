@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {Link, useParams} from "react-router-dom";
-import Header from "../../../ui/Header/Header.jsx";
-import Menu from "../../../ui/Menu/Menu.jsx";
 import styles from './EditPicture.module.scss'
 import store from "../../../../store.jsx";
-import Loader from "../../../ui/Loading/Loading.jsx";
+import Loader from "@/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import ImageUploader from "../ImageUploader/ImageUploader.jsx";
 import classnames from "classnames";

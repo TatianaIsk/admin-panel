@@ -1,6 +1,4 @@
 import styles from './CreateTask.module.scss'
-import Header from "../../../ui/Header/Header.jsx";
-import Menu from "../../../ui/Menu/Menu.jsx";
 import React, {useEffect, useState} from "react";
 import store from "../../../../store.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";

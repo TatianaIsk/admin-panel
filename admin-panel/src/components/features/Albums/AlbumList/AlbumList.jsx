@@ -2,13 +2,13 @@ import {useTheme} from "../../../../ThemeContext.jsx";
 import React, {useEffect, useState} from "react";
 import store from "../../../../store.jsx";
 import Album from "../Album.jsx";
-import Loader from "../../../ui/Loading/Loading.jsx";
+import Loader from "@/Loading/Loading.jsx";
 import styles from "../../Tasks/TaskList/TaskList.module.scss";
-import Pagination from "../../../ui/Pagination/Pagination.jsx";
+import Pagination from "@/Pagination/Pagination.jsx";
 import classnames from "classnames";
 import style from './AlbumList.module.scss'
-import Title from "../../../ui/Title/Title.jsx";
-import Searching from "../../../ui/Searching/Searching.jsx";
+import Title from "@/Title/Title.jsx";
+import Searching from "@/Searching/Searching.jsx";
 
 const AlbumList = () => {
     const {isDarkMode} = useTheme();

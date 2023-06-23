@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Link, useParams} from "react-router-dom";
 import styles from './EditUser.module.scss'
 import store from "../../../../store.jsx";
-import Loader from "../../../ui/Loading/Loading.jsx";
+import Loader from "@/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import classnames from "classnames";
 

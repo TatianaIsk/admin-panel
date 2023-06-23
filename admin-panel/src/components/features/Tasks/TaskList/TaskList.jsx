@@ -3,13 +3,13 @@ import React, {useState, useEffect} from "react";
 import styles from './TaskList.module.scss'
 import store from "../../../../store.jsx";
 import Task from "../Task.jsx";
-import Pagination from "../../../ui/Pagination/Pagination.jsx";
-import Loader from "../../../ui/Loading/Loading.jsx";
+import Pagination from "@/Pagination/Pagination.jsx";
+import Loader from "@/Loading/Loading.jsx";
 import {useTheme} from "../../../../ThemeContext.jsx";
 import {Link} from "react-router-dom";
 import classnames from "classnames";
-import Title from "../../../ui/Title/Title.jsx";
-import Searching from "../../../ui/Searching/Searching.jsx";
+import Title from "@/Title/Title.jsx";
+import Searching from "@/Searching/Searching.jsx";
 
 function TaskList() {
     const [todos, setTodos] = useState(store.state.todos)

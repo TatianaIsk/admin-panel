@@ -1,5 +1,4 @@
 import style from './Login.module.scss'
-import Header from "../../ui/Header/Header.jsx";
 import {useTheme} from "../../../ThemeContext.jsx";
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
