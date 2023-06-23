@@ -6,17 +6,17 @@ import iconDark from './../../../assets/darkAssets/icon-close-dark-th.png'
 import classnames from "classnames";
 import './User.scss'
 
-const User = ({user, selectedUserId, isMenuOpen, toggleMenu, usersPerPage, currentPage, toggleDeleteModal}) => {
+const User = ({user, selectedUserId, isMenuOpen, toggleMenu, toggleDeleteModal}) => {
     const { isDarkMode } = useTheme();
 
-    const formatAddress = (address) => {
+    const formatAddress = () => {
         const street = user.address?.street || '';
         const city = user.address?.city || '';
         const zipcode = user.address?.zipcode || '';
         return `${street}, ${city}, ${zipcode}`;
     }
 
-    const formatCompany = (company) => {
+    const formatCompany = () => {
         const compName = user.company?.name || '';
         const compCatchPhrase = user.company?.catchPhrase || '';
         return `${compName} ${compCatchPhrase}`
