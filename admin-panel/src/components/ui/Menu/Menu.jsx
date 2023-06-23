@@ -40,7 +40,7 @@ function Menu() {
     function toggleMenu() {
         setIsOpen(!isOpen);
 
-        const otherComponent = document.querySelector('.wrapper');
+        const otherComponent = document.querySelector('.content');
         if (isOpen) {
             otherComponent.style.margin = '0 100px 0 100px';
         } else {
