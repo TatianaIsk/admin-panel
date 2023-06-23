@@ -9,26 +9,36 @@ const Loader = () => {
     return (
         <div className={styles.loader}>
             <div className={classnames(
-                `${styles.loaderBar} ${isDarkMode ? styles.loaderBarDark : ''}`)}>
+                styles.loaderBar, isDarkMode && styles.loaderBarDark
+            )}>
             </div>
             <div className={classnames(
-                `${styles.loaderBar} ${isDarkMode ? styles.loaderBarDark : ''}`)}>
-            </div>
-            <div className={classnames(`${styles.loaderBar} ${isDarkMode ? styles.loaderBarDark : ''}`)}>
-            </div>
-            <div className={classnames(
-                `${styles.loaderBar} ${isDarkMode ? styles.loaderBarDark : ''}`)}>
-            </div>
-            <div className={classnames(`${styles.loaderBar} ${isDarkMode ? styles.loaderBarDark : ''}`)}>
+                styles.loaderBar, isDarkMode && styles.loaderBarDark
+            )}>
             </div>
             <div className={classnames(
-                `${styles.loaderBar} ${isDarkMode ? styles.loaderBarDark : ''}`)}>
+                styles.loaderBar, isDarkMode && styles.loaderBarDark
+            )}>
             </div>
             <div className={classnames(
-                `${styles.loaderBar} ${isDarkMode ? styles.loaderBarDark : ''}`)}>
+                styles.loaderBar, isDarkMode && styles.loaderBarDark
+            )}>
             </div>
             <div className={classnames(
-                `${styles.loaderBar} ${isDarkMode ? styles.loaderBarDark : ''}`)}>
+                styles.loaderBar, isDarkMode && styles.loaderBarDark
+            )}>
+            </div>
+            <div className={classnames(
+                styles.loaderBar, isDarkMode && styles.loaderBarDark
+            )}>
+            </div>
+            <div className={classnames(
+                styles.loaderBar, isDarkMode && styles.loaderBarDark
+            )}>
+            </div>
+            <div className={classnames(
+                styles.loaderBar, isDarkMode && styles.loaderBarDark
+            )}>
             </div>
         </div>
     );

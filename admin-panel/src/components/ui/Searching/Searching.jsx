@@ -6,7 +6,7 @@ export default function Searching({value, isDarkMode, onChange, id}) {
     return (
         <input type="text"
                className={classnames(
-                   `${styles.search} ${isDarkMode ? styles.searchDark : ''}`
+                   styles.search, isDarkMode && styles.searchDark
                )}
                id={id}
                placeholder="Поиск"

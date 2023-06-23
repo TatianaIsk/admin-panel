@@ -6,7 +6,7 @@ export default function Title({htmlFor, isDarkMode, title}) {
     return (
         <label
             className={classnames(
-                `${styles.titleUser} ${isDarkMode ? styles.titleUserDark : ''}`
+                styles.titleUser, isDarkMode && styles.titleUserDark
             )}
             htmlFor={htmlFor}>
             {title}

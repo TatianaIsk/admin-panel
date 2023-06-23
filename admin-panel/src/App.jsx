@@ -21,12 +21,22 @@ import PictureList from "#/Pictures/PictureList/PictureList.jsx";
 import Header from "@/Header/Header.jsx";
 import Menu from "@/Menu/Menu.jsx";
 
-function Layout(props) {
+function Wrapper() {
+    return (
+        <div className="wrapperApp">
+            <Outlet/>
+        </div>
+    );
+}
+
+function Layout() {
     return (
         <>
             <Header/>
             <Menu/>
-            <Outlet/>
+            <div className="content">
+                <Outlet/>
+            </div>
         </>
     );
 }
@@ -37,23 +47,25 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<Layout />}>
-                        <Route path="/" element={<MainPage/>}/>
-                        <Route path="/users" element={<UserList/>}/>
-                        <Route path="/login" element={<Login/>}/>
-                        <Route path="/users/create" element={<CreateUser/>}/>
-                        <Route path="/users/view/:userId" element={<UserView/>}/>
-                        <Route path="/users/edit/:userId" element={<EditUser/>}/>
-                        <Route path="/todos" element={<TaskList/>}/>
-                        <Route path="/todos/create" element={<CreateTask/>}/>
-                        <Route path="/albums" element={<AlbumList/>}/>
-                        <Route path="/albums/view/:albumId" element={<AlbumView/>}/>
-                        <Route path="/pictures" element={<PictureList/>}/>
-                        <Route path="/pictures/edit/:pictureId" element={<EditPicture/>}/>
-                        <Route path="/posts" element={<PostList/>}/>
-                        <Route path="/posts/view/:postId" element={<PostView/>}/>
-                        <Route path="/comments" element={<CommentsList/>}/>
-                        <Route path="/comments/create" element={<CreateComment/>}/>
-                        <Route path="*" element={<Error/>}/>
+                        <Route element={<Wrapper />}>
+                            <Route path="/" element={<MainPage/>}/>
+                            <Route path="/users" element={<UserList/>}/>
+                            <Route path="/login" element={<Login/>}/>
+                            <Route path="/users/create" element={<CreateUser/>}/>
+                            <Route path="/users/view/:userId" element={<UserView/>}/>
+                            <Route path="/users/edit/:userId" element={<EditUser/>}/>
+                            <Route path="/todos" element={<TaskList/>}/>
+                            <Route path="/todos/create" element={<CreateTask/>}/>
+                            <Route path="/albums" element={<AlbumList/>}/>
+                            <Route path="/albums/view/:albumId" element={<AlbumView/>}/>
+                            <Route path="/pictures" element={<PictureList/>}/>
+                            <Route path="/pictures/edit/:pictureId" element={<EditPicture/>}/>
+                            <Route path="/posts" element={<PostList/>}/>
+                            <Route path="/posts/view/:postId" element={<PostView/>}/>
+                            <Route path="/comments" element={<CommentsList/>}/>
+                            <Route path="/comments/create" element={<CreateComment/>}/>
+                            <Route path="*" element={<Error/>}/>
+                        </Route>
                     </Route>
                 </Routes>
             </Router>

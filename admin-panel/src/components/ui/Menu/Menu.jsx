@@ -79,7 +79,7 @@ function Menu() {
             <div className={`${styles.column} ${isDarkMode ? styles.columnDark : ''}`}></div>
             {isOpen && (
                 <animated.div className={classnames(
-                    `${styles.menu} ${isDarkMode ? styles.menuDark : ''}`
+                    styles.menu, isDarkMode && styles.menuDark
                 )}
                               style={menuAnimation}>
                     <ul>

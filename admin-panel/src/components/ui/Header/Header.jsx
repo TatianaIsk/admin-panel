@@ -15,7 +15,7 @@ const Header = () => {
 
     return (
         <header className={classnames(
-            `${style.header} ${isDarkMode ? style.dark : ''}`
+            style.header, isDarkMode && style.dark
         )}>
             <Link to="/">
                 <img className={classnames(style.logo)}
