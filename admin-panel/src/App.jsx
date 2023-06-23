@@ -24,9 +24,9 @@ import Menu from "@/Menu/Menu.jsx";
 function Layout(props) {
     return (
         <>
-            <Header />
-            <Menu />
-            {props.children}
+            <Header/>
+            <Menu/>
+            <Outlet/>
         </>
     );
 }
@@ -36,23 +36,25 @@ function App() {
         <ThemeProvider>
             <Router>
                 <Routes>
-                    <Route path="/" element={<Layout><MainPage/></Layout>}/>
-                    <Route path="/users" element={<Layout><UserList/></Layout>}/>
-                    <Route path="/login" element={<Layout><Login/></Layout>}/>
-                    <Route path="/users/create" element={<Layout><CreateUser/></Layout>}/>
-                    <Route path="/users/view/:userId" element={<Layout><UserView/></Layout>}/>
-                    <Route path="/users/edit/:userId" element={<Layout><EditUser/></Layout>}/>
-                    <Route path="/todos" element={<Layout><TaskList/></Layout>}/>
-                    <Route path="/todos/create" element={<Layout><CreateTask/></Layout>}/>
-                    <Route path="/albums" element={<Layout><AlbumList/></Layout>}/>
-                    <Route path="/albums/view/:albumId" element={<Layout><AlbumView /></Layout>} />
-                    <Route path="/pictures" element={<Layout><PictureList/></Layout>}/>
-                    <Route path="/pictures/edit/:pictureId" element={<Layout><EditPicture/></Layout>}/>
-                    <Route path="/posts" element={<Layout><PostList/></Layout>}/>
-                    <Route path="/posts/view/:postId" element={<Layout><PostView/></Layout>}/>
-                    <Route path="/comments" element={<Layout><CommentsList/></Layout>}/>
-                    <Route path="/comments/create" element={<Layout><CreateComment/></Layout>}/>
-                    <Route path="*" element={<Layout><Error/></Layout>}/>
+                    <Route path="/" element={<Layout />}>
+                        <Route path="/" element={<MainPage/>}/>
+                        <Route path="/users" element={<UserList/>}/>
+                        <Route path="/login" element={<Login/>}/>
+                        <Route path="/users/create" element={<CreateUser/>}/>
+                        <Route path="/users/view/:userId" element={<UserView/>}/>
+                        <Route path="/users/edit/:userId" element={<EditUser/>}/>
+                        <Route path="/todos" element={<TaskList/>}/>
+                        <Route path="/todos/create" element={<CreateTask/>}/>
+                        <Route path="/albums" element={<AlbumList/>}/>
+                        <Route path="/albums/view/:albumId" element={<AlbumView/>}/>
+                        <Route path="/pictures" element={<PictureList/>}/>
+                        <Route path="/pictures/edit/:pictureId" element={<EditPicture/>}/>
+                        <Route path="/posts" element={<PostList/>}/>
+                        <Route path="/posts/view/:postId" element={<PostView/>}/>
+                        <Route path="/comments" element={<CommentsList/>}/>
+                        <Route path="/comments/create" element={<CreateComment/>}/>
+                        <Route path="*" element={<Error/>}/>
+                    </Route>
                 </Routes>
             </Router>
         </ThemeProvider>
